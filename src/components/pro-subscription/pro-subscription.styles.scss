@@ -1,0 +1,51 @@
+$primary: #f7941d;
+
+.pro-subscription-container {
+  display: flex;
+  justify-content: center;
+  background-color: $primary;
+  margin-top: 100px;
+  padding: 5rem;
+
+  .pro-subscription-elements-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #fff;
+    align-items: center;
+
+    div {
+      font: 14px "Open sans", sans-serif;
+      margin-bottom: 10px;
+    }
+    .pro-sub-heading-container {
+      .h1 {
+        font: 29px "Open sans", sans-serif;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        font-weight: 800;
+      }
+      &::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 2px;
+        background-color: #fff;
+        margin: 0 auto;
+      }
+    }
+    p {
+      font: 17px "Open sans", sans-serif;
+      margin-bottom: 30px;
+    }
+    button{
+        display: inline;
+        cursor: pointer;
+        font: 14px "Open sans", sans-serif;
+        border: none;
+        padding: 13px 32px;
+    }
+  }
+}
