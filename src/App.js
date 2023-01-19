@@ -8,6 +8,8 @@ import Blog from "./components/blog/blog.component";
 import Services from "./components/services/services.component";
 import NewsLetter from "./components/newsletter/newsletter.component";
 import Footer from "./components/footer/footer.component";
+import CheckOut from "./components/chect-out/check-out.component";
+import Cart from "./components/cart/cart.component";
 const App = () => {
   return (
     <div>
@@ -21,6 +23,8 @@ const App = () => {
       <Services/>
       <NewsLetter/>
       <Footer/>
+      <CheckOut/>
+      <Cart/>
     </div>
   );
 };
