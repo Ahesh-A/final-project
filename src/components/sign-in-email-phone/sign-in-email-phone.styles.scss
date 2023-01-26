@@ -1,0 +1,47 @@
+$primary: rgb(247, 149, 29);
+.sign-in-label {
+  display: block;
+  font: 12px "poppins";
+  font-weight: 800;
+  color: #333;
+  padding-bottom: 5px;
+}
+.sign-in-input {
+  border: none;
+  outline: none;
+  padding: 0.6rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  &:focus,
+  :active {
+    box-shadow: 0 0 5px 0 rgba(247, 149, 29, 1);
+    border: 1px solid rgb(247, 149, 29);
+  }
+}
+.sign-in-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 0.56rem;
+  padding-top: 0.57rem;
+  font: 12px "poppins";
+  cursor: pointer;
+  margin-top: px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $primary;
+  }
+}
+.sign-in-para {
+  padding-top: 5px;
+  width: 268px;
+  font: 10px poppins;
+  color: #333;
+  .sign-in-para-span {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

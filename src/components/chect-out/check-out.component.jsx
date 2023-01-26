@@ -12,31 +12,31 @@ const CheckOut = () => {
           <form action="submit">
             <div className="form-elements-container">
               <div className="form-element">
-                <label for="First-Name">
+                <label htmlFor="First-Name">
                   First Name <span>*</span>
                 </label>
                 <input type="text" id="First-Name" required />
               </div>
               <div className="form-element">
-                <label for="Last-Name">
+                <label htmlFor="Last-Name">
                   Last Name <span>*</span>
                 </label>
                 <input type="text" id="Last-Name" required />
               </div>
               <div className="form-element">
-                <label for="Email-Address">
+                <label htmlFor="Email-Address">
                   Email Address <span>*</span>
                 </label>
                 <input type="text" id="Email-Address" required />
               </div>
               <div className="form-element">
-                <label for="Phone-Number">
+                <label htmlFor="Phone-Number">
                   Phone Number<span>*</span>
                 </label>
                 <input type="text" id="Phone-Number" required />
               </div>
               <div className="form-element">
-                <label for="country">
+                <label htmlFor="country">
                   Country <span>*</span>
                 </label>
                 <select name="country_name" id="country">
@@ -271,7 +271,7 @@ const CheckOut = () => {
                   <option value="UG">Uganda</option>
                   <option value="UA">Ukraine</option>
                   <option value="AE">United Arab Emirates</option>
-                  <option value="US" selected="selected">
+                  <option value="US" defaultValue="selected">
                     United Kingdom
                   </option>
                   <option value="UY">Uruguay</option>
@@ -290,31 +290,31 @@ const CheckOut = () => {
                 </select>
               </div>
               <div className="form-element">
-                <label for="State/Divition">
+                <label htmlFor="State/Divition">
                   State / Divition <span>*</span>
                 </label>
                 <input type="text" id="State/Divition" required />
               </div>
               <div className="form-element">
-                <label for="Address-Line1">
+                <label htmlFor="Address-Line1">
                   Address Line 1 <span>*</span>
                 </label>
                 <input type="text" id="Address-Line1" required />
               </div>
               <div className="form-element">
-                <label for="Address-Line2">
+                <label htmlFor="Address-Line2">
                   Address Line 1 <span>*</span>
                 </label>
                 <input type="text" id="Address-Line1" required />
               </div>
               <div className="form-element">
-                <label for="Postal-Code">
+                <label htmlFor="Postal-Code">
                   Postal Code <span>*</span>
                 </label>
                 <input type="text" id="Postal-Code" required />
               </div>
               <div className="form-element">
-                <label for="Company">
+                <label htmlFor="Company">
                   Company <span>*</span>
                 </label>
                 <input type="text" id="Company" required />

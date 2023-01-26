@@ -1,0 +1,14 @@
+@use '../../index' as *;
+.logo-container {
+    display: flex;
+    width:15rem;
+    align-items: center;
+    justify-content: center;
+
+    .dot-style {
+      color: $primary;
+      font-size: 0.8em;
+      margin-top: 6px;
+      margin-left: 3px;
+    }
+  }

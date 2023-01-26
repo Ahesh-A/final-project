@@ -12,23 +12,23 @@ $primary: #f7941d;
       padding-right: 2rem;
 
       .logo-container {
-        display: flex;
+       // display: flex;
         width: 200px;
-        align-items: center;
-        justify-content: center;
+        // align-items: center;
+        // justify-content: center;
         background-color: #fff;
         height: 70px;
         padding: 1rem;
         margin-bottom: 1rem;
         border-radius: 5px;
 
-        .dot-style {
-          color: $primary;
-          font-size: 0.5em;
-          margin-top: 6px;
-          margin-left: 3px;
+         .dot-style {
+      //     color: $primary;
+           font-size: 0.5em;
+      //     margin-top: 6px;
+         //  margin-left: 3px;
         }
-      }
+       }
       .footer-left-content {
         font: 14px "Open Sans", sans-serif;
         padding-bottom: 1rem;

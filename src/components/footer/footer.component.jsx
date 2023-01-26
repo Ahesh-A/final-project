@@ -1,12 +1,8 @@
 import "./footer.styles.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  solid,
-  brands,
-} from "@fortawesome/fontawesome-svg-core/import.macro";
-import { ReactComponent as Aalogo } from "../../static-flies/logo/a&a apprales.svg";
-
+import { brands } from "@fortawesome/fontawesome-svg-core/import.macro";
+import Logo from "../logo/logo.component";
 const Footer = () => {
   return (
     <div>
@@ -14,10 +10,7 @@ const Footer = () => {
         <div>
           <div className="footer-upper-section">
             <section className="footer-upper-left-container">
-              <div className="logo-container">
-                <Aalogo className="logostyles" />
-                <FontAwesomeIcon icon={solid("circle")} className="dot-style" />
-              </div>
+              <Logo />
               <div className="footer-left-content">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Quisquam, hic quam. Quo, cupiditate odit praesentium ipsum
@@ -48,10 +41,12 @@ const Footer = () => {
             </section>
             <section className="footer-upper-right-container">
               <h4>Get In Touch</h4>
-              <div className = "footer-content">NO. 342 - London Oxford Street.</div>
-              <div className = "footer-content">012 United Kingdom.</div>
-              <div className = "footer-content">info@eshop.com</div>
-              <div className = "footer-content">+032 3456 7890</div>
+              <div className="footer-content">
+                NO. 342 - London Oxford Street.
+              </div>
+              <div className="footer-content">012 United Kingdom.</div>
+              <div className="footer-content">info@eshop.com</div>
+              <div className="footer-content">+032 3456 7890</div>
               <div>
                 <div className="footer-right-icons-container">
                   <div className="icon-warpper">
@@ -71,8 +66,6 @@ const Footer = () => {
             </section>
           </div>
         </div>
-
-        
       </footer>
     </div>
   );

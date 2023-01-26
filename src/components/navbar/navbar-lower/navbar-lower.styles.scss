@@ -1,0 +1,92 @@
+$bordercolor: #cccccc;
+$primary: #f7941d;
+.navbar-lower-container {
+  display: flex;
+  position: relative;
+  background-color: #212529;
+  min-height: 30%;
+  border-bottom: 1px solid $bordercolor;
+  font: 15px "open sans", sans-serif;
+
+  .navbar-lower-left-container {
+    flex: 1.5;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary;
+    font: 18px "open sans", sans-serif;
+    font-weight: 800;
+    color: #fff;
+    cursor: pointer;
+
+    .navbar-lower-left-container-title {
+      padding-left: 1rem;
+    }
+    .categories-container {
+      opacity: 0;
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 66px;
+      top: 0;
+      z-index: 1;
+      position: absolute;
+      transition: opacity 1s ease;
+      &:hover {
+        opacity: 1;
+      }
+      .categories {
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        margin-bottom: 1px;
+        background-color: #fff;
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+        transition: color 0.5s ease;
+        color: #333;
+        &:hover {
+          color: $primary;
+          cursor: pointer;
+        }
+
+        span {
+          display: inline;
+          width: 100%;
+          font-weight: 300;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .navbar-lower-right-container {
+    display: flex;
+    flex: 5;
+    right: 5rem;
+    justify-content: flex-end;
+
+    .navbar-lower-right-content-container {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-around;
+      margin-left: 2rem;
+      margin-right: 8rem;
+      color: #fff;
+
+      .navbar-lower-right-content-item {
+        display: grid;
+        place-content: center;
+        height: 100%;
+        padding: 1rem;
+        transition: background-color 0.5s ease;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $primary;
+        }
+      }
+    }
+  }
+}

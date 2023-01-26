@@ -8,17 +8,13 @@ $primary: #f7941d;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 510px;
+    padding: 2rem 2rem 8rem 2rem;
 
     .slide-container{
         width: 450px;
-
-        position: absolute;
-        top:40px;
-        left: 20rem;
-        bottom: 50px;
+        margin: 0 20rem;
         padding: 70px 0 0 40px;
-        
+        margin-top: 5rem;;
         z-index:1;
         box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.2);
         .slide{

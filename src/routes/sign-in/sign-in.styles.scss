@@ -1,0 +1,120 @@
+$primary: rgb(247, 149, 29);
+.sign-in-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+  .sign-in-form-container {
+    padding: 1rem;
+    
+    //margin-bottom: 2rem;
+    .sign-in-form {
+      padding: 2rem;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      margin-bottom: 50px;
+      .sign-in-form-title {
+        color: #333;
+        padding-bottom: 10px;
+        font: 25px poppins;
+        font-weight: 600;
+      }
+      // .sign-in-label {
+      //   display: block;
+      //   font: 12px "poppins";
+      //   font-weight: 800;
+      //   color: #333;
+      //   padding-bottom: 5px;
+      // }
+      // .sign-in-input {
+      //   border: none;
+      //   outline: none;
+      //   padding: 0.6rem;
+      //   border: 1px solid rgba(0, 0, 0, 0.1);
+        
+      //   &:focus,
+      //   :active {
+      //     box-shadow: 0 0 5px 0 rgba(247, 149, 29, 1);
+      //     border: 1px solid rgb(247, 149, 29);
+      //   }
+      // }
+      // .sign-in-button {
+      //   background-color: #333;
+      //   color: #fff;
+      //   border: none;
+      //   outline: none;
+      //   padding: 0.56rem;
+      //   padding-top: 0.57rem;
+      //   font: 12px "poppins";
+      //   cursor: pointer;
+      //   margin-top: px;
+      //   transition: background-color 0.3s ease;
+
+      //   &:hover {
+      //     background-color: $primary;
+      //   }
+      // }
+      // .sign-in-para {
+      //   padding-top: 5px;
+      //   width: 268px;
+      //   font: 10px poppins;
+      //   color: #333;
+      //   .sign-in-para-span {
+      //     color: blue;
+      //     text-decoration: underline;
+      //     cursor: pointer;
+      //   }
+      // }
+    }
+  }
+
+  .create-account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 340px;
+    padding-bottom: 2rem;
+
+    .sign-in-button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      outline: none;
+      padding: 0.56rem;
+      padding-top: 0.57rem;
+      font: 12px "poppins";
+      cursor: pointer;
+      margin-top: px;
+      transition: background-color 0.3s ease;
+      width: 100%;
+
+      &:hover {
+        background-color: $primary;
+      }
+    }
+  }
+  .sign-in-divider {
+    display: flex;
+    position: relative;
+    width: 340px;
+    padding-bottom: 1rem;
+    .sign-in-divider-content {
+      position: absolute;
+      font: 12px "poppins";
+      left: 50%;
+      transform: translateX(-50%);
+      top: 7px;
+      background-color: #fff;
+      color: rgba(0, 0, 0, 0.6);
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: rgba(0, 0, 0, 0.1);
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
