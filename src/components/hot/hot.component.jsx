@@ -1,5 +1,14 @@
 import "./hot.styles.scss";
+
+
 const Hot = () => {
+  // const clickHandler = () => {
+  //   const randomNumber = Math.round(Math.random());
+  //   const audio = randomNumber ? audio1 : audio2;
+  //   console.log(randomNumber);
+  //   new Audio(audio).play();
+  // };
+
   return (
     <div>
       <div className="hot-container">
@@ -11,6 +20,7 @@ const Hot = () => {
                 className="hot-img"
                 src={require("../../assets/hot/onsale/shop-list1.jpg")}
                 alt="hot-pic"
+                // onClick={clickHandler}
               />
             </div>
             <div className="pic-description">

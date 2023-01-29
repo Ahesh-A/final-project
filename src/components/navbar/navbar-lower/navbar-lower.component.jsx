@@ -1,10 +1,14 @@
 import { Fragment } from "react";
 import "./navbar-lower.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  solid,
-} from "@fortawesome/fontawesome-svg-core/import.macro";
+import { useNavigate } from "react-router-dom";
+import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 const NavbarLower = () => {
+  const navigate = useNavigate();
+  const productClickHandler = () => {
+    console.log("product button triggered");
+    navigate("product");
+  };
   return (
     <Fragment>
       <div className="navbar-lower-container">
@@ -49,7 +53,12 @@ const NavbarLower = () => {
         <div className="navbar-lower-right-container">
           <ul className="navbar-lower-right-content-container">
             <li className="navbar-lower-right-content-item">Home</li>
-            <li className="navbar-lower-right-content-item">Product</li>
+            <li
+              className="navbar-lower-right-content-item"
+              onClick={productClickHandler}
+            >
+              Product
+            </li>
             <li className="navbar-lower-right-content-item">Service</li>
             <li className="navbar-lower-right-content-item">Shop</li>
             <li className="navbar-lower-right-content-item">Pages</li>

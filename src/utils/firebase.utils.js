@@ -1,6 +1,13 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  collection,
+  query,
+  getDocs,
+} from "firebase/firestore";
 import {
   getAuth,
   GoogleAuthProvider,
@@ -31,7 +38,7 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-export const googleSignIn = async() => {
+export const googleSignIn = async () => {
   await signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -40,8 +47,6 @@ export const googleSignIn = async() => {
       // The signed-in user info.
       const user = result.user;
       console.log(user);
-      
-    
     })
     .catch((error) => {
       // Handle Errors here.
@@ -58,8 +63,8 @@ export const googleSignIn = async() => {
 
 export const onAuthStateChangedListener = (callBack) =>
   onAuthStateChanged(auth, callBack);
-export const googleSignOut = () => {
-  signOut(auth)
+export const googleSignOut = async () => {
+  await signOut(auth)
     .then(() => {
       alert("signed out successfully");
     })
@@ -75,7 +80,8 @@ export const signInWithGoogleEmailAndPassword = (email, password) =>
       console.log(user);
     })
     .catch((error) => {
-      console.log(error);
+      if (error.code === "auth/invalid-email") alert("no such user...");
+     console.log(error);
     });
 
 export const createUserWithGoogleEmailAndPassword = (email, password) => {
@@ -90,11 +96,16 @@ export const createUserWithGoogleEmailAndPassword = (email, password) => {
     });
 };
 
-
-export const instertData = async () => 
-  await setDoc(doc(db, "products", "women"), {
-    id : "women1",
-    imageUrl: "",
-    name : "Women's Crepe Fit and Flare Maxi Casual Dress",
-    price: 899,
+export const instertData = (data) => {
+  data.map(async (item) => {
+    const { title } = item;
+    await setDoc(doc(db, "products", title.toLowerCase()), item);
   });
+};
+
+export const getData = async () => {
+  const docRef = collection(db, "products");
+  const q = query(docRef);
+  const querySnapShot = await getDocs(q);
+  return querySnapShot.docs.map((doc) => doc.data());
+};
