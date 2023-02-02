@@ -3,7 +3,7 @@ import {
   selectCartItems,
   selectCartTotal,
 } from "../../store/cart/cart.selector";
-
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import CartSheet from "../../components/cart-sheet/cart-sheet.component";
@@ -11,6 +11,13 @@ import "./cart.styles.scss";
 const Cart = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
+  const navigate = useNavigate();
+  const checkOutNavigator = () => {
+    navigate("/checkout");
+  };
+  const continueShoppingNavigator = () => {
+    navigate("/product");
+  };
   return (
     <div>
       <div className="cart-container">
@@ -68,8 +75,16 @@ const Cart = () => {
                   <span>&#x20B9; {cartTotal - 200}</span>
                 </li>
                 <div className="cart-lower-right-buttons-container">
-                  <button className="cart-lower-right-button">CHECKOUT</button>
-                  <button className="cart-lower-right-button">
+                  <button
+                    className="cart-lower-right-button"
+                    onClick={checkOutNavigator}
+                  >
+                    CHECKOUT
+                  </button>
+                  <button
+                    className="cart-lower-right-button"
+                    onClick={continueShoppingNavigator}
+                  >
                     CONTINUE SHOPPING
                   </button>
                 </div>

@@ -19,6 +19,9 @@ const NavbarLower = () => {
   const checkOutNavigator = () => {
     navigate("checkout");
   };
+  const homeClickHandler = () => {
+    navigate("/");
+  }
   return (
     <Fragment>
       <div className="navbar-lower-container">
@@ -62,7 +65,7 @@ const NavbarLower = () => {
         </div>
         <div className="navbar-lower-right-container">
           <ul className="navbar-lower-right-content-container">
-            <li className="navbar-lower-right-content-item">Home</li>
+            <li className="navbar-lower-right-content-item" onClick={homeClickHandler}>Home</li>
             <li
               className="navbar-lower-right-content-item"
               onClick={productClickHandler}

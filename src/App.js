@@ -6,6 +6,7 @@ import SignIn from "./routes/sign-in/sign-in.component";
 import SignUp from "./routes/sign-up/sign-up.component";
 import Product from "./routes/product/product.component";
 import Cart from "./routes/cart/cart.component";
+import CheckOut from "./routes/chect-out/check-out.component";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { onAuthStateChangedListener } from "./utils/firebase.utils.js";
@@ -39,7 +40,8 @@ const App = () => {
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />
         <Route path="product/*" element={<Product />} />
-        <Route path="cart" element={<Cart/>} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="checkout" element={<CheckOut />} />
       </Route>
     </Routes>
   );

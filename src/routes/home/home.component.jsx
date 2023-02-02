@@ -7,7 +7,7 @@ import Hot from "../../components/hot/hot.component";
 import Blog from "../../components/blog/blog.component";
 import Services from "../../components/services/services.component";
 import NewsLetter from "../../components/newsletter/newsletter.component";
-import CheckOut from "../../components/chect-out/check-out.component";
+import CheckOut from "../chect-out/check-out.component";
 import Cart from "../cart/cart.component";
 
 const Home = () => {
@@ -22,8 +22,6 @@ const Home = () => {
       <Services />
       <NewsLetter />
       <CheckOut />
-      <Cart />
-      
     </div>
   );
 };

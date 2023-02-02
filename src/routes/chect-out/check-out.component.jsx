@@ -1,6 +1,8 @@
 import "./check-out.styles.scss";
-
+import { useSelector } from "react-redux";
+import { selectCartTotal } from "../../store/cart/cart.selector";
 const CheckOut = () => {
+  const cartTotal = useSelector(selectCartTotal);
   return (
     <div>
       <div className="checkout-container">
@@ -334,16 +336,16 @@ const CheckOut = () => {
             <div className="cart-total-upper-content">
               <div className="cart-total-upper-content-item">
                 <span>Sub Total</span>
-                <span>&#x20B9; 5000</span>
+                <span>&#x20B9; {cartTotal}</span>
               </div>
               <div className="cart-total-upper-content-item">
                 <span>( + ) Shipping</span>
-                <span>&#x20B9; 100</span>
+                <span>Free</span>
               </div>
             </div>
             <div className="total">
               <span> total</span>
-              <span>&#x20B9; 100</span>
+              <span>&#x20B9; {cartTotal}</span>
             </div>
           </div>
           <div className="payments">

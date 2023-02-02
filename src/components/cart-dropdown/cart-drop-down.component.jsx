@@ -3,14 +3,15 @@ import { useSelector } from "react-redux";
 import { selectCartItems } from "../../store/cart/cart.selector.js";
 import { motion } from "framer-motion";
 import CartDropdownSheet from "../cart-dropdown-sheet/cart-dropdown-sheet.component.jsx";
-
+import { useNavigate } from "react-router-dom";
 import "./cart-drop-down.styles.scss";
 
 const CartDropdown = () => {
+  const navigate = useNavigate();
   const cartItems = useSelector(selectCartItems);
-  console.log(typeof cartItems);
-  console.log("cartItems", cartItems);
-
+  const checkOutNavigator = () => {
+    navigate("checkout");
+  };
   return (
     <Fragment>
       <motion.div 
@@ -26,7 +27,7 @@ const CartDropdown = () => {
           <span className="cart-empty">Cart is Empty</span>
         )}
         {cartItems.length ? (
-          <button className="cart-drop-down-button">CHECKOUT</button>
+          <button className="cart-drop-down-button" onClick={checkOutNavigator}>CHECKOUT</button>
         ) : null}
       </motion.div>
     </Fragment>
