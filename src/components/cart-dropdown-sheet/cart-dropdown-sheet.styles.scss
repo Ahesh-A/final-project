@@ -1,0 +1,33 @@
+.cart-dropdown-sheet {
+  display: grid;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+  grid-template-columns: 30% 70%;
+
+  .cart-drop-down-image-container {
+    height: 100px;
+    overflow: hidden;
+    display: grid;
+    place-content: center;
+  }
+  .cart-drop-down-product-description {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+
+    padding-left: 0.5rem;
+    .cart-drop-down-product-name {
+      padding-top: 1rem;
+
+      font-size: 0.8rem;
+      font-weight: bold;
+      white-space: wrap;
+      color: rgba(51, 51, 51, 0.6);
+    }
+    .cart-drop-down-product-price-quantity {
+      font-size: 0.8rem;
+      font-weight: bold;
+      width: 50px;
+      color: #333;
+    }
+  }
+}

@@ -5,6 +5,7 @@ import Fixed from "./components/fixed/fixed.components";
 import SignIn from "./routes/sign-in/sign-in.component";
 import SignUp from "./routes/sign-up/sign-up.component";
 import Product from "./routes/product/product.component";
+import Cart from "./routes/cart/cart.component";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { onAuthStateChangedListener } from "./utils/firebase.utils.js";
@@ -27,14 +28,18 @@ const App = () => {
     return unSubscribe;
   }, [dispatch]);
 
-   
+  // useEffect(() => {
+  //   instertData(data);
+  // },[]);
+
   return (
     <Routes>
       <Route path="/" element={<Fixed />}>
         <Route index element={<Home />} />
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />
-        <Route path="product" element={<Product />} />
+        <Route path="product/*" element={<Product />} />
+        <Route path="cart" element={<Cart/>} />
       </Route>
     </Routes>
   );

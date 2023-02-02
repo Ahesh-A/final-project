@@ -1,13 +1,25 @@
 import { Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSelector } from "react-redux";
+import {
+  selectIsCartOpen,
+  selectCartCount,
+} from "../../../store/cart/cart.selector";
+import { setIsCartOpen } from "../../../store/cart/cart.action";
+import { useDispatch } from "react-redux";
 import {
   solid,
   brands,
   regular,
 } from "@fortawesome/fontawesome-svg-core/import.macro";
-import "./navbar-middle.styles.scss";
+import CartDropdown from "../../cart-dropdown/cart-drop-down.component";
 import Logo from "../../logo/logo.component";
+
+import "./navbar-middle.styles.scss";
 const NavbarMiddle = () => {
+  const dispatch = useDispatch();
+  const iscartOpen = useSelector(selectIsCartOpen);
+  const cartCount = useSelector(selectCartCount);
   return (
     <Fragment>
       <div className="navbar-middle-container">
@@ -37,9 +49,18 @@ const NavbarMiddle = () => {
             <li>
               <FontAwesomeIcon icon={regular("user")} />
             </li>
-            <li>
+            <li
+              className="cart"
+              onMouseEnter={() => {
+                dispatch(setIsCartOpen(true));
+              }}
+              onMouseLeave={() => {
+                dispatch(setIsCartOpen(false));
+              }}
+            >
               <FontAwesomeIcon icon={brands("opencart")} />
-              <div>2</div>
+              {iscartOpen && <CartDropdown />}
+              <div className="cart-count">{cartCount}</div>
             </li>
           </ul>
         </div>

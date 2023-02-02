@@ -3,9 +3,12 @@ import { useEffect } from "react";
 import { getData } from "../../utils/firebase.utils.js";
 import { setProducts } from "../../store/products/products.action";
 import { useDispatch } from "react-redux";
-import ProductSheet from "../../components/product-sheet/product-sheet.component";
+import ProductsPreview from "../../components/product-preview/products-preview.component";
+import { Routes, Route } from "react-router-dom";
+import Category from "../../components/category/catgory.component";
 const Product = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     const getProducts = async () => {
       const productList = await getData();
@@ -21,14 +24,11 @@ const Product = () => {
   return (
     <div>
       <div className="product-sheet-container">
-        <ProductSheet />
+        <Routes>
+          <Route index element={<ProductsPreview />} />
+          <Route path=":productType" element={<Category />} />
+        </Routes>
       </div>
-
-      {/* <img src={require("../../assets/women/women1.jpg")} alt="men1" />
-      <img src={require("../../assets/men/men1.jpg")} alt="men1" />
-      <img src={require("../../assets/shoeformen/shoeformen1.jpg")} alt="men1" />
-      <img src={require("../../assets/shoeforwomen/shoeforwomen1.jpg")} alt="men1" />
-      <img src={require("../../assets/sunglass/sunglass1.jpg")} alt="men1" /> */}
     </div>
   );
 };

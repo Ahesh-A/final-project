@@ -1,13 +1,23 @@
 import { Fragment } from "react";
-import "./navbar-lower.styles.scss";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
+import "./navbar-lower.styles.scss";
 const NavbarLower = () => {
   const navigate = useNavigate();
+  const [isHovering, setIsHovering] = useState(false);
+
   const productClickHandler = () => {
     console.log("product button triggered");
     navigate("product");
+  };
+  const cartNavigator = () => {
+    navigate("cart");
+  };
+  const checkOutNavigator = () => {
+    navigate("checkout");
   };
   return (
     <Fragment>
@@ -60,7 +70,25 @@ const NavbarLower = () => {
               Product
             </li>
             <li className="navbar-lower-right-content-item">Service</li>
-            <li className="navbar-lower-right-content-item">Shop</li>
+            <li
+              className="navbar-lower-right-content-item"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              <span>Shop</span>
+              {isHovering && (
+                <motion.div
+                  className="shopping-drop-down"
+                  animate={{ scale: 1 }}
+                  initial={{ scale: 0 }}
+                >
+                  <div className="shopping-drop-down-items">
+                    <span onClick={cartNavigator}>Cart</span>
+                    <span onClick={checkOutNavigator}>Checkout</span>
+                  </div>
+                </motion.div>
+              )}
+            </li>
             <li className="navbar-lower-right-content-item">Pages</li>
             <li className="navbar-lower-right-content-item">Blog</li>
             <li className="navbar-lower-right-content-item">Contact Us</li>

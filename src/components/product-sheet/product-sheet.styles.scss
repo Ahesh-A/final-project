@@ -1,4 +1,27 @@
+.product-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 3rem;
 
-.product-sheet {
-    background-color: lightpink;
+  .product-title {
+    color: #333;
+    text-transform: uppercase;
+    line-height: 2rem;
+    font: 700 1.5rem/2rem "poppins", sans-serif;
+    cursor: pointer;
+    &::after {
+      content: "";
+      display: block;
+      width: 60%;
+      height: 2px;
+      background-color: #f7941d;
+    }
+  }
+}
+.product-card-container {
+  display: grid;
+  padding: 1rem;
+  margin: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }

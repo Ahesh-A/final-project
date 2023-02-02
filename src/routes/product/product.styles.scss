@@ -1,7 +1,5 @@
-
-.product-sheet-container{
-    display: grid;
-    height: 1000px;
-    background-color: lightblue;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+.product-sheet-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }

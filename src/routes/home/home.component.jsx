@@ -8,7 +8,7 @@ import Blog from "../../components/blog/blog.component";
 import Services from "../../components/services/services.component";
 import NewsLetter from "../../components/newsletter/newsletter.component";
 import CheckOut from "../../components/chect-out/check-out.component";
-import Cart from "../../components/cart/cart.component";
+import Cart from "../cart/cart.component";
 
 const Home = () => {
   return (

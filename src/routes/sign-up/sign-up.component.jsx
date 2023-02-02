@@ -38,7 +38,7 @@ const SignUp = () => {
       alert("fileds missing ");
       return;
     }
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
       alert("passowrd and confirmpassword did not match");
       return;
     }
