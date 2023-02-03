@@ -18,7 +18,7 @@ const NavbarLower = () => {
   };
   const checkOutNavigator = () => {
     navigate("checkout");
-  };
+  };                                                                                                                                                                                                                                                                                                                                          
   const homeClickHandler = () => {
     navigate("/");
   }
