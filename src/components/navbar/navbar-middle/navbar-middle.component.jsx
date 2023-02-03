@@ -7,6 +7,7 @@ import {
 } from "../../../store/cart/cart.selector";
 import { setIsCartOpen } from "../../../store/cart/cart.action";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   solid,
   brands,
@@ -20,6 +21,10 @@ const NavbarMiddle = () => {
   const dispatch = useDispatch();
   const iscartOpen = useSelector(selectIsCartOpen);
   const cartCount = useSelector(selectCartCount);
+  const navigate = useNavigate();
+  const cartClickHandler = () => {
+    navigate("cart");
+  };
   return (
     <Fragment>
       <div className="navbar-middle-container">
@@ -57,8 +62,9 @@ const NavbarMiddle = () => {
               onMouseLeave={() => {
                 dispatch(setIsCartOpen(false));
               }}
+              
             >
-              <FontAwesomeIcon icon={brands("opencart")} />
+              <FontAwesomeIcon icon={brands("opencart")} onClick={cartClickHandler}/>
               {iscartOpen && <CartDropdown />}
               <div className="cart-count">{cartCount}</div>
             </li>

@@ -9,7 +9,7 @@ $primary: #f7941d;
   font-size: 13px;
 
   .nav-middle-left-container {
-    width: 30%;
+    width: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,11 +23,10 @@ $primary: #f7941d;
 
     .search-bar {
       position: absolute;
-      left: -70px;
       width: 100%;
       display: flex;
       height: 50%;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       cursor: pointer;
 
@@ -46,12 +45,16 @@ $primary: #f7941d;
         }
       }
       form {
+        display: flex;
         height: 100%;
+        width: 80%;
         position: relative;
 
         input {
+          display: flex;
+          flex-direction: row;
+          flex-grow: 1;
           height: 100%;
-          width: 25rem;
           border: none;
           outline: none;
           font-size: 20px;
@@ -59,7 +62,6 @@ $primary: #f7941d;
           border: 1px solid $bordercolor;
         }
         button {
-          position: absolute;
           height: 100%;
           font-size: 1.5rem;
           width: 65px;
@@ -82,7 +84,7 @@ $primary: #f7941d;
     width: 20%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 
     .icons-container {
       width: 60%;

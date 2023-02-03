@@ -8,15 +8,17 @@ import { selectCartItems } from "../../store/cart/cart.selector";
 import { useSelector } from "react-redux";
 import { addItemsToCart } from "../../store/cart/cart.action";
 
-
-const ProductCard = ({product}) => {
+const ProductCard = ({ product }) => {
   const { name, price, imageUrl } = product;
   const [isHovering, setIsHovering] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
-  const productClickHandler = () =>
+  const productClickHandler = () => {
     dispatch(addItemsToCart(cartItems, product));
-
+    setIsClicked(true);
+    setInterval(() => setIsClicked(false), 2000);
+  };
   return (
     <Fragment>
       <div
@@ -31,8 +33,14 @@ const ProductCard = ({product}) => {
                 className="imager-shader-icon-text-container"
                 onClick={productClickHandler}
               >
-                <FontAwesomeIcon icon={solid("bag-shopping")} />
-                <span className="image-shader-text">add to cart</span>
+                {isClicked ? (
+                  <FontAwesomeIcon icon={solid("circle-check")} />
+                ) : (
+                  <FontAwesomeIcon icon={solid("bag-shopping")} />
+                )}
+                <span className="image-shader-text">
+                  {isClicked ? "added" : "add to cart"}
+                </span>
               </div>
             )}
           </div>
