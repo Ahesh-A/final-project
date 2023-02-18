@@ -29,7 +29,7 @@ const CartSheet = ({ cartItem, cartItems }) => {
           <img src={require(`../../${imageUrl}`)} alt="" />
         </div>
         <div className="cart-name-container">
-          <h4>Women Dress</h4>
+          <h4>a&a_wear your style</h4>
           <p>{name}</p>
         </div>
         <div className="cart-unit-price-container">&#x20B9;{price}</div>

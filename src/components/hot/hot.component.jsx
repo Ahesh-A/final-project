@@ -1,14 +1,5 @@
 import "./hot.styles.scss";
-
-
 const Hot = () => {
-  // const clickHandler = () => {
-  //   const randomNumber = Math.round(Math.random());
-  //   const audio = randomNumber ? audio1 : audio2;
-  //   console.log(randomNumber);
-  //   new Audio(audio).play();
-  // };
-
   return (
     <div>
       <div className="hot-container">
