@@ -12,8 +12,8 @@ import { useEffect } from "react";
 import { onAuthStateChangedListener } from "./utils/firebase.utils.js";
 import { setCurrentUser } from "./store/user/user.action";
 
-//  import { instertData } from "./utils/firebase.utils.js";
-//  import { data } from "./assets/data/data";
+// import { instertData } from "./utils/firebase.utils.js";
+// import { data } from "./assets/data/data";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const App = () => {
 
   // useEffect(() => {
   //   instertData(data);
-  // },[]);
+  // }, []);
 
   return (
     <Routes>

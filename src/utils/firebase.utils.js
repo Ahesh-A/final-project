@@ -99,12 +99,12 @@ export const createUserWithGoogleEmailAndPassword = (email, password) => {
 export const instertData = (data) => {
   data.map(async (item) => {
     const { title } = item;
-    await setDoc(doc(db, "products", title.toLowerCase()), item);
+    await setDoc(doc(db, "d_products", title.toLowerCase()), item);
   });
 };
 
 export const getData = async () => {
-  const docRef = collection(db, "products");
+  const docRef = collection(db, "d_products");
   const q = query(docRef);
   const querySnapShot = await getDocs(q);
   return querySnapShot.docs.map((doc) => doc.data());

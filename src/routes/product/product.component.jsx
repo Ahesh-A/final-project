@@ -5,7 +5,9 @@ import { setProducts } from "../../store/products/products.action";
 import { useDispatch } from "react-redux";
 import ProductsPreview from "../../components/product-preview/products-preview.component";
 import { Routes, Route } from "react-router-dom";
-import Category from "../../components/category/catgory.component";
+import ProductOrCategory from "../../components/productorcategory/productorcategory.component";
+// import Category from "../../components/category/catgory.component";
+// import ProductOverView from "../product-overview/product-overview.component";
 const Product = () => {
   const dispatch = useDispatch();
 
@@ -26,7 +28,9 @@ const Product = () => {
       <div className="product-sheet-container">
         <Routes>
           <Route index element={<ProductsPreview />} />
-          <Route path=":productType" element={<Category />} />
+          <Route path=":prodOrCat/*" element = {<ProductOrCategory/>} />
+          {/* <Route path=":product_id/*" element = {<ProductOverView/>} />
+          <Route path=":productType/*" element={<Category />} /> */}
         </Routes>
       </div>
     </div>

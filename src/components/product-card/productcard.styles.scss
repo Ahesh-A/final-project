@@ -41,6 +41,24 @@ $primary: #f7941d;
           font-weight: 600;
           color: #fff;
         }
+        .view-container {
+          background-color: rgba(247, 148, 29, 0.9) ;
+          margin-top: 5rem;
+          display: flex;
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+          .view{
+            color: #fff;
+            font: 1.2rem poppins;
+            font-weight: 600;
+
+            
+          }
+          &:hover{
+            background-color: rgba(247, 148, 29, 1) ;
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+          }
+        }
       }
     }
   }

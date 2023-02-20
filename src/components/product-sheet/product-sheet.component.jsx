@@ -17,11 +17,9 @@ const ProductSheet = (sheet) => {
           </span>
         </h2>
         <div className="product-card-container">
-          {Object.values(products)
-            //.filter((_, idx) => idx < 4)
-            .map((product) => {
-              return <ProductCard key={product.id} product={product} />;
-            })}
+          {Object.values(products).map((product) => {
+            return <ProductCard key={product.id} product={product} />;
+          })}
         </div>
       </div>
     </Fragment>
