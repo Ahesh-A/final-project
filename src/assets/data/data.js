@@ -662,7 +662,7 @@ export const data = [
     title: "Shoe For Women",
     products: [
       {
-        id: "shoeforwomen1 ",
+        id: "shoeforwomen1",
         imageUrl: "assets/d_shoeforwomen/shoeforwomen1/shoeforwomen1.jpg",
         name: "Womens Micam-z54 Running Shoes",
         variant: [
@@ -687,7 +687,7 @@ export const data = [
         price: 486,
       },
       {
-        id: "shoeforwomen2 ",
+        id: "shoeforwomen2",
         imageUrl: "assets/d_shoeforwomen/shoeforwomen2/shoeforwomen2.jpg",
         name: "womens Melody-71 Loafer",
         variant: [
@@ -762,7 +762,7 @@ export const data = [
         price: 930,
       },
       {
-        id: "shoeforwomen5 ",
+        id: "shoeforwomen5",
         imageUrl: "assets/d_shoeforwomen/shoeforwomen5/shoeforwomen5.jpg",
         name: "Womens Sx0123l Walking Shoes",
         variant: [
@@ -787,7 +787,7 @@ export const data = [
         price: 846,
       },
       {
-        id: "shoeforwomen6 ",
+        id: "shoeforwomen6",
         imageUrl: "assets/d_shoeforwomen/shoeforwomen6/shoeforwomen6.jpg",
         name: "Womens Vertago W Running Shoes",
         variant: [
@@ -812,7 +812,7 @@ export const data = [
         price: 499,
       },
       {
-        id: "shoeforwomen7 ",
+        id: "shoeforwomen7",
         imageUrl: "assets/d_shoeforwomen/shoeforwomen7/shoeforwomen7.jpg",
         name: "Women's Cute Sports Running Shoes,Walking, Gym Casual",
         variant: [
@@ -837,7 +837,7 @@ export const data = [
         price: 474,
       },
       {
-        id: "shoeforwomen8 ",
+        id: "shoeforwomen8",
         imageUrl: "assets/d_shoeforwomen/shoeforwomen8/shoeforwomen8.jpg",
         name: "Women's Cute Sports Running Shoes,Walking, Gym Casual",
         variant: [
@@ -862,70 +862,70 @@ export const data = [
     title: "Sunglasses",
     products: [
       {
-        id: "sunglass1 ",
+        id: "sunglass1",
         imageUrl: "assets/sunglass/sunglass1.jpg",
         name: "By Lenskart | Full Rim Wayfarer Branded Latest and Stylish",
         discount: 0,
         price: 849,
       },
       {
-        id: "sunglass2 ",
+        id: "sunglass2",
         imageUrl: "assets/sunglass/sunglass2.jpg",
         name: "By Lenskart | Full Rim Wayfarer Branded Latest and Stylish",
         discount: 0,
         price: 849,
       },
       {
-        id: "sunglass3 ",
+        id: "sunglass3",
         imageUrl: "assets/sunglass/sunglass3.jpg",
         name: "Vincent Chase By Lenskart | Full Rim Hexagonal Branded Latest",
         discount: 0,
         price: 849,
       },
       {
-        id: "sunglass4 ",
+        id: "sunglass4",
         imageUrl: "assets/sunglass/sunglass4.jpg",
         name: "Vincent Chase By Lenskart | Full Rim Pilot Branded Latest",
         discount: 0,
         price: 949,
       },
       {
-        id: "sunglass5 ",
+        id: "sunglass5",
         imageUrl: "assets/sunglass/sunglass5.jpg",
         name: "Women's Retro Driving Rectangular Sunglasses Black Frame, Black Lens (Medium)",
         discount: 0,
         price: 145,
       },
       {
-        id: "sunglass6 ",
+        id: "sunglass6",
         imageUrl: "assets/sunglass/sunglass6.jpg",
         name: "Men Square Black Sunglasses-Pack of 1",
         discount: 0,
         price: 479,
       },
       {
-        id: "sunglass7 ",
+        id: "sunglass7",
         imageUrl: "assets/sunglass/sunglass7.jpg",
         name: "Smooth Leg Covers Lightweight Square Kabir ",
         discount: 0,
         price: 321,
       },
       {
-        id: "sunglass8 ",
+        id: "sunglass8",
         imageUrl: "assets/sunglass/sunglass8.jpg",
         name: "DC DECORIO 2022 Thug Life Sunglasses Pixel Gangster",
         discount: 0,
         price: 999,
       },
       {
-        id: "sunglass9 ",
+        id: "sunglass9",
         imageUrl: "assets/sunglass/sunglass9.jpg",
         name: "UV Protected Polarized Sports Sunglasses for Men Driving ",
         discount: 0,
         price: 379,
       },
       {
-        id: "sunglass10 ",
+        id: "sunglass10",
         imageUrl: "assets/sunglass/sunglass10.jpg",
         name: "By Lenskart | Full Rim Round Branded Latest and Stylish",
         discount: 0,
