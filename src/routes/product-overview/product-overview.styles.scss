@@ -14,7 +14,8 @@
 .product-overview {
   display: grid;
   grid-template-columns: 1fr 2fr;
-
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 1rem;
   .product-image-container {
     display: grid;
     position: relative;

@@ -10,6 +10,9 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
+  const [phone_number, setPhoneNumber] = useState();
   const navigate = useNavigate();
   const emailChangeHandler = (event) => {
     const { value } = event.target;
@@ -25,26 +28,52 @@ const SignUp = () => {
     const { value } = event.target;
     setConfirmPassword(value);
   };
+  const firstNameChangeHandler = (event) => {
+    const { value } = event.target;
+    setFirstName(value);
+  };
 
+  const lastNameChangeHandler = (event) => {
+    const { value } = event.target;
+    setLastName(value);
+  };
+
+  const phoneNumberChangeHandler = (event) => {
+    const { value } = event.target;
+    setPhoneNumber(value);
+  };
   const googleButtonHandler = () => {
     googleSignIn().then(() => {
       navigate("/");
     });
   };
 
-  const signInSubmitButtonHandler = (event) => {
+  const signInSubmitHandler = async (event) => {
     event.preventDefault();
-    if (!email || !password || !confirmPassword) {
-      alert("fileds missing ");
-      return;
-    }
+
     if (password !== confirmPassword) {
       alert("passowrd and confirmpassword did not match");
       return;
     }
+
+    if (Math.floor(Math.log10(phone_number)) + 1 !== 10) {
+      alert("invalid phone number");
+      return;
+    }
+
     console.log("signInButton clicked");
-    createUserWithGoogleEmailAndPassword(email, password);
-    navigate("/");
+    const res = await createUserWithGoogleEmailAndPassword(
+      email,
+      password,
+      first_name,
+      last_name,
+      phone_number
+    );
+    // const { uid } = res;
+    // console.log(res);
+    // console.log(first_name, last_name, email, phone_number);
+
+     navigate("/");
   };
   return (
     <div>
@@ -73,40 +102,47 @@ const SignUp = () => {
           <div className="sign-up-left-container-lower">
             <div className="checkout-container-signin">
               <div className="checkout-left-section">
-                <form>
+                <form onSubmit={signInSubmitHandler} action="submit">
                   <div className="form-elements-container">
                     <Form
                       type="text"
                       name="First Name"
                       id="First-Name"
-                      required={true}
+                      value={first_name}
+                      onChange={firstNameChangeHandler}
+                      required
                     />
                     <Form
                       type="text"
                       name="Last Name"
+                      onChange={lastNameChangeHandler}
+                      value={last_name}
                       id="Last-Name"
-                      required={true}
+                      required
                     />
 
                     <Form
                       type="text"
                       name="Email Address"
                       id="email-address"
-                      required={true}
+                      required
                       value={email}
                       onChange={emailChangeHandler}
                     />
                     <Form
                       type="number"
                       name="Phone Number"
+                      value={phone_number}
+                      min="1"
                       id="phone-number"
-                      required={true}
+                      onChange={phoneNumberChangeHandler}
+                      required
                     />
                     <Form
                       type="password"
                       name="Password"
                       id="password"
-                      required={true}
+                      required
                       value={password}
                       onChange={passowrdChangeHandler}
                     />
@@ -114,15 +150,12 @@ const SignUp = () => {
                       type="password"
                       name="Confirm Password"
                       id="confirm-password"
-                      required={true}
+                      required
                       value={confirmPassword}
                       onChange={confirmPasswordchangeHandler}
                     />
                     <div className="button-container">
-                      <button
-                        className="sign-up-button"
-                        onClick={signInSubmitButtonHandler}
-                      >
+                      <button type="submit" className="sign-up-button">
                         Submit
                       </button>
                     </div>

@@ -40,8 +40,11 @@ const ProductOverView = ({ productId }) => {
   //   // const { value } = event.target;
   //   console.log(prop)
   // };
-  const productClickHandler = () => {
-    dispatch(addItemsToCart(cartItems, {...product,imageUrl:productOverView.imageUrl}));
+  const productClickHandler = (e) => {
+    e.preventDefault();
+    console.log('valuee',e.target);
+
+    dispatch(addItemsToCart(cartItems, {...product,imageUrl:productOverView.imageUrl, id: product.id + productOverView.imageUrl}));
   };
   return (
     Object.values(product).length && (
@@ -55,7 +58,7 @@ const ProductOverView = ({ productId }) => {
             <div className="product-image">
               <img src={require(`../../${imageUrl}`)} alt={product} />
             </div>
-            <div></div>
+            
           </div>
 
           <div className="product-description">
@@ -68,13 +71,13 @@ const ProductOverView = ({ productId }) => {
                 </div>
                 <div className="size-container">
                   size:
-                  <select className="size-select">
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                    <option value="2XL">2XL</option>
-                    <option value="3XL">3XL</option>
+                  <select className="size-select" >
+                    <option value={"S"}>S</option>
+                    <option value={"M"}>M</option>
+                    <option value={"L"}>L</option>
+                    <option value={"XL"}>XL</option>
+                    <option value={"2XL"}>2XL</option>
+                    <option value={"3XL"}>3XL</option>
                   </select>
                 </div>
 

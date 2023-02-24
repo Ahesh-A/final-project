@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import{child, push, update} from "firebase/database";
 import {
   getFirestore,
   doc,
@@ -81,18 +82,29 @@ export const signInWithGoogleEmailAndPassword = (email, password) =>
     })
     .catch((error) => {
       if (error.code === "auth/invalid-email") alert("no such user...");
-     console.log(error);
+      console.log(error);
     });
-
-export const createUserWithGoogleEmailAndPassword = (email, password) => {
+export const insertUser = async (data) => {
+  const { uid } = data;
+  await setDoc(doc(db, "users", uid), data);
+};
+export const createUserWithGoogleEmailAndPassword = (
+  email,
+  password,
+  first_name,
+  last_name,
+  phone_number
+) => {
   if (!email || !password) return;
   return createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+    .then(async (userCredential) => {
       const user = userCredential.user;
-      console.log(user);
+      const { uid } = user;
+      await insertUser({uid, first_name, last_name, phone_number,email});
+      //console.log({ uid, first_name, last_name, phone_number });
     })
     .catch((error) => {
-      console.log(error);
+      alert(error.code);
     });
 };
 
@@ -109,3 +121,15 @@ export const getData = async () => {
   const querySnapShot = await getDocs(q);
   return querySnapShot.docs.map((doc) => doc.data());
 };
+
+
+export const getUsers = async() => {
+  const docRef = collection(db, "users" );
+  const q = query(docRef);
+  const querySnapShot = await getDocs(q);
+  return querySnapShot.docs.map((doc) => doc.data());
+}
+
+export const updateUser = async(uid, data ) => {
+  await setDoc(doc(db, "users", uid), data);
+}

@@ -24,6 +24,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Black",
         price: 899,
       },
       {
@@ -32,6 +34,8 @@ export const data = [
         name: "Women's Maxi Dress (Sea Blue Solid Crepe wrap Dress ",
         variant: [],
         discount: 0,
+        size:"M",
+        color:"Sea Blue",
         price: 399,
       },
       {
@@ -51,6 +55,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Black",
         price: 399,
       },
       {
@@ -59,15 +65,16 @@ export const data = [
         name: "Women's Fit and flare Maxi Dress",
         variant: [
           {
-            color: "Coral",
+            color: "Green",
             color_url: "assets/d_women/women4/color/1.jpg",
             variant_image_url: "assets/d_women/women4/variant/1.jpg",
           },
           {
-            color: "Green",
+            color: "Coral",
             color_url: "assets/d_women/women4/color/2.jpg",
             variant_image_url: "assets/d_women/women4/variant/2.jpg",
           },
+          
           {
             color: "Pink",
             color_url: "assets/d_women/women4/color/3.jpg",
@@ -75,6 +82,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Green",
         price: 459,
       },
       {
@@ -99,6 +108,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Blue",
         price: 373,
       },
       {
@@ -112,17 +123,19 @@ export const data = [
             variant_image_url: "assets/d_women/women6/variant/1.jpg",
           },
           {
-            color: "Green",
+            color: "Red",
             color_url: "assets/d_women/women6/color/2.jpg",
             variant_image_url: "assets/d_women/women6/variant/2.jpg",
           },
           {
-            color: "Navy Blue",
+            color: "Purple",
             color_url: "assets/d_women/women6/color/3.jpg",
             variant_image_url: "assets/d_women/women6/variant/3.jpg",
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Purple",
         price: 349,
       },
       {
@@ -147,6 +160,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Peach",
         price: 699,
       },
       {
@@ -171,6 +186,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Blue",
         price: 279,
       },
       {
@@ -179,7 +196,7 @@ export const data = [
         name: "Women's Crepe Wrap Maxi Dress",
         variant: [
           {
-            color: "Agean Blue",
+            color: "White",
             color_url: "assets/d_women/women9/color/1.jpg",
             variant_image_url: "assets/d_women/women9/variant/1.jpg",
           },
@@ -195,6 +212,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Agean Blue",
         price: 389,
       },
       {
@@ -219,6 +238,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"DarkPink",
         price: 429,
       },
       {
@@ -243,6 +264,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Black",
         price: 459,
       },
       {
@@ -267,6 +290,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Rose Pink",
         price: 389,
       },
     ],
@@ -285,22 +310,25 @@ export const data = [
             variant_image_url: "assets/d_men/men1/variant/1.jpg",
           },
           {
-            color: "Green",
+            color: "Black",
             color_url: "assets/d_men/men1/color/2.jpg",
             variant_image_url: "assets/d_men/men1/variant/2.jpg",
           },
           {
-            color: "Navy Blue",
+            color: "Army Light Green",
             color_url: "assets/d_men/men1/color/3.jpg",
             variant_image_url: "assets/d_men/men1/variant/3.jpg",
           },
         ],
+        discount: 0,
+        size:"M",
+        color:"Green",
         price: 3869,
       },
       {
         id: "men2",
         imageUrl: "assets/d_men/men2/men2.jpg",
-        name: "Men's Denim Jacket",
+        name: "Men's Hawaii Shirt",
         variant: [
           {
             color: "Dark Green",
@@ -308,17 +336,19 @@ export const data = [
             variant_image_url: "assets/d_men/men2/variant/1.jpg",
           },
           {
-            color: "Green",
+            color: "pink",
             color_url: "assets/d_men/men2/color/2.jpg",
             variant_image_url: "assets/d_men/men2/variant/2.jpg",
           },
           {
-            color: "Navy Blue",
+            color: "White Mixed",
             color_url: "assets/d_men/men2/color/3.jpg",
             variant_image_url: "assets/d_men/men2/variant/3.jpg",
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Dark Green",
         price: 499,
       },
       {
@@ -343,6 +373,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Grey",
         price: 797,
       },
       {
@@ -367,6 +399,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Black",
         price: 1480,
       },
       {
@@ -386,6 +420,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"White",
         price: 769,
       },
       {
@@ -410,6 +446,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Brown",
         price: 869,
       },
       {
@@ -423,7 +461,7 @@ export const data = [
             variant_image_url: "assets/d_men/men7/variant/1.jpg",
           },
           {
-            color: "Navy",
+            color: "Yellow",
             color_url: "assets/d_men/men7/color/2.jpg",
             variant_image_url: "assets/d_men/men7/variant/2.jpg",
           },
@@ -434,6 +472,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Blue",
         price: 389,
       },
       {
@@ -458,6 +498,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Black",
         price: 2386,
       },
     ],
@@ -471,7 +513,7 @@ export const data = [
         name: "shoeformen's Energy Runner LP Nacho/Conavy/None Running",
         variant: [
           {
-            color: "Black",
+            color: "Grey Black",
             color_url: "assets/d_shoeformen/shoeformen1/color/1.jpg",
             variant_image_url: "assets/d_shoeformen/shoeformen1/variant/1.jpg",
           },
@@ -481,12 +523,14 @@ export const data = [
             variant_image_url: "assets/d_shoeformen/shoeformen1/variant/2.jpg",
           },
           {
-            color: "Grey",
+            color: "Grey Blue",
             color_url: "assets/d_shoeformen/shoeformen1/color/3.jpg",
             variant_image_url: "assets/d_shoeformen/shoeformen1/variant/3.jpg",
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Grey Black",
         price: 1000,
       },
       {
@@ -511,6 +555,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"T.Blue",
         price: 989,
       },
       {
@@ -535,6 +581,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"T.Blue",
         price: 999,
       },
       {
@@ -559,6 +607,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Black",
         price: 849,
       },
       {
@@ -567,7 +617,7 @@ export const data = [
         name: "Men's Sc0534f Loafers",
         variant: [
           {
-            color: "Black",
+            color: "Blue",
             color_url: "assets/d_shoeformen/shoeformen5/color/1.jpg",
             variant_image_url: "assets/d_shoeformen/shoeformen5/variant/1.jpg",
           },
@@ -583,6 +633,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Blue",
         price: 549,
       },
       {
@@ -607,6 +659,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Balck Green",
         price: 1249,
       },
       {
@@ -630,6 +684,9 @@ export const data = [
             variant_image_url: "assets/d_shoeformen/shoeformen7/variant/3.jpg",
           },
         ],
+        discount: 0,
+        size:"M",
+        color:"Blue",
         price: 1449,
       },
       {
@@ -654,6 +711,8 @@ export const data = [
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Balck Red",
         price: 669,
       },
     ],
@@ -674,16 +733,18 @@ export const data = [
           },
           {
             color: "Red White",
-            color_url: "assets/d_shoeformen/shoeformen1/color/2.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen1/variant/2.jpg",
+            color_url: "assets/d_shoeforwomen/shoeforwomen1/color/2.jpg",
+            variant_image_url: "assets/d_shoeforwomen/shoeforwomen1/variant/2.jpg",
           },
           {
             color: "Navy Red",
-            color_url: "assets/d_shoeformen/shoeformen1/color/3.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen1/variant/3.jpg",
+            color_url: "assets/d_shoeforwomen/shoeforwomen1/color/3.jpg",
+            variant_image_url: "assets/d_shoeforwomen/shoeforwomen1/variant/3.jpg",
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Pink Grey",
         price: 486,
       },
       {
@@ -699,16 +760,18 @@ export const data = [
           },
           {
             color: "Blue",
-            color_url: "assets/d_shoeformen/shoeformen2/color/2.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen2/variant/2.jpg",
+            color_url: "assets/d_shoeforwomen/shoeforwomen2/color/2.jpg",
+            variant_image_url: "assets/d_shoeforwomen/shoeforwomen2/variant/2.jpg",
           },
           {
             color: "Black",
-            color_url: "assets/d_shoeformen/shoeformen2/color/3.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen2/variant/3.jpg",
+            color_url: "assets/d_shoeforwomen/shoeforwomen2/color/3.jpg",
+            variant_image_url: "assets/d_shoeforwomen/shoeforwomen2/variant/3.jpg",
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Mauve",
         price: 486,
       },
       {
@@ -724,16 +787,18 @@ export const data = [
           },
           {
             color: "NavyBlue Red",
-            color_url: "assets/d_shoeformen/shoeformen3/color/2.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen3/variant/2.jpg",
+            color_url: "assets/d_shoeforwomen/shoeforwomen3/color/2.jpg",
+            variant_image_url: "assets/d_shoeforwomen/shoeforwomen3/variant/2.jpg",
           },
           {
             color: "Grey LightBlue",
-            color_url: "assets/d_shoeformen/shoeformen3/color/3.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen3/variant/3.jpg",
+            color_url: "assets/d_shoeforwomen/shoeforwomen3/color/3.jpg",
+            variant_image_url: "assets/d_shoeforwomen/shoeforwomen3/variant/3.jpg",
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Balck Pink",
         price: 499,
       },
       {
@@ -749,16 +814,18 @@ export const data = [
           },
           {
             color: "BLK/GOLDEN",
-            color_url: "assets/d_shoeformen/shoeformen4/color/2.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen4/variant/2.jpg",
+            color_url: "assets/d_shoeforwomen/shoeforwomen4/color/2.jpg",
+            variant_image_url: "assets/d_shoeforwomen/shoeforwomen4/variant/2.jpg",
           },
           {
             color: "OFF WHT",
-            color_url: "assets/d_shoeformen/shoeformen4/color/3.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen4/variant/3.jpg",
+            color_url: "assets/d_shoeforwomen/shoeforwomen4/color/3.jpg",
+            variant_image_url: "assets/d_shoeforwomen/shoeforwomen4/variant/3.jpg",
           },
         ],
         discount: 0,
+        size:"M",
+        color:"BLK/RANI",
         price: 930,
       },
       {
@@ -767,22 +834,24 @@ export const data = [
         name: "Womens Sx0123l Walking Shoes",
         variant: [
           {
-            color: "BLK/RANI",
+            color: "Blue Grey",
             color_url: "assets/d_shoeforwomen/shoeforwomen5/color/1.jpg",
             variant_image_url:
               "assets/d_shoeforwomen/shoeforwomen5/variant/1.jpg",
           },
           {
-            color: "BLK/GOLDEN",
-            color_url: "assets/d_shoeformen/shoeformen5/color/2.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen5/variant/2.jpg",
+            color: "Maroon Pink",
+            color_url: "assets/d_shoeforwomen/shoeforwomen5/color/2.jpg",
+            variant_image_url: "assets/d_shoeforwomen/shoeforwomen5/variant/2.jpg",
           },
           {
-            color: "OFF WHT",
-            color_url: "assets/d_shoeformen/shoeformen5/color/3.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen5/variant/3.jpg",
+            color: "Pink  Grey",
+            color_url: "assets/d_shoeforwomen/shoeforwomen5/color/3.jpg",
+            variant_image_url: "assets/d_shoeforwomen/shoeforwomen5/variant/3.jpg",
           },
         ],
+         size:"M",
+        color:"Blue Grey",
         discount: 0,
         price: 846,
       },
@@ -799,16 +868,18 @@ export const data = [
           },
           {
             color: "Grey",
-            color_url: "assets/d_shoeformen/shoeformen6/color/2.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen6/variant/2.jpg",
+            color_url: "assets/d_shoeforwomen/shoeforwomen6/color/2.jpg",
+            variant_image_url: "assets/d_shoeforwomen/shoeforwomen6/variant/2.jpg",
           },
           {
             color: "Grey Pink",
-            color_url: "assets/d_shoeformen/shoeformen6/color/3.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen6/variant/3.jpg",
+            color_url: "assets/d_shoeforwomen/shoeforwomen6/color/3.jpg",
+            variant_image_url: "assets/d_shoeforwomen/shoeforwomen6/variant/3.jpg",
           },
         ],
         discount: 0,
+        size:"M",
+        color:"Blue",
         price: 499,
       },
       {
@@ -817,23 +888,20 @@ export const data = [
         name: "Women's Cute Sports Running Shoes,Walking, Gym Casual",
         variant: [
           {
-            color: "Blue",
+            color: "Grey Pink",
             color_url: "assets/d_shoeforwomen/shoeforwomen7/color/1.jpg",
             variant_image_url:
               "assets/d_shoeforwomen/shoeforwomen7/variant/1.jpg",
           },
           {
-            color: "Grey",
-            color_url: "assets/d_shoeformen/shoeformen7/color/2.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen7/variant/2.jpg",
-          },
-          {
-            color: "Grey Pink",
-            color_url: "assets/d_shoeformen/shoeformen7/color/3.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen7/variant/3.jpg",
-          },
+            color: "Grey Rose",
+            color_url: "assets/d_shoeforwomen/shoeforwomen7/color/2.jpg",
+            variant_image_url: "assets/d_shoeforwomen/shoeforwomen7/variant/2.jpg",
+          }
         ],
         discount: 0,
+        size:"M",
+        color:"Grey Pink",
         price: 474,
       },
       {
@@ -849,8 +917,8 @@ export const data = [
           },
           {
             color: "Blue Pink",
-            color_url: "assets/d_shoeformen/shoeformen8/color/2.jpg",
-            variant_image_url: "assets/d_shoeformen/shoeformen8/variant/2.jpg",
+            color_url: "assets/d_shoeforwomen/shoeforwomen8/color/2.jpg",
+            variant_image_url: "assets/d_shoeforwomen/shoeforwomen8/variant/2.jpg",
           },
         ],
         discount: 0,

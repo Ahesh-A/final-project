@@ -14,20 +14,22 @@ const CartDropdown = () => {
   };
   return (
     <Fragment>
-      <motion.div 
+      <motion.div
         className="cart-drop-down-container"
-        animate = {{scale: 1}}
-        initial = {{scale: 0}}
-        >
+        animate={{ scale: 1 }}
+        initial={{ scale: 0 }}
+      >
         {cartItems.length ? (
           cartItems.map((cartItem) => (
-            <CartDropdownSheet cartItem={cartItem} key={cartItem.id} />
+            <CartDropdownSheet cartItem={cartItem} key={cartItem.imageUrl} />
           ))
         ) : (
           <span className="cart-empty">Cart is Empty</span>
         )}
         {cartItems.length ? (
-          <button className="cart-drop-down-button" onClick={checkOutNavigator}>CHECKOUT</button>
+          <button className="cart-drop-down-button" onClick={checkOutNavigator}>
+            CHECKOUT
+          </button>
         ) : null}
       </motion.div>
     </Fragment>

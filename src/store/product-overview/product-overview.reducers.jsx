@@ -4,6 +4,8 @@ const INITIAL_STATE = {
   product: {},
   color: "",
   imageUrl: "",
+  size:"",
+  
 };
 
 export const productOverViewReducer = (state = INITIAL_STATE, action) => {

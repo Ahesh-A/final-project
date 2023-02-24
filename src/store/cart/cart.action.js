@@ -9,7 +9,7 @@ export const setCartItems = (cartItems) =>
 
 const addCartItem = (cartItems, cartItemToAdd) => {
   const existingCartItem = cartItems.find((cartItem) => {
-    return cartItem.id === cartItemToAdd.id;
+    return (cartItem.id === cartItemToAdd.id && cartItem.imageUrl === cartItemToAdd.imageUrl) ;
   });
 
   if (existingCartItem) {

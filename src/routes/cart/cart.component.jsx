@@ -37,7 +37,7 @@ const Cart = () => {
               <CartSheet
                 cartItem={cartItem}
                 cartItems={cartItems}
-                key={cartItem.id}
+                key={cartItem.imageUrl}
               />
             ))}
         </div>

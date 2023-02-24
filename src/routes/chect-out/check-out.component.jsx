@@ -317,7 +317,7 @@ const CheckOut = () => {
               </div>
               <div className="form-element">
                 <label htmlFor="Company">
-                  Company <span>*</span>
+                Occupation <span>*</span>
                 </label>
                 <input type="text" id="Company" required />
               </div>

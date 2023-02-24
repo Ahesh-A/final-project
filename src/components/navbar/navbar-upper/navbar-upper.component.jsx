@@ -5,19 +5,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../../store/user/user.selector";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { googleSignOut } from "../../../utils/firebase.utils.js";
 const NavbarUpper = () => {
+  const navigate = useNavigate();
   const currentUser = useSelector(selectCurrentUser);
-  
+
   const loginClickHandler = () => {
     navigate("sign-in");
   };
   const signOutClickHandler = () => {
     googleSignOut();
+    navigate("/");
+  };
+  const myAccountClickHandler = () => {
+    if (currentUser) navigate("user");
+    else alert("you are not signed in ...");
   };
 
-  const navigate = useNavigate();
   return (
     <Fragment>
       <div className="navbar-upper-container">
@@ -52,7 +57,10 @@ const NavbarUpper = () => {
               <FontAwesomeIcon icon={solid("clock")} className="icon-style" />
               <span>Daily deal</span>
             </li>
-            <li className="nav-rigth-section-items">
+            <li
+              className="nav-rigth-section-items"
+              onClick={myAccountClickHandler}
+            >
               <FontAwesomeIcon icon={solid("user")} className="icon-style" />
               <span>My account</span>
             </li>

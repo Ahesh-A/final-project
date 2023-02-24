@@ -16,9 +16,10 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const productClickHandler = () => {
-    dispatch(addItemsToCart(cartItems, product));
+    dispatch(addItemsToCart(cartItems, {...product, id: product.id + product.imageUrl}));
     setIsClicked(true);
     setInterval(() => setIsClicked(false), 2000);
+    
   };
   const viewHandler = () => {
     navigate(`/product/${id}`);
