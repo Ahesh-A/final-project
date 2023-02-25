@@ -7,7 +7,10 @@ import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../../store/user/user.selector";
 import { useNavigate } from "react-router-dom";
 import { googleSignOut } from "../../../utils/firebase.utils.js";
+import { setCurrentUser } from "../../../store/user/user.action";
+import { useDispatch } from "react-redux";
 const NavbarUpper = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const currentUser = useSelector(selectCurrentUser);
 
@@ -16,6 +19,7 @@ const NavbarUpper = () => {
   };
   const signOutClickHandler = () => {
     googleSignOut();
+    dispatch(setCurrentUser(null));
     navigate("/");
   };
   const myAccountClickHandler = () => {

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from "react-redux";
 import {
   selectIsCartOpen,
-  selectCartCount,
+  selectCartCount
 } from "../../../store/cart/cart.selector";
 import { setIsCartOpen } from "../../../store/cart/cart.action";
 import { useDispatch } from "react-redux";

@@ -1,4 +1,3 @@
-import { Route, Routes } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import ProductOverView from "../../routes/product-overview/product-overview.component";
 import Category from "../category/catgory.component";

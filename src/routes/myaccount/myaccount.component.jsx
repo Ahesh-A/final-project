@@ -7,25 +7,23 @@ import Candles from "../../components/candles/candles.component.jsx";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
-import { getUsers } from "../../utils/firebase.utils";
 import { updateUser } from "../../utils/firebase.utils";
 const MyAccount = () => {
 
   const user = useSelector(selectCurrentUser);
-  const info = {
-    ...user,
-    country: "",
-    state: "",
-    address_line1: "",
-    address_line2: "",
-    postal_code: "",
-    occupation: "",
-  };
-  const [userInfo, setUserInfo] = useState(info);
+  // const info = {
+  //   ...user,
+  //   country: "",
+  //   state: "",
+  //   address_line1: "",
+  //   address_line2: "",
+  //   postal_code: "",
+  //   occupation: "",
+  // };
+  const [userInfo, setUserInfo] = useState(user);
 
   const accountSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(userInfo);
     const {uid} = userInfo;
     updateUser(uid, userInfo);
   };
@@ -37,10 +35,6 @@ const MyAccount = () => {
           <span> My Account</span>
           <div className="seperoator"></div>
         </h3>
-        {/* <div className="edit-icon-container">
-              <FontAwesomeIcon icon = {so
-                lid("pen-to-square")}/>
-            </div> */}
         <form
           action="submit"
           onSubmit={accountSubmitHandler}

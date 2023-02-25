@@ -1,6 +1,7 @@
 import "./check-out.styles.scss";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selector";
+import PaymentForm from "../../components/paymentform/payment-form.component";
 const CheckOut = () => {
   const cartTotal = useSelector(selectCartTotal);
   return (
@@ -317,14 +318,14 @@ const CheckOut = () => {
               </div>
               <div className="form-element">
                 <label htmlFor="Company">
-                Occupation <span>*</span>
+                  Occupation <span>*</span>
                 </label>
                 <input type="text" id="Company" required />
               </div>
-              <div className="check-box-container">
+              {/* <div className="check-box-container">
                 <input type="checkbox" id="ckeckbox" />
                 <label htmlFor="ckeckbox"> Create Account ?</label>
-              </div>
+              </div> */}
             </div>
           </form>
         </div>
@@ -380,6 +381,7 @@ const CheckOut = () => {
           </div>
         </div>
       </div>
+      <PaymentForm />
     </div>
   );
 };

@@ -1,18 +1,27 @@
 import "./single-slider.styles.scss";
+import { useNavigate } from "react-router-dom";
 const SingleSlider = () => {
+  const navigate = useNavigate();
   return (
     <div className="single-slider-container">
       <div className="slide-container">
         <div className="slide">
           <span className="slide-offer">UP TO 50% OFF</span>
           <h2 className="slide-heading">Shirt For Men</h2>
-          <p className = "slide-paragraph">
+          <p className="slide-paragraph">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
             nesciunt aliquid at est doloremque ipsam ipsum sunt ut eos earum?
             Harum nihil sapiente esse optio molestias itaque iure dicta
             possimus.
           </p>
-          <button className="slide-button">SHOP NOW!</button>
+          <button
+            className="slide-button"
+            onClick={() => {
+              navigate("/product/men");
+            }}
+          >
+            SHOP NOW!
+          </button>
         </div>
       </div>
     </div>

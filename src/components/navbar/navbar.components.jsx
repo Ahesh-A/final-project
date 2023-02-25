@@ -1,5 +1,4 @@
 import "./navbar.styles.scss";
-import { Outlet } from "react-router-dom";
 import { Fragment } from "react";
 import NavbarUpper from "./navbar-upper/navbar-upper.component";
 import NavbarMiddle from "./navbar-middle/navbar-middle.component";

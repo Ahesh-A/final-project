@@ -60,19 +60,13 @@ const SignUp = () => {
       alert("invalid phone number");
       return;
     }
-
-    console.log("signInButton clicked");
-    const res = await createUserWithGoogleEmailAndPassword(
+     await createUserWithGoogleEmailAndPassword(
       email,
       password,
       first_name,
       last_name,
       phone_number
     );
-    // const { uid } = res;
-    // console.log(res);
-    // console.log(first_name, last_name, email, phone_number);
-
      navigate("/");
   };
   return (

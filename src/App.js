@@ -9,21 +9,22 @@ import Cart from "./routes/cart/cart.component";
 import CheckOut from "./routes/chect-out/check-out.component";
 import MyAccount from "./routes/myaccount/myaccount.component";
 import { useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { onAuthStateChangedListener } from "./utils/firebase.utils.js";
 import { setCurrentUser } from "./store/user/user.action";
 import { getUsers } from "./utils/firebase.utils.js";
+
 // import { instertData } from "./utils/firebase.utils.js";
 // import { data } from "./assets/data/data";
 
 const App = () => {
   const dispatch = useDispatch();
-  const [uid, setUid] = useState(null);
-  //const uid = 'WMnPL0NOAPhDAbods854WrtBaPs2';
+  
+  
   useEffect(() => {
     const unSubscribe = onAuthStateChangedListener((user) => {
       if (user) {
-        const { uid,email } = user;
+        const { uid } = user;
         console.log("The user is :", uid);
         const fetchUser = async () => {
           const users = await getUsers();
