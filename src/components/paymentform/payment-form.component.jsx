@@ -1,20 +1,28 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { PaymentFormContainer, FormContainer } from "./payment-form.styles";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectCartTotal } from "../../store/cart/cart.selector.js";
+import { selectCurrentUser } from "../../store/user/user.selector.js";
 const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();
-
+  const cartTotal = useSelector(selectCartTotal);
+  const currentUser = useSelector(selectCurrentUser);
+  const {address_line1,address_line2, country, postal_code, state} = currentUser;
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
   const paymentHandler = async (e) => {
     e.preventDefault();
 
     if (!stripe || !elements) return;
 
+    setIsProcessingPayment(true);
     const response = await fetch("/.netlify/functions/create-payment-intent", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ amount: 1000 }),
+      body: JSON.stringify({ amount: cartTotal * 100 }),
     }).then((res) => res.json());
     const {
       paymentIntent: { client_secret },
@@ -26,21 +34,23 @@ const PaymentForm = () => {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: "Ahesh A",
+          name: currentUser.first_name + currentUser.last_name,
           address: {
-            line1: '510 Townsend St',
-            postal_code: '98140',
-            city: 'San Francisco',
-            state: 'CA',
-            country: 'US',
+            line1: address_line1 + address_line2,
+            postal_code,
+            city: '',
+            state,
+            country
           },
         },
       },
     });
+    
+    setIsProcessingPayment(false);
 
     if (paymentResult.error) {
       alert(paymentResult.error);
-      console.log(paymentResult.error)
+      console.log(paymentResult.error);
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
         alert("Payment Successful");
@@ -52,7 +62,7 @@ const PaymentForm = () => {
       <FormContainer onSubmit={paymentHandler}>
         <h2>Credit Card Payment</h2>
         <CardElement />
-        <button type="submit">Pay now</button>
+        <button disabled = {isProcessingPayment} type="submit">Pay now</button>
       </FormContainer>
     </PaymentFormContainer>
   );
