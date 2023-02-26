@@ -10,21 +10,21 @@ exports.handler = async (event) => {
       amount,
       currency: "inr",
       payment_method_types: ["card"],
-      description: 'Software development services',
+      description: 'A & A_appaels',
     });
-    const customer = await stripe.customers.create({
-      name: 'Jenny Rosen',
-      address: {
-        line1: '510 Townsend St',
-        postal_code: '98140',
-        city: 'San Francisco',
-        state: 'CA',
-        country: 'US',
-      },
-    });
+    // const customer = await stripe.customers.create({
+    //   name: 'Jenny Rosen',
+    //   address: {
+    //     line1: '510 Townsend St',
+    //     postal_code: '98140',
+    //     city: 'San Francisco',
+    //     state: 'CA',
+    //     country: 'US',
+    //   },
+    // });
     return {
       statusCode: 200,
-      body: JSON.stringify({ paymentIntent, customer })
+      body: JSON.stringify({ paymentIntent })
     };
   } catch (error) {
     console.log(error);
