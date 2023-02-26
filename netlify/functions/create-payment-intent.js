@@ -8,7 +8,7 @@ exports.handler = async (event) => {
     console.log(process.env.STRIPE_SECRET_KEY);
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
-      currency: "usd",
+      currency: "inr",
       payment_method_types: ["card"],
       description: 'Software development services',
     });
