@@ -9,7 +9,7 @@ const PaymentForm = () => {
   const elements = useElements();
   const cartTotal = useSelector(selectCartTotal);
   const currentUser = useSelector(selectCurrentUser);
-  const {address_line1,address_line2, country, postal_code, state} = currentUser;
+  const {address_line1,address_line2, country, postal_code, state, first_name, last_name} = currentUser;
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
   const paymentHandler = async (e) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ const PaymentForm = () => {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: currentUser.first_name + currentUser.last_name,
+          name: first_name + last_name,
           address: {
             line1: address_line1 + address_line2,
             postal_code,
