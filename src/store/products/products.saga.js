@@ -10,6 +10,7 @@ export function* setProduct() {
       acc[title.toLowerCase()] = products;
       return acc;
     }, {});
+    console.log(data);
     yield put(setProductsSuccess(data));
   } catch (error) {
     yield put(setProductsFailed(error));

@@ -1,7 +1,7 @@
 import { PRODUCT_ACTION_TYPES } from "./products.types";
 
 const INITIAL_STATE = {
-  product: {},
+  products: {},
   isLoading: false,
   error: null,
 };
@@ -21,7 +21,7 @@ export const productReducer = (state = INITIAL_STATE, action) => {
       };
     case PRODUCT_ACTION_TYPES.SET_PRODUCTS_SUCCESS:
       return {
-        ...payload,
+        products: payload,
         isLoading: false,
       };
     case PRODUCT_ACTION_TYPES.SET_PRODUCTS_FAILED:

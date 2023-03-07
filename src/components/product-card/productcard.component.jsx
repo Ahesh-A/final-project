@@ -26,7 +26,7 @@ const ProductCard = ({ product }) => {
   }
   return (
     <Fragment>
-      <div
+      { product && <div
         className="product-card"
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
@@ -65,7 +65,7 @@ const ProductCard = ({ product }) => {
           </div>
           <div className="price-container"> &#x20B9; {price}</div>
         </div>
-      </div>
+      </div>}
     </Fragment>
   );
 };
