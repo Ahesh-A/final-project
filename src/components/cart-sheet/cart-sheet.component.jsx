@@ -35,15 +35,15 @@ const CartSheet = ({ cartItem, cartItems }) => {
         <div className="cart-unit-price-container">&#x20B9;{price}</div>
         <div className="cart-quantity-container">
           <div className="cart-quantity-adjuster">
-            <div className="plus">
-              <FontAwesomeIcon icon={solid("plus")} onClick={addClickHandler} />
-            </div>
-            <div className="quantity">{quantity}</div>
             <div className="minus">
               <FontAwesomeIcon
                 icon={solid("minus")}
                 onClick={removeClickHandler}
               />
+            </div>
+            <div className="quantity">{quantity}</div>
+            <div className="plus">
+              <FontAwesomeIcon icon={solid("plus")} onClick={addClickHandler} />
             </div>
           </div>
         </div>

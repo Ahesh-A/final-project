@@ -2,10 +2,12 @@ import "./sign-up.styles.scss";
 import { ReactComponent as Google } from "../../assets/sign-up/google.svg";
 import { ReactComponent as Facebook } from "../../assets/sign-up/facebook-logo-2019.svg";
 import Form from "../../components/form/form.component";
-import { googleSignIn } from "../../utils/firebase.utils";
+//import { googleSignIn } from "../../utils/firebase.utils";
+import { googleSignInStart } from "../../store/user/user.action";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUserWithGoogleEmailAndPassword } from "../../utils/firebase.utils";
+import { useDispatch } from "react-redux";
 const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -14,6 +16,7 @@ const SignUp = () => {
   const [last_name, setLastName] = useState("");
   const [phone_number, setPhoneNumber] = useState();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const emailChangeHandler = (event) => {
     const { value } = event.target;
     setEmail(value);
@@ -43,9 +46,11 @@ const SignUp = () => {
     setPhoneNumber(value);
   };
   const googleButtonHandler = () => {
-    googleSignIn().then(() => {
-      navigate("/");
-    });
+    // googleSignIn().then(() => {
+    // 
+    // });
+    dispatch(googleSignInStart());
+    navigate("/");
   };
 
   const signInSubmitHandler = async (event) => {
@@ -60,14 +65,14 @@ const SignUp = () => {
       alert("invalid phone number");
       return;
     }
-     await createUserWithGoogleEmailAndPassword(
+    await createUserWithGoogleEmailAndPassword(
       email,
       password,
       first_name,
       last_name,
       phone_number
     );
-     navigate("/");
+    navigate("/");
   };
   return (
     <div>

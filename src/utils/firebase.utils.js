@@ -99,7 +99,7 @@ export const createUserWithGoogleEmailAndPassword = (
     .then(async (userCredential) => {
       const user = userCredential.user;
       const { uid } = user;
-      await insertUser({uid, first_name, last_name, phone_number,email});
+      await insertUser({ uid, first_name, last_name, phone_number, email });
       //console.log({ uid, first_name, last_name, phone_number });
     })
     .catch((error) => {
@@ -121,14 +121,26 @@ export const getData = async () => {
   return querySnapShot.docs.map((doc) => doc.data());
 };
 
-
-export const getUsers = async() => {
-  const docRef = collection(db, "users" );
+export const getUsers = async () => {
+  const docRef = collection(db, "users");
   const q = query(docRef);
   const querySnapShot = await getDocs(q);
   return querySnapShot.docs.map((doc) => doc.data());
-}
+};
 
-export const updateUser = async(uid, data ) => {
+export const updateUser = async (uid, data) => {
   await setDoc(doc(db, "users", uid), data);
-}
+};
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unSubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unSubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
+};

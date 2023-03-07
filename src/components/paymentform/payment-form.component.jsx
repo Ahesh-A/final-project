@@ -1,6 +1,10 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { PaymentFormContainer, FormContainer } from "./payment-form.styles";
-import { useState } from "react";
+import {
+  PaymentFormContainer,
+  FormContainer,
+  PaymentsButton,
+} from "./payment-form.styles.jsx";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selector.js";
 import { selectCurrentUser } from "../../store/user/user.selector.js";
@@ -8,9 +12,26 @@ const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();
   const cartTotal = useSelector(selectCartTotal);
+  const [userInfo, setUserInfo] = useState({});
   const currentUser = useSelector(selectCurrentUser);
-  const {address_line1,address_line2, country, postal_code, state, first_name, last_name} = currentUser;
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+  useEffect(() => {
+    const setUser = async () => {
+      await setUserInfo(currentUser);
+    };
+    setUser();
+  }, [currentUser]);
+
+  // const {
+  //   address_line1,
+  //   address_line2,
+  //   country,
+  //   postal_code,
+  //   state,
+  //   first_name,
+  //   last_name,
+  // } = userInfo ;
+
   const paymentHandler = async (e) => {
     e.preventDefault();
 
@@ -34,18 +55,18 @@ const PaymentForm = () => {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: first_name + last_name,
+          name: userInfo.first_name + userInfo.last_name,
           address: {
-            line1: address_line1 + address_line2,
-            postal_code,
-            city: '',
-            state,
-            country
+            line1: userInfo.address_line1 + userInfo.address_line2,
+            postal_code: userInfo.postal_code,
+            city: "",
+            state: userInfo.state,
+            country: userInfo.country,
           },
         },
       },
     });
-    
+
     setIsProcessingPayment(false);
 
     if (paymentResult.error) {
@@ -57,12 +78,17 @@ const PaymentForm = () => {
       }
     }
   };
+
   return (
     <PaymentFormContainer>
       <FormContainer onSubmit={paymentHandler}>
-        <h2>Credit Card Payment</h2>
         <CardElement />
-        <button disabled = {isProcessingPayment} type="submit">Pay now</button>
+        <PaymentsButton
+          disabled={isProcessingPayment}
+          type="submit"
+        >
+          Pay now
+        </PaymentsButton>
       </FormContainer>
     </PaymentFormContainer>
   );

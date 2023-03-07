@@ -6,9 +6,11 @@ import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../../store/user/user.selector";
 import { useNavigate } from "react-router-dom";
-import { googleSignOut } from "../../../utils/firebase.utils.js";
-import { setCurrentUser } from "../../../store/user/user.action";
+// import { googleSignOut } from "../../../utils/firebase.utils.js";
+// import { setCurrentUser } from "../../../store/user/user.action";
 import { useDispatch } from "react-redux";
+import { userSignOutStart } from "../../../store/user/user.action";
+
 const NavbarUpper = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,8 +20,7 @@ const NavbarUpper = () => {
     navigate("sign-in");
   };
   const signOutClickHandler = () => {
-    googleSignOut();
-    dispatch(setCurrentUser(null));
+    dispatch(userSignOutStart());
     navigate("/");
   };
   const myAccountClickHandler = () => {

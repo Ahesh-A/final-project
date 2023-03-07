@@ -4,13 +4,12 @@
 // } from "@fortawesome/fontawesome-svg-core/import.macro";
 import "./myaccount.styles.scss";
 import Candles from "../../components/candles/candles.component.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { updateUser } from "../../utils/firebase.utils";
 const MyAccount = () => {
-
-  const user = useSelector(selectCurrentUser);
   // const info = {
   //   ...user,
   //   country: "",
@@ -20,14 +19,18 @@ const MyAccount = () => {
   //   postal_code: "",
   //   occupation: "",
   // };
-  const [userInfo, setUserInfo] = useState(user);
+  const user = useSelector(selectCurrentUser);
+  const [userInfo, setUserInfo] = useState({});
 
   const accountSubmitHandler = (e) => {
     e.preventDefault();
-    const {uid} = userInfo;
+    const { uid } = userInfo;
     updateUser(uid, userInfo);
   };
-  
+  useEffect(() => {
+    
+    if (user) setUserInfo(user);
+  }, [userInfo, user]);
   return (
     <div>
       <div className="my-account-container">
@@ -430,9 +433,7 @@ const MyAccount = () => {
                   />
                 </div>
                 <div className="account-form">
-                  <label htmlFor="Address-Line2">
-                    Address Line 2 
-                  </label>
+                  <label htmlFor="Address-Line2">Address Line 2</label>
                   <input
                     type="text"
                     id="Address-Line2"
@@ -444,7 +445,6 @@ const MyAccount = () => {
                         address_line2: e.target.value,
                       })
                     }
-                    
                   />
                 </div>
                 <div className="account-form">

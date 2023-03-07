@@ -10,6 +10,7 @@ import CheckOut from "./routes/chect-out/check-out.component";
 import MyAccount from "./routes/myaccount/myaccount.component";
 import { useDispatch } from "react-redux";
 import { useEffect} from "react";
+import { checkUserSessionStart } from "./store/user/user.action";
 import { onAuthStateChangedListener } from "./utils/firebase.utils.js";
 import { setCurrentUser } from "./store/user/user.action";
 import { getUsers } from "./utils/firebase.utils.js";
@@ -20,26 +21,22 @@ import { getUsers } from "./utils/firebase.utils.js";
 const App = () => {
   const dispatch = useDispatch();
   
-  
   useEffect(() => {
-    const unSubscribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        const { uid } = user;
-        console.log("The user is :", uid);
-        const fetchUser = async () => {
-          const users = await getUsers();
-          const res = Object.values(users).find((user) => user.uid === uid);
-          dispatch(setCurrentUser(res));
-        };
-        fetchUser();
-      }
-    });
-    return unSubscribe;
+    dispatch(checkUserSessionStart());
+    // const unSubscribe = onAuthStateChangedListener((user) => {
+    //   if (user) {
+    //     const { uid } = user;
+    //     console.log("The user is :", uid);
+    //     const fetchUser = async () => {
+    //       const users = await getUsers();
+    //       const res = Object.values(users).find((user) => user.uid === uid);
+    //       dispatch(setCurrentUser(res));
+    //     };
+    //     fetchUser();
+    //   }
+    // });
+    // return unSubscribe;
   }, [dispatch]);
-
-  // useEffect(() => {
-  //   instertData(data);
-  // }, []);
 
   return (
     <Routes>

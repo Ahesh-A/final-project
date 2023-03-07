@@ -1,9 +1,17 @@
 import "./check-out.styles.scss";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selector";
+import { selectCurrentUser } from "../../store/user/user.selector";
 import PaymentForm from "../../components/paymentform/payment-form.component";
 const CheckOut = () => {
   const cartTotal = useSelector(selectCartTotal);
+  const user = useSelector(selectCurrentUser);
+  const [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    if (user) setUserInfo(user);
+  }, [userInfo, user]);
   return (
     <div>
       <div className="checkout-container">
@@ -18,31 +26,76 @@ const CheckOut = () => {
                 <label htmlFor="First-Name">
                   First Name <span>*</span>
                 </label>
-                <input type="text" id="First-Name" required />
+                <input
+                  type="text"
+                  id="First-Name"
+                  value={userInfo.first_name}
+                  onChange={(e) =>
+                    setUserInfo({ ...userInfo, first_name: e.target.value })
+                  }
+                  required
+                />
               </div>
               <div className="form-element">
                 <label htmlFor="Last-Name">
                   Last Name <span>*</span>
                 </label>
-                <input type="text" id="Last-Name" required />
+                <input
+                  type="text"
+                  id="Last-Name"
+                  value={userInfo.last_name}
+                  onChange={(e) =>
+                    setUserInfo({
+                      ...userInfo,
+                      last_name: e.target.value,
+                    })
+                  }
+                  required
+                />
               </div>
               <div className="form-element">
                 <label htmlFor="Email-Address">
                   Email Address <span>*</span>
                 </label>
-                <input type="text" id="Email-Address" required />
+                <input
+                  type="text"
+                  id="Email-Address"
+                  value={userInfo.email}
+                  onChange={(e) =>
+                    setUserInfo({ ...userInfo, email: e.target.value })
+                  }
+                  required
+                />
               </div>
               <div className="form-element">
                 <label htmlFor="Phone-Number">
                   Phone Number<span>*</span>
                 </label>
-                <input type="text" id="Phone-Number" required />
+                <input
+                  type="text"
+                  id="Phone-Number"
+                  value={userInfo.phone_number}
+                  onChange={(e) =>
+                    setUserInfo({
+                      ...userInfo,
+                      phone_number: e.target.value,
+                    })
+                  }
+                  required
+                />
               </div>
               <div className="form-element">
                 <label htmlFor="country">
                   Country <span>*</span>
                 </label>
-                <select name="country_name" id="country">
+                <select
+                  name="country_name"
+                  id="country"
+                  value={userInfo.country}
+                  onChange={(e) =>
+                    setUserInfo({ ...userInfo, country: e.target.value })
+                  }
+                >
                   <option value="AF">Afghanistan</option>
                   <option value="AX">Åland Islands</option>
                   <option value="AL">Albania</option>
@@ -296,31 +349,86 @@ const CheckOut = () => {
                 <label htmlFor="State/Divition">
                   State / Divition <span>*</span>
                 </label>
-                <input type="text" id="State/Divition" required />
+                <input
+                  type="text"
+                  id="State/Divition"
+                  value={userInfo.state}
+                  onChange={(e) =>
+                    setUserInfo({
+                      ...userInfo,
+                      state: e.target.value,
+                    })
+                  }
+                  required
+                />
               </div>
               <div className="form-element">
                 <label htmlFor="Address-Line1">
                   Address Line 1 <span>*</span>
                 </label>
-                <input type="text" id="Address-Line1" required />
+                <input
+                  type="text"
+                  id="Address-Line1"
+                  value={userInfo.address_line1}
+                  onChange={(e) =>
+                    setUserInfo({
+                      ...userInfo,
+                      address_line1: e.target.value,
+                    })
+                  }
+                  required
+                />
               </div>
               <div className="form-element">
                 <label htmlFor="Address-Line2">
-                  Address Line 1 <span>*</span>
+                  Address Line 2 <span>*</span>
                 </label>
-                <input type="text" id="Address-Line1" required />
+                <input
+                  type="text"
+                  id="Address-Line2"
+                  value={userInfo.address_line2}
+                  onChange={(e) =>
+                    setUserInfo({
+                      ...userInfo,
+                      address_line2: e.target.value,
+                    })
+                  }
+                  required
+                />
               </div>
               <div className="form-element">
                 <label htmlFor="Postal-Code">
                   Postal Code <span>*</span>
                 </label>
-                <input type="text" id="Postal-Code" required />
+                <input
+                  type="text"
+                  id="Postal-Code"
+                  value={userInfo.postal_code}
+                  onChange={(e) =>
+                    setUserInfo({
+                      ...userInfo,
+                      postal_code: e.target.value,
+                    })
+                  }
+                  required
+                />
               </div>
               <div className="form-element">
                 <label htmlFor="Company">
                   Occupation <span>*</span>
                 </label>
-                <input type="text" id="Company" required />
+                <input
+                  type="text"
+                  id="Company"
+                  value={userInfo.occupation}
+                  onChange={(e) =>
+                    setUserInfo({
+                      ...userInfo,
+                      occupation: e.target.value,
+                    })
+                  }
+                  required
+                />
               </div>
               {/* <div className="check-box-container">
                 <input type="checkbox" id="ckeckbox" />
@@ -353,7 +461,8 @@ const CheckOut = () => {
             <div className="payments-heading-container">
               <h4>PAYMENTS</h4>
             </div>
-            <div className="payment-options">
+            <PaymentForm />
+            {/* <div className="payment-options">
               <input type="radio" id="check-payment" value="checkpayment" />
               <label htmlFor="check-payment">Check Payment</label>
             </div>
@@ -368,7 +477,7 @@ const CheckOut = () => {
             <div className="payment-options">
               <input type="radio" id="upi" value="upi" />
               <label htmlFor="upi">UPI</label>
-            </div>
+            </div> */}
             <div className="payment-image-container">
               <img
                 src={require("../../assets/payments/payment-method.png")}
@@ -376,12 +485,11 @@ const CheckOut = () => {
               />
             </div>
           </div>
-          <div className="checkout-button-container">
+          {/* <div className="checkout-button-container">
             <button className="checkout-button">PROCEED TO CHECKOUT</button>
-          </div>
+          </div> */}
         </div>
       </div>
-      <PaymentForm />
     </div>
   );
 };
