@@ -1,4 +1,5 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { insertItemsToDeliver } from "../../utils/firebase.utils.js";
 import {
   PaymentFormContainer,
   FormContainer,
@@ -6,15 +7,23 @@ import {
 } from "./payment-form.styles.jsx";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { selectCartTotal } from "../../store/cart/cart.selector.js";
+import {
+  selectCartTotal,
+  selectCartItems,
+} from "../../store/cart/cart.selector.js";
 import { selectCurrentUser } from "../../store/user/user.selector.js";
-const PaymentForm = () => {
+
+const PaymentForm = ({ user }) => {
   const stripe = useStripe();
   const elements = useElements();
   const cartTotal = useSelector(selectCartTotal);
+  const cartItems = useSelector(selectCartItems);
   const [userInfo, setUserInfo] = useState({});
   const currentUser = useSelector(selectCurrentUser);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+
+  console.log("user is: ", { user, cartItems });
+  //console.log("cart items :", cartItems);
   useEffect(() => {
     const setUser = async () => {
       await setUserInfo(currentUser);
@@ -37,6 +46,7 @@ const PaymentForm = () => {
 
     if (!stripe || !elements) return;
 
+    if (!currentUser) alert("please login before payment");
     setIsProcessingPayment(true);
     const response = await fetch("/.netlify/functions/create-payment-intent", {
       method: "post",
@@ -70,11 +80,12 @@ const PaymentForm = () => {
     setIsProcessingPayment(false);
 
     if (paymentResult.error) {
-      alert(paymentResult.error);
+      alert('invalid card number');
       console.log(paymentResult.error);
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
         alert("Payment Successful");
+        insertItemsToDeliver({ user, cartItems });
       }
     }
   };
@@ -83,10 +94,7 @@ const PaymentForm = () => {
     <PaymentFormContainer>
       <FormContainer onSubmit={paymentHandler}>
         <CardElement />
-        <PaymentsButton
-          disabled={isProcessingPayment}
-          type="submit"
-        >
+        <PaymentsButton disabled={isProcessingPayment} type="submit">
           Pay now
         </PaymentsButton>
       </FormContainer>

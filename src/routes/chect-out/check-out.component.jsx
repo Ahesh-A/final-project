@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selector";
 import { selectCurrentUser } from "../../store/user/user.selector";
+
 import PaymentForm from "../../components/paymentform/payment-form.component";
 const CheckOut = () => {
   const cartTotal = useSelector(selectCartTotal);
@@ -12,6 +13,8 @@ const CheckOut = () => {
   useEffect(() => {
     if (user) setUserInfo(user);
   }, [userInfo, user]);
+
+  // console.log("User in checkout",userInfo);
   return (
     <div>
       <div className="checkout-container">
@@ -461,7 +464,7 @@ const CheckOut = () => {
             <div className="payments-heading-container">
               <h4>PAYMENTS</h4>
             </div>
-            <PaymentForm />
+            <PaymentForm user = {userInfo}/>
             {/* <div className="payment-options">
               <input type="radio" id="check-payment" value="checkpayment" />
               <label htmlFor="check-payment">Check Payment</label>

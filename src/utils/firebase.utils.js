@@ -144,3 +144,12 @@ export const getCurrentUser = () => {
     );
   });
 };
+
+export const insertItemsToDeliver = async (item) => {
+  const { user, cartItems } = item;
+  const prodId = cartItems.reduce((acc, item) => acc + item.id, "");
+  const deliverId = `${Date.now()}${user.uid}`;
+  console.log("Deliver ID :", deliverId);
+  // console.log(user.uid + prodId);
+  await setDoc(doc(db, "Items_to_deliver", deliverId), { ...user, cartItems, deliverId});
+};
