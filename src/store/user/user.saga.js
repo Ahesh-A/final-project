@@ -23,6 +23,7 @@ export function* checkUserSession() {
     yield put(checkUserSessionFailed(error));
   }
 }
+
 export function* signOut() {
   try {
     yield call(googleSignOut);
@@ -56,5 +57,6 @@ export function* userSaga() {
     call(oncheckUserSession),
     call(onUserSignOut),
     call(onGoogleSignInStart),
+    
   ]);
 }

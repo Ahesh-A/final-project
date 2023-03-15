@@ -17,7 +17,7 @@ const SingleSlider = () => {
           <button
             className="slide-button"
             onClick={() => {
-              navigate("/product/men");
+              navigate("/product");
             }}
           >
             SHOP NOW!

@@ -87,6 +87,7 @@ export const insertUser = async (data) => {
   const { uid } = data;
   await setDoc(doc(db, "users", uid), data);
 };
+
 export const createUserWithGoogleEmailAndPassword = (
   email,
   password,
@@ -101,6 +102,7 @@ export const createUserWithGoogleEmailAndPassword = (
       const { uid } = user;
       await insertUser({ uid, first_name, last_name, phone_number, email });
       //console.log({ uid, first_name, last_name, phone_number });
+      alert(`Welcome ${first_name + last_name}`);
     })
     .catch((error) => {
       alert(error.code);

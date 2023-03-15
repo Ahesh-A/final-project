@@ -31,15 +31,7 @@ const PaymentForm = ({ user }) => {
     setUser();
   }, [currentUser]);
 
-  // const {
-  //   address_line1,
-  //   address_line2,
-  //   country,
-  //   postal_code,
-  //   state,
-  //   first_name,
-  //   last_name,
-  // } = userInfo ;
+
 
   const paymentHandler = async (e) => {
     e.preventDefault();
