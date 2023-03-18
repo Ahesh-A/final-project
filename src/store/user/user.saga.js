@@ -1,13 +1,21 @@
 import { USER_ACTION_TYPES } from "./user.types.js";
 import { googleSignIn } from "../../utils/firebase.utils";
-import { call, all, put, takeLatest } from "redux-saga/effects";
+import { call, all, put, takeLatest, take } from "redux-saga/effects";
 import { getCurrentUser } from "../../utils/firebase.utils.js";
 import {
   checkUserSessionFailed,
   checkUserSessionSuccess,
+  googleSignInFailed,
+  signInWithEmailAndPassFalied,
+  signInWithEmailAndPassSuccess,
 } from "./user.action.js";
-import { getUsers, googleSignOut } from "../../utils/firebase.utils.js";
+import {
+  getUsers,
+  googleSignOut,
+  signInWithGoogleEmailAndPassword,
+} from "../../utils/firebase.utils.js";
 import { userSignOutSuccess, userSignOutFailed } from "./user.action.js";
+
 export function* checkUserSession() {
   try {
     const user = yield call(getCurrentUser);
@@ -35,9 +43,26 @@ export function* signOut() {
 export function* signInWithGoogle() {
   try {
     yield call(googleSignIn);
+    yield call(checkUserSession);
+  } catch (error) {
+    yield put(googleSignInFailed(error));
+  }
+}
+
+export function* signIn({ payload: { email, password } }) {
+  try {
+    const userCredential = yield call(
+      signInWithGoogleEmailAndPassword,
+      email,
+      password
+    );
+    if (userCredential) {
+      const { user } = userCredential;
+      yield put(signInWithEmailAndPassSuccess(user));
+    }
     yield call (checkUserSession);
   } catch (error) {
-    yield put();
+    yield put(signInWithEmailAndPassFalied(error));
   }
 }
 export function* oncheckUserSession() {
@@ -52,11 +77,15 @@ export function* onUserSignOut() {
 export function* onGoogleSignInStart() {
   yield takeLatest(USER_ACTION_TYPES.GOOGLE_SIGN_IN_START, signInWithGoogle);
 }
+
+export function* onSignInWithEmailAndPawwsordStart() {
+  yield takeLatest(USER_ACTION_TYPES.SIGN_IN_WITH_EMAIL_PASSWORD_START, signIn);
+}
 export function* userSaga() {
   yield all([
     call(oncheckUserSession),
     call(onUserSignOut),
     call(onGoogleSignInStart),
-    
+    call(onSignInWithEmailAndPawwsordStart),
   ]);
 }

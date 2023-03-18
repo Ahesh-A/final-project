@@ -21,6 +21,10 @@ export const userSignOutSuccess = () =>
 export const userSignOutFailed = (error) =>
   createAction(USER_ACTION_TYPES.USER_SIGNOUT_FAILED, error);
 
+export const signInWithEmailAndPassStart = (email, password) => createAction(USER_ACTION_TYPES.SIGN_IN_WITH_EMAIL_PASSWORD_START, {email, password});
+export const signInWithEmailAndPassSuccess = (user) => createAction(USER_ACTION_TYPES.SIGN_IN_WITH_EMAIL_PASSWORD_SUCCESS, user);
+export const signInWithEmailAndPassFalied = (error) => createAction(USER_ACTION_TYPES.SIGN_IN_WITH_EMAIL_PASSWORD_FAILED, error);
+
 export const googleSignInStart = () => createAction(USER_ACTION_TYPES.GOOGLE_SIGN_IN_START);
 export const googleSignInSuccess = () => createAction(USER_ACTION_TYPES.GOOGLE_SIGN_IN_SUCCESS);
-export const googleSignInFailed = () => createAction(USER_ACTION_TYPES.GOOGLE_SIGN_IN_FAILED);
+export const googleSignInFailed = (error) => createAction(USER_ACTION_TYPES.GOOGLE_SIGN_IN_FAILED, error);

@@ -74,15 +74,16 @@ export const googleSignOut = async () => {
 };
 
 export const signInWithGoogleEmailAndPassword = (email, password) =>
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      console.log(user);
-    })
-    .catch((error) => {
-      if (error.code === "auth/invalid-email") alert("no such user...");
-      console.log(error);
-    });
+  signInWithEmailAndPassword(auth, email, password);
+    // .then((userCredential) => {
+    //   const user = userCredential.user;
+    //   console.log(user);
+    // })
+    // .catch((error) => {
+    //   if (error.code === "auth/invalid-email") alert("no such user...");
+    //   console.log(error);
+    // });
+
 export const insertUser = async (data) => {
   const { uid } = data;
   await setDoc(doc(db, "users", uid), data);

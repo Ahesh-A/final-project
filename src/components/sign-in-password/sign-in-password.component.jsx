@@ -6,7 +6,9 @@ import { useDispatch } from "react-redux";
 import { selectEmail } from "../../store/sign-in/sign-in.selector";
 import { useSelector } from "react-redux";
 import { signInWithGoogleEmailAndPassword } from "../../utils/firebase.utils";
+import { signInWithEmailAndPassStart } from "../../store/user/user.action";
 import { useNavigate} from "react-router-dom";
+
 const SigninPassword = () => {
   const email = useSelector(selectEmail);
   const [password, setpassword] = useState("");
@@ -15,7 +17,8 @@ const SigninPassword = () => {
   const signInButtonClick = (event) => {
     event.preventDefault();
     dispatch(setPassword(password));
-    signInWithGoogleEmailAndPassword(email, password);
+    dispatch(signInWithEmailAndPassStart(email, password));
+    //signInWithGoogleEmailAndPassword(email, password);
     navigate("/");
   };
   const passwordChangeHandler = (event) => {

@@ -12,13 +12,14 @@ export const userReducer = (state = INITIAL_STATE, action) => {
   switch (type) {
     case USER_ACTION_TYPES.CHECK_USER_SESSION_START:
     case USER_ACTION_TYPES.USER_SIGNOUT_START:
-      case USER_ACTION_TYPES.GOOGLE_SIGN_IN_START:
+    case USER_ACTION_TYPES.GOOGLE_SIGN_IN_START:
+    case USER_ACTION_TYPES.SIGN_IN_WITH_EMAIL_PASSWORD_START:
       return {
         ...state,
         isLoading: true,
       };
     case USER_ACTION_TYPES.CHECK_USER_SESSION_SUCCESS:
-
+    case USER_ACTION_TYPES.SIGN_IN_WITH_EMAIL_PASSWORD_SUCCESS:
       return {
         ...state,
         isLoading: false,
@@ -31,7 +32,8 @@ export const userReducer = (state = INITIAL_STATE, action) => {
       };
     case USER_ACTION_TYPES.CHECK_USER_SESSION_FAILED:
     case USER_ACTION_TYPES.USER_SIGNOUT_FAILED:
-      case USER_ACTION_TYPES.GOOGLE_SIGN_IN_FAILED:
+    case USER_ACTION_TYPES.GOOGLE_SIGN_IN_FAILED:
+    case USER_ACTION_TYPES.SIGN_IN_WITH_EMAIL_PASSWORD_FAILED:
       return {
         ...state,
         isLoading: false,

@@ -7,3 +7,4 @@ export const setEmail = (email) => {
 export const setPassword = (password) => {
   return createAction(SIGN_IN_ACTION_TYPES.SET_PASSWORD, password);
 };
+

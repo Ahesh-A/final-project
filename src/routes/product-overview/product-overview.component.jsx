@@ -44,7 +44,7 @@ const ProductOverView = ({ productId }) => {
     e.preventDefault();
     console.log('valuee',e.target);
 
-    dispatch(addItemsToCart(cartItems, {...product,imageUrl:productOverView.imageUrl, id: product.id + productOverView.imageUrl}));
+    dispatch(addItemsToCart(cartItems, {...product,imageUrl:productOverView.imageUrl, id: product.id + productOverView.imageUrl,color:productOverView.color }));
   };
   return (
     Object.values(product).length && (

@@ -23,9 +23,10 @@ const PaymentForm = ({ user }) => {
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
   console.log("user is: ", { user, cartItems });
-  //console.log("cart items :", cartItems);
+  
   useEffect(() => {
     const setUser = async () => {
+
       await setUserInfo(currentUser);
     };
     setUser();
@@ -70,7 +71,6 @@ const PaymentForm = ({ user }) => {
     });
 
     setIsProcessingPayment(false);
-
     if (paymentResult.error) {
       alert('invalid card number');
       console.log(paymentResult.error);
