@@ -4,11 +4,12 @@ import { signInReducer } from "./sign-in/sign-in.reducer.js";
 import { productReducer } from "./products/products.reducer.js";
 import { cartReducer } from "./cart/cart.reducer.js";
 import { productOverViewReducer } from "./product-overview/product-overview.reducers.jsx";
-
+import { searchProductReducer } from "./search-product/search-product.reducer.js";
 export const rootReducer = combineReducers({
   user: userReducer,
   signin: signInReducer,
   products: productReducer,
   cart: cartReducer,
-  product_overview: productOverViewReducer
+  product_overview: productOverViewReducer,
+  search_product: searchProductReducer,
 });

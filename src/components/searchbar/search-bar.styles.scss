@@ -1,0 +1,70 @@
+$primary: #f7941d;
+$bordercolor: #cccccc;
+.search-bar-container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .search-bar {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    height: 50%;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  
+    .product-categories {
+      display: flex;
+      height: 100%;
+      font-size: 1rem;
+      align-items: center;
+      justify-content: center;
+      background-color: $primary;
+      color: #fff;
+      border-radius: 5px 0 0 5px;
+      padding: 0.5rem;
+      span {
+        margin-right: 10px;
+      }
+    }
+    form {
+      display: flex;
+      height: 100%;
+      width: 80%;
+      position: relative;
+  
+      input {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-size: 20px;
+        text-align: center;
+        border: 1px solid $bordercolor;
+      }
+      button {
+        height: 100%;
+        font-size: 1.5rem;
+        width: 65px;
+        border: none;
+        color: #fff;
+        background-color: #333;
+        margin-bottom: 10px;
+        border-radius: 0 5px 5px 0;
+        transition: color 0.5s ease;
+  
+        &:hover {
+          cursor: pointer;
+          color: $primary;
+        }
+      }
+    }
+  }
+  
+}

@@ -3,8 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from "react-redux";
 import {
   selectIsCartOpen,
-  selectCartCount
+  selectCartCount,
 } from "../../../store/cart/cart.selector";
+import SearchBar from "../../searchbar/search-bar.component";
 import { setIsCartOpen } from "../../../store/cart/cart.action";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -38,19 +39,8 @@ const NavbarMiddle = () => {
           <Logo />
         </div>
         <div className="nav-middle-center-container">
-          <div className="search-bar">
-            <div className="product-categories">
-              <span> All Category</span>
-              <FontAwesomeIcon icon={solid("chevron-down")} />
-            </div>
-
-            <form action="submit">
-              <input type="search" placeholder="search item" />
-              <button>
-                <FontAwesomeIcon icon={solid("magnifying-glass")} />
-              </button>
-            </form>
-          </div>
+  
+          <SearchBar />
         </div>
         <div className="nav-middle-right-container">
           <ul className="icons-container">
