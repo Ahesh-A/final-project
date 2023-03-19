@@ -37,7 +37,7 @@ $bordercolor: #cccccc;
       width: 80%;
       position: relative;
   
-      input {
+      .search-bar-input {
         display: flex;
         flex-direction: row;
         flex-grow: 1;
@@ -46,6 +46,7 @@ $bordercolor: #cccccc;
         outline: none;
         font-size: 20px;
         text-align: center;
+        font: 1rem poppins;
         border: 1px solid $bordercolor;
       }
       button {
