@@ -75,14 +75,14 @@ export const googleSignOut = async () => {
 
 export const signInWithGoogleEmailAndPassword = (email, password) =>
   signInWithEmailAndPassword(auth, email, password);
-    // .then((userCredential) => {
-    //   const user = userCredential.user;
-    //   console.log(user);
-    // })
-    // .catch((error) => {
-    //   if (error.code === "auth/invalid-email") alert("no such user...");
-    //   console.log(error);
-    // });
+// .then((userCredential) => {
+//   const user = userCredential.user;
+//   console.log(user);
+// })
+// .catch((error) => {
+//   if (error.code === "auth/invalid-email") alert("no such user...");
+//   console.log(error);
+// });
 
 export const insertUser = async (data) => {
   const { uid } = data;
@@ -118,10 +118,14 @@ export const instertData = (data) => {
 };
 
 export const getData = async () => {
-  const docRef = collection(db, "d_products");
-  const q = query(docRef);
-  const querySnapShot = await getDocs(q);
-  return querySnapShot.docs.map((doc) => doc.data());
+  try {
+    const docRef = collection(db, "d_products");
+    const q = query(docRef);
+    const querySnapShot = await getDocs(q);
+    return querySnapShot.docs.map((doc) => doc.data());
+  } catch (error) {
+    alert(error);
+  }
 };
 
 export const getUsers = async () => {
@@ -154,5 +158,9 @@ export const insertItemsToDeliver = async (item) => {
   const deliverId = `${Date.now()}${user.uid}`;
   console.log("Deliver ID :", deliverId);
   // console.log(user.uid + prodId);
-  await setDoc(doc(db, "Items_to_deliver", deliverId), { ...user, cartItems, deliverId});
+  await setDoc(doc(db, "Items_to_deliver", deliverId), {
+    ...user,
+    cartItems,
+    deliverId,
+  });
 };

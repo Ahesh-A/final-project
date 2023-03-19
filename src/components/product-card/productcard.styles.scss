@@ -61,6 +61,15 @@ $primary: #f7941d;
         }
       }
     }
+    .fav-icon-container{
+      color: #333;
+      position: absolute;
+      font: 20px poppins;
+      bottom: 15px;
+      left:15px;
+      
+    }
+    
   }
 
   .product-card-image-container {
@@ -91,4 +100,8 @@ $primary: #f7941d;
     color: rgba(51, 51, 51, 0.8);
     font: 1rem poppins;
   }
+}
+
+.fav{
+  color: red !important;
 }

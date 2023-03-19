@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./routes/home/home.component";
-//import Navbar from "./components/navbar/navbar.components";
 import Fixed from "./components/fixed/fixed.components";
 import SignIn from "./routes/sign-in/sign-in.component";
 import SignUp from "./routes/sign-up/sign-up.component";
@@ -11,10 +10,8 @@ import MyAccount from "./routes/myaccount/myaccount.component";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { checkUserSessionStart } from "./store/user/user.action";
-import { onAuthStateChangedListener } from "./utils/firebase.utils.js";
-import { setCurrentUser } from "./store/user/user.action";
-import { getUsers } from "./utils/firebase.utils.js";
 import SearchResult from "./routes/search-result/search-result.component";
+import Favourties from "./routes/favourites/favourites.component";
 
 // import { instertData } from "./utils/firebase.utils.js";
 // import { data } from "./assets/data/data";
@@ -37,6 +34,7 @@ const App = () => {
         <Route path="cart" element={<Cart />} />
         <Route path="checkout" element={<CheckOut />} />
         <Route path="search-results" element={<SearchResult />} />
+        <Route path="favourites" element={<Favourties />} />
       </Route>
     </Routes>
   );

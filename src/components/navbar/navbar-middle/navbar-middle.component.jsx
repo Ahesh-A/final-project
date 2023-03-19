@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectCurrentUser } from "../../../store/user/user.selector";
 import {
-  solid,
+  
   brands,
   regular,
 } from "@fortawesome/fontawesome-svg-core/import.macro";
@@ -45,7 +45,7 @@ const NavbarMiddle = () => {
         <div className="nav-middle-right-container">
           <ul className="icons-container">
             <li className="nav-favourites">
-              <FontAwesomeIcon icon={regular("heart")} />
+              <FontAwesomeIcon icon={regular("heart")} onClick = {() => {navigate("favourites")}}/>
             </li>
             <li>
               <FontAwesomeIcon

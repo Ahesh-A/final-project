@@ -73,7 +73,7 @@ const SearchBar = () => {
               setFocus(true);
             }}
             onBlur={() => {
-              setTimeout(() => {setFocus(false);}, 1000)
+              setTimeout(() => {setFocus(false);}, 100)
               
             }}
           />

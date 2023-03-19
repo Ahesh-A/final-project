@@ -1,0 +1,53 @@
+.fav-result-container {
+    padding: 3rem;
+    .fav-results-container{
+      border: 1px solid rgba(51, 51, 51, 0.3);
+      height: 80vh;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr ;
+
+      .no-results {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font: 3rem poppins;
+        font-weight: 600;
+        color: #333;
+        .no-results-dot{
+          background-color: #f7941d;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          margin-top: 20px;
+        }
+      }
+      .no-fav-results-icon-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+   
+    }
+  .search-result-produt-card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 2rem;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+  }
+
+  .search-result-heading {
+    
+    color: #333;
+    font: 2rem poppins;
+    font-weight: 600;
+    margin-bottom: 2rem;
+
+    .divider{
+        width: 150px;
+        margin-left: 5px;
+        background-color: #f7941d;
+        height: 2px;
+    }
+  }
+}
