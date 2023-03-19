@@ -1,11 +1,11 @@
 import "./sign-in-password.styles.scss";
 import { Fragment } from "react";
 import { useState } from "react";
-import { setPassword } from "../../store/sign-in/sign-in.action";
+import { setPassword, setEmail } from "../../store/sign-in/sign-in.action";
 import { useDispatch } from "react-redux";
 import { selectEmail } from "../../store/sign-in/sign-in.selector";
 import { useSelector } from "react-redux";
-import { signInWithGoogleEmailAndPassword } from "../../utils/firebase.utils";
+
 import { signInWithEmailAndPassStart } from "../../store/user/user.action";
 import { useNavigate} from "react-router-dom";
 
@@ -18,7 +18,7 @@ const SigninPassword = () => {
     event.preventDefault();
     dispatch(setPassword(password));
     dispatch(signInWithEmailAndPassStart(email, password));
-    //signInWithGoogleEmailAndPassword(email, password);
+    
     navigate("/");
   };
   const passwordChangeHandler = (event) => {
@@ -28,7 +28,7 @@ const SigninPassword = () => {
   return (
     <Fragment>
       <p className="email-container">
-        {email} <span>Change</span>
+        {email} <span onClick = {() => {dispatch(setEmail(null))}}>Change</span>
       </p>
       <div className="password-container">
         <div className="password-upper-container">

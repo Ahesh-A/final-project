@@ -38,6 +38,8 @@ const SearchBar = () => {
         });
       });
       dispatch(setSearchProducts(acc));
+    } else {
+      dispatch(setSearchProducts([]));
     }
   }, [searchString, dispatch]);
 
