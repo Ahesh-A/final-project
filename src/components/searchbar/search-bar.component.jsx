@@ -29,7 +29,7 @@ const SearchBar = () => {
   useEffect(() => {
     console.log("In func", searchString);
     const acc = [];
-    if (searchString && searchString !== "") {
+    if (searchString && searchString !== "" && currProducts) {
       console.log(searchString);
       Object.values(currProducts).forEach((category) => {
         Object.values(category).forEach((product) => {
