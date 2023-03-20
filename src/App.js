@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import { checkUserSessionStart } from "./store/user/user.action";
 import SearchResult from "./routes/search-result/search-result.component";
 import Favourties from "./routes/favourites/favourites.component";
-
+import { setProductsStart } from "./store/products/products.action";
 // import { instertData } from "./utils/firebase.utils.js";
 // import { data } from "./assets/data/data";
 
@@ -21,6 +21,10 @@ const App = () => {
 
   useEffect(() => {
     dispatch(checkUserSessionStart());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(setProductsStart());
   }, [dispatch]);
 
   return (

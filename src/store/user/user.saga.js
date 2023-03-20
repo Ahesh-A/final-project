@@ -1,6 +1,7 @@
 import { USER_ACTION_TYPES } from "./user.types.js";
 import { googleSignIn } from "../../utils/firebase.utils";
-import { call, all, put, takeLatest, take } from "redux-saga/effects";
+import { call, all, put, takeLatest } from "redux-saga/effects";
+import { setFavourites } from "../favourites/favourites.action.js";
 import { getCurrentUser } from "../../utils/firebase.utils.js";
 import {
   checkUserSessionFailed,
@@ -24,8 +25,9 @@ export function* checkUserSession() {
       console.log("The user is :", uid);
       const users = yield call(getUsers);
       const res = Object.values(users).find((user) => user.uid === uid);
+      if (res.favourites) yield put(setFavourites(res.favourites));
       yield put(checkUserSessionSuccess(res));
-      console.log(user);
+      console.log(res.favourites);
     }
   } catch (error) {
     yield put(checkUserSessionFailed(error));
@@ -60,7 +62,7 @@ export function* signIn({ payload: { email, password } }) {
       const { user } = userCredential;
       yield put(signInWithEmailAndPassSuccess(user));
     }
-    yield call (checkUserSession);
+    yield call(checkUserSession);
   } catch (error) {
     yield put(signInWithEmailAndPassFalied(error));
   }

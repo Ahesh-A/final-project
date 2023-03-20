@@ -6,7 +6,7 @@ import { products } from "../../store/products/products.selector";
 const ProductOrCategory = () => {
   const { prodOrCat } = useParams();
   const cartproducts = useSelector(products);
-  console.log(cartproducts[prodOrCat]);
+  
   return (
     <div>
       {cartproducts[prodOrCat] ? (

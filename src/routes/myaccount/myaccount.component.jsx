@@ -5,7 +5,7 @@
 import "./myaccount.styles.scss";
 import Candles from "../../components/candles/candles.component.jsx";
 import { useState, useEffect } from "react";
-
+import { selectFavourites } from "../../store/favourites/favourites.selector";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { updateUser } from "../../utils/firebase.utils";
@@ -19,6 +19,7 @@ const MyAccount = () => {
   //   postal_code: "",
   //   occupation: "",
   // };
+  const favourites = useSelector(selectFavourites);
   const user = useSelector(selectCurrentUser);
   const [userInfo, setUserInfo] = useState({});
 

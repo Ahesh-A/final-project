@@ -7,10 +7,10 @@ import { ReactComponent as NoResults } from "../../assets/icon/no-results.svg";
 const Favourties = () => {
   const products = useSelector(selectFavourites);
 
-  console.log(Object.values(products).length);
+  //console.log(Object.values(products).length);
   return (
     <div className="fav-result-container">
-      {Object.values(products).length === 0 ? (
+      {products && Object.values(products).length === 0 ? (
         <div className="fav-results-container">
           <div className="no-fav-results-icon-container">
             <NoResults />

@@ -47,7 +47,10 @@ const SearchBar = () => {
     e.preventDefault();
     navigate("search-results");
   };
-
+  const categoryChangeHandler = (e) => {
+    const { value } = e.target;
+    navigate(`/product/${value}`);
+  };
   const onChangeHandler = (e) => {
     e.preventDefault();
     const { value } = e.target;
@@ -57,14 +60,30 @@ const SearchBar = () => {
   return (
     <div className="search-bar-container">
       <div className="search-bar">
-        <div className="product-categories">
-          <span> All Category</span>
-          <FontAwesomeIcon icon={solid("chevron-down")} />
-        </div>
+        <select className="product-categories" onChange={categoryChangeHandler}>
+          <option className="product-category" value="">
+            All Category
+          </option>
+          <option className="product-category" value="men">
+            Men
+          </option>
+          <option className="product-category" value="shoe for men">
+            Shoe For Men
+          </option>
+          <option className="product-category" value="shoe for women">
+            Shoe For Women
+          </option>
+          <option className="product-category" value="sunglasses">
+            Sunglasses
+          </option>
+          <option className="product-category" value="women">
+            Women
+          </option>
+        </select>
 
         <form action="submit" onSubmit={searchClickHandler}>
           <input
-          className="search-bar-input"
+            className="search-bar-input"
             type="search"
             placeholder="search item"
             value={searchString}
@@ -73,8 +92,9 @@ const SearchBar = () => {
               setFocus(true);
             }}
             onBlur={() => {
-              setTimeout(() => {setFocus(false);}, 100)
-              
+              setTimeout(() => {
+                setFocus(false);
+              }, 100);
             }}
           />
           <button>

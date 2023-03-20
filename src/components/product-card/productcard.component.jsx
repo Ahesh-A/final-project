@@ -10,6 +10,7 @@ import { addItemsToCart } from "../../store/cart/cart.action";
 import { useNavigate } from "react-router-dom";
 import { selectFavourites } from "../../store/favourites/favourites.selector.js";
 import { setFavourites } from "../../store/favourites/favourites.action";
+import { selectCurrentUser } from "../../store/user/user.selector";
 const ProductCard = ({ product }) => {
 
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const favourites = useSelector(selectFavourites);
-  
+  const currentUser = useSelector(selectCurrentUser);
   useEffect(() => {
     const res = favourites.find((fav) => fav.id === product.id);
     if(res) setInFavourites(true);
@@ -39,6 +40,10 @@ const ProductCard = ({ product }) => {
   };
 
   const addToFavHandler = () => {
+    if(!currentUser){
+      alert('please signin before adding to favourites');
+      return;
+    }
     if (favourites.length) {
       const res = favourites.find((fav) => fav.id === product.id);
       if (res) {

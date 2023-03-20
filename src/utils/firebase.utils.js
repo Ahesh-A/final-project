@@ -136,7 +136,9 @@ export const getUsers = async () => {
 };
 
 export const updateUser = async (uid, data) => {
-  await setDoc(doc(db, "users", uid), data);
+  const users = await getUsers();
+  const res = Object.values(users).find((user) => user.uid === uid);
+  await setDoc(doc(db, "users", uid), {...res, ...data});
 };
 
 export const getCurrentUser = () => {

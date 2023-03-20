@@ -20,15 +20,27 @@ $bordercolor: #cccccc;
     .product-categories {
       display: flex;
       height: 100%;
-      font-size: 1rem;
+      font: 1rem poppins;
       align-items: center;
       justify-content: center;
+      outline: none;
       background-color: $primary;
       color: #fff;
       border-radius: 5px 0 0 5px;
       padding: 0.5rem;
       span {
         margin-right: 10px;
+      }
+      .product-category{
+        background-color: #fff;
+        color: #333;
+        font: 1rem poppins;
+        border-bottom: 1px solid rgba(52,52,52,0.2);
+        &:hover{
+          cursor: pointer;
+          background-color: $primary;
+          color: #fff;
+        }
       }
     }
     form {
