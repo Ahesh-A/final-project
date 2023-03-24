@@ -1,0 +1,5 @@
+export const ADDITIONAL_INFO_ACTION_TYPES = {
+    SET_ADD_INFO_START: "additional-info/SET_ADD_INFO_START",
+    SET_ADD_INFO_SUCCESS:"additional-info/SET_ADD_INFO_SUCCESS",
+    SET_ADD_INFO_FAILED: "additional-info/SET_ADD_INFO_FAILED"
+}

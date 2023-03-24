@@ -7,6 +7,7 @@ import {
   collection,
   query,
   getDocs,
+  getDoc
 } from "firebase/firestore";
 import {
   getAuth,
@@ -41,10 +42,6 @@ const provider = new GoogleAuthProvider();
 export const googleSignIn = async () => {
   await signInWithPopup(auth, provider)
     .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      //const credential = GoogleAuthProvider.credentialFromResult(result);
-      //const token = credential.accessToken;
-      // The signed-in user info.
       const user = result.user;
       console.log(user);
     })
@@ -116,7 +113,17 @@ export const instertData = (data) => {
     await setDoc(doc(db, "d_products", title.toLowerCase()), item);
   });
 };
-
+// export const insertProdInfo = (data) => {
+//   data.map(async (prod) => {
+//     await setDoc(doc(db, "prod_info", prod.id), prod.info);
+//   });
+// };
+export const getProdInfo = async () => {
+  const docRef = collection(db, "prod_info");
+  const q = query(docRef)
+  const docSnap = await getDocs(q);
+  return docSnap.docs.map((doc) => doc.data());
+};
 export const getData = async () => {
   try {
     const docRef = collection(db, "d_products");
@@ -138,7 +145,7 @@ export const getUsers = async () => {
 export const updateUser = async (uid, data) => {
   const users = await getUsers();
   const res = Object.values(users).find((user) => user.uid === uid);
-  await setDoc(doc(db, "users", uid), {...res, ...data});
+  await setDoc(doc(db, "users", uid), { ...res, ...data });
 };
 
 export const getCurrentUser = () => {

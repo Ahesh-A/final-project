@@ -13,20 +13,37 @@ import { checkUserSessionStart } from "./store/user/user.action";
 import SearchResult from "./routes/search-result/search-result.component";
 import Favourties from "./routes/favourites/favourites.component";
 import { setProductsStart } from "./store/products/products.action";
+import { addAdditionalStart } from "./store/additional-info/additional-info.action";
+//import { insertProdInfo } from "./utils/firebase.utils.js";
 // import { instertData } from "./utils/firebase.utils.js";
 // import { data } from "./assets/data/data";
+//import {prod_data} from "./assets/data/prod_data";
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(checkUserSessionStart());
+    dispatch(setProductsStart());
+    
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(setProductsStart());
-  }, [dispatch]);
+    dispatch(addAdditionalStart());
+  }, []);
+  // useEffect(() => {
 
+  // }, [dispatch]);
+  // useEffect(() => {
+  //   prod_data.map((prod) => {
+  //     console.log(prod.id, prod.info);
+  //   })
+  // },[])
+
+  // useEffect(() => {
+  //   insertProdInfo(prod_data);
+  // //  instertData(data);
+  // }, []);
   return (
     <Routes>
       <Route path="/" element={<Fixed />}>

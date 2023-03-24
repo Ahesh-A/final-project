@@ -27,7 +27,7 @@ export function* checkUserSession() {
       const res = Object.values(users).find((user) => user.uid === uid);
       if (res.favourites) yield put(setFavourites(res.favourites));
       yield put(checkUserSessionSuccess(res));
-      console.log(res.favourites);
+      
     }
   } catch (error) {
     yield put(checkUserSessionFailed(error));

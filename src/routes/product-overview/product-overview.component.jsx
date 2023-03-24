@@ -1,7 +1,7 @@
 import "./product-overview.styles.scss";
 import { products } from "../../store/products/products.selector";
 import { useSelector } from "react-redux";
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setOverViewProduct } from "../../store/product-overview/product-overview.action";
 import { overViewProduct } from "../../store/product-overview/product-overview.selector";
@@ -9,32 +9,39 @@ import { setOverViewImageUrl } from "../../store/product-overview/product-overvi
 import { setOverViewColor } from "../../store/product-overview/product-overview.action";
 import { addItemsToCart } from "../../store/cart/cart.action";
 import { selectCartItems } from "../../store/cart/cart.selector";
+import { getData } from "../../utils/firebase.utils";
 
 const ProductOverView = ({ productId }) => {
   const dispatch = useDispatch();
   const storeProducts = useSelector(products);
-
   const productOverView = useSelector(overViewProduct);
   const product = productOverView.product;
   const color = productOverView.color;
   const imageUrl = productOverView.imageUrl;
   const cartItems = useSelector(selectCartItems);
-  console.log(product);
-  // const [imageUrl, setImageUrl] = useState("");
+  console.log(
+    (new Date() - new Date(product.init_date)) / (60 * 60 * 24 * 1000)
+  );
+  // console.log(storeProducts);
 
   useEffect(() => {
-    let product = {};
-    Object.values(storeProducts).forEach((productList) => {
-      console.log(productList);
-      Object.values(productList).forEach((prod) => {
-        if (prod.id === productId) {
-          product = prod;
-          // setImageUrl(prod.imageUrl);
-        }
+    const findProduct = async () => {
+      let product = {};
+      Object.values(storeProducts).forEach((productList) => {
+        //console.log(productList);
+        Object.values(productList).forEach((prod) => {
+          if (prod.id === productId) {
+            product = prod;
+            // setImageUrl(prod.imageUrl);
+          }
+        });
       });
-    });
-    dispatch(setOverViewProduct(product));
-    dispatch(setOverViewImageUrl(product.imageUrl));
+     await dispatch(setOverViewProduct(product));
+     await dispatch(setOverViewImageUrl(product.imageUrl));
+    };
+    findProduct().then(() =>{return getData()}
+      
+    ).then((res) => {console.log(res)});
   }, [productId, storeProducts, dispatch]);
   // const colorVariantHandler = () => {
   //   // const { value } = event.target;
@@ -42,9 +49,15 @@ const ProductOverView = ({ productId }) => {
   // };
   const productClickHandler = (e) => {
     e.preventDefault();
-    console.log('valuee',e.target);
 
-    dispatch(addItemsToCart(cartItems, {...product,imageUrl:productOverView.imageUrl, id: product.id + productOverView.imageUrl,color:productOverView.color }));
+    dispatch(
+      addItemsToCart(cartItems, {
+        ...product,
+        imageUrl: productOverView.imageUrl,
+        id: product.id + productOverView.imageUrl,
+        color: productOverView.color,
+      })
+    );
   };
   return (
     Object.values(product).length && (
@@ -58,7 +71,6 @@ const ProductOverView = ({ productId }) => {
             <div className="product-image">
               <img src={require(`../../${imageUrl}`)} alt={product} />
             </div>
-            
           </div>
 
           <div className="product-description">
@@ -71,7 +83,7 @@ const ProductOverView = ({ productId }) => {
                 </div>
                 <div className="size-container">
                   size:
-                  <select className="size-select" >
+                  <select className="size-select">
                     <option value={"S"}>S</option>
                     <option value={"M"}>M</option>
                     <option value={"L"}>L</option>
@@ -105,7 +117,12 @@ const ProductOverView = ({ productId }) => {
                   </div>
                 </div>
                 <div className="product-overview-button-container">
-                  <button className="product-overview-button" onClick={productClickHandler}>Add to Cart</button>
+                  <button
+                    className="product-overview-button"
+                    onClick={productClickHandler}
+                  >
+                    Add to Cart
+                  </button>
                 </div>
               </div>
               <div className="product-discount-container">

@@ -1,16 +1,20 @@
 import { put, call,all, takeLatest } from "redux-saga/effects";
 import { PRODUCT_ACTION_TYPES } from "./products.types";
-import { getData } from "../../utils/firebase.utils";
+import { getData, getProdInfo} from "../../utils/firebase.utils";
 import { setProductsFailed, setProductsSuccess } from "./products.action";
 export function* setProduct() {
   try {
     const productList = yield call(getData);
+    //  const prodSnap = yield call(getProdInfo) ;
+    //  console.log(prodSnap);
+    
     const data = productList.reduce((acc, item) => {
-      const { title, products } = item;
+      const { title, products } = item;  
+      
       acc[title.toLowerCase()] = products;
       return acc;
     }, {});
-    console.log(data);
+    // console.log(data);
     yield put(setProductsSuccess(data));
   } catch (error) {
     yield put(setProductsFailed(error));

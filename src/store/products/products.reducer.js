@@ -21,6 +21,7 @@ export const productReducer = (state = INITIAL_STATE, action = {}) => {
       };
     case PRODUCT_ACTION_TYPES.SET_PRODUCTS_SUCCESS:
       return {
+        ...state,
         products: payload,
         isLoading: false,
       };

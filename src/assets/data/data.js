@@ -23,11 +23,10 @@ export const data = [
             variant_image_url: "assets/d_women/women1/variant/3.jpg",
           },
         ],
-        discount: 40,
-        isTrending: false,
-        unitsSold: 148,
-        size:"M",
-        color:"Black",
+
+        size: "M",
+        init_date: "2022, 12, 5",
+        color: "Black",
         price: 899,
       },
       {
@@ -35,9 +34,9 @@ export const data = [
         imageUrl: "assets/d_women/women2/women2.jpg",
         name: "Women's Maxi Dress (Sea Blue Solid Crepe wrap Dress ",
         variant: [],
-        discount: 0,
-        size:"M",
-        color:"Sea Blue",
+        size: "M",
+        init_date: "2022, 12, 5",
+        color: "Sea Blue",
         price: 399,
       },
       {
@@ -56,9 +55,10 @@ export const data = [
             variant_image_url: "assets/d_women/women3/variant/2.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Black",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Black",
         price: 399,
       },
       {
@@ -76,16 +76,17 @@ export const data = [
             color_url: "assets/d_women/women4/color/2.jpg",
             variant_image_url: "assets/d_women/women4/variant/2.jpg",
           },
-          
+
           {
             color: "Pink",
             color_url: "assets/d_women/women4/color/3.jpg",
             variant_image_url: "assets/d_women/women4/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Green",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Green",
         price: 459,
       },
       {
@@ -109,9 +110,10 @@ export const data = [
             variant_image_url: "assets/d_women/women5/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Blue",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Blue",
         price: 373,
       },
       {
@@ -135,9 +137,10 @@ export const data = [
             variant_image_url: "assets/d_women/women6/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Purple",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Purple",
         price: 349,
       },
       {
@@ -161,9 +164,10 @@ export const data = [
             variant_image_url: "assets/d_women/women7/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Peach",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Peach",
         price: 699,
       },
       {
@@ -187,9 +191,10 @@ export const data = [
             variant_image_url: "assets/d_women/women8/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Blue",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Blue",
         price: 279,
       },
       {
@@ -213,9 +218,10 @@ export const data = [
             variant_image_url: "assets/d_women/women9/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Agean Blue",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Agean Blue",
         price: 389,
       },
       {
@@ -239,9 +245,10 @@ export const data = [
             variant_image_url: "assets/d_women/women10/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"DarkPink",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "DarkPink",
         price: 429,
       },
       {
@@ -265,9 +272,10 @@ export const data = [
             variant_image_url: "assets/d_women/women11/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Black",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Black",
         price: 459,
       },
       {
@@ -291,9 +299,10 @@ export const data = [
             variant_image_url: "assets/d_women/women12/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Rose Pink",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Rose Pink",
         price: 389,
       },
     ],
@@ -322,9 +331,10 @@ export const data = [
             variant_image_url: "assets/d_men/men1/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Green",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Green",
         price: 3869,
       },
       {
@@ -348,9 +358,10 @@ export const data = [
             variant_image_url: "assets/d_men/men2/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Dark Green",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Dark Green",
         price: 499,
       },
       {
@@ -374,9 +385,10 @@ export const data = [
             variant_image_url: "assets/d_men/men3/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Grey",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Grey",
         price: 797,
       },
       {
@@ -400,9 +412,10 @@ export const data = [
             variant_image_url: "assets/d_men/men4/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Black",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Black",
         price: 1480,
       },
       {
@@ -421,9 +434,10 @@ export const data = [
             variant_image_url: "assets/d_men/men5/variant/2.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"White",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "White",
         price: 769,
       },
       {
@@ -447,9 +461,10 @@ export const data = [
             variant_image_url: "assets/d_men/men6/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Brown",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Brown",
         price: 869,
       },
       {
@@ -473,9 +488,10 @@ export const data = [
             variant_image_url: "assets/d_men/men7/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Blue",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Blue",
         price: 389,
       },
       {
@@ -499,9 +515,10 @@ export const data = [
             variant_image_url: "assets/d_men/men8/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Black",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Black",
         price: 2386,
       },
     ],
@@ -530,9 +547,10 @@ export const data = [
             variant_image_url: "assets/d_shoeformen/shoeformen1/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Grey Black",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Grey Black",
         price: 1000,
       },
       {
@@ -556,9 +574,10 @@ export const data = [
             variant_image_url: "assets/d_shoeformen/shoeformen2/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"T.Blue",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "T.Blue",
         price: 989,
       },
       {
@@ -582,9 +601,10 @@ export const data = [
             variant_image_url: "assets/d_shoeformen/shoeformen3/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"T.Blue",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "T.Blue",
         price: 999,
       },
       {
@@ -608,9 +628,10 @@ export const data = [
             variant_image_url: "assets/d_shoeformen/shoeformen4/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Black",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Black",
         price: 849,
       },
       {
@@ -634,9 +655,10 @@ export const data = [
             variant_image_url: "assets/d_shoeformen/shoeformen5/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Blue",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Blue",
         price: 549,
       },
       {
@@ -660,9 +682,10 @@ export const data = [
             variant_image_url: "assets/d_shoeformen/shoeformen6/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Balck Green",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Balck Green",
         price: 1249,
       },
       {
@@ -686,9 +709,10 @@ export const data = [
             variant_image_url: "assets/d_shoeformen/shoeformen7/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Blue",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Blue",
         price: 1449,
       },
       {
@@ -712,9 +736,10 @@ export const data = [
             variant_image_url: "assets/d_shoeformen/shoeformen8/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Balck Red",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Balck Red",
         price: 669,
       },
     ],
@@ -736,17 +761,20 @@ export const data = [
           {
             color: "Red White",
             color_url: "assets/d_shoeforwomen/shoeforwomen1/color/2.jpg",
-            variant_image_url: "assets/d_shoeforwomen/shoeforwomen1/variant/2.jpg",
+            variant_image_url:
+              "assets/d_shoeforwomen/shoeforwomen1/variant/2.jpg",
           },
           {
             color: "Navy Red",
             color_url: "assets/d_shoeforwomen/shoeforwomen1/color/3.jpg",
-            variant_image_url: "assets/d_shoeforwomen/shoeforwomen1/variant/3.jpg",
+            variant_image_url:
+              "assets/d_shoeforwomen/shoeforwomen1/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Pink Grey",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Pink Grey",
         price: 486,
       },
       {
@@ -763,17 +791,20 @@ export const data = [
           {
             color: "Blue",
             color_url: "assets/d_shoeforwomen/shoeforwomen2/color/2.jpg",
-            variant_image_url: "assets/d_shoeforwomen/shoeforwomen2/variant/2.jpg",
+            variant_image_url:
+              "assets/d_shoeforwomen/shoeforwomen2/variant/2.jpg",
           },
           {
             color: "Black",
             color_url: "assets/d_shoeforwomen/shoeforwomen2/color/3.jpg",
-            variant_image_url: "assets/d_shoeforwomen/shoeforwomen2/variant/3.jpg",
+            variant_image_url:
+              "assets/d_shoeforwomen/shoeforwomen2/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Mauve",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Mauve",
         price: 486,
       },
       {
@@ -790,17 +821,20 @@ export const data = [
           {
             color: "NavyBlue Red",
             color_url: "assets/d_shoeforwomen/shoeforwomen3/color/2.jpg",
-            variant_image_url: "assets/d_shoeforwomen/shoeforwomen3/variant/2.jpg",
+            variant_image_url:
+              "assets/d_shoeforwomen/shoeforwomen3/variant/2.jpg",
           },
           {
             color: "Grey LightBlue",
             color_url: "assets/d_shoeforwomen/shoeforwomen3/color/3.jpg",
-            variant_image_url: "assets/d_shoeforwomen/shoeforwomen3/variant/3.jpg",
+            variant_image_url:
+              "assets/d_shoeforwomen/shoeforwomen3/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Balck Pink",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Balck Pink",
         price: 499,
       },
       {
@@ -817,17 +851,20 @@ export const data = [
           {
             color: "BLK/GOLDEN",
             color_url: "assets/d_shoeforwomen/shoeforwomen4/color/2.jpg",
-            variant_image_url: "assets/d_shoeforwomen/shoeforwomen4/variant/2.jpg",
+            variant_image_url:
+              "assets/d_shoeforwomen/shoeforwomen4/variant/2.jpg",
           },
           {
             color: "OFF WHT",
             color_url: "assets/d_shoeforwomen/shoeforwomen4/color/3.jpg",
-            variant_image_url: "assets/d_shoeforwomen/shoeforwomen4/variant/3.jpg",
+            variant_image_url:
+              "assets/d_shoeforwomen/shoeforwomen4/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"BLK/RANI",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "BLK/RANI",
         price: 930,
       },
       {
@@ -844,17 +881,20 @@ export const data = [
           {
             color: "Maroon Pink",
             color_url: "assets/d_shoeforwomen/shoeforwomen5/color/2.jpg",
-            variant_image_url: "assets/d_shoeforwomen/shoeforwomen5/variant/2.jpg",
+            variant_image_url:
+              "assets/d_shoeforwomen/shoeforwomen5/variant/2.jpg",
           },
           {
             color: "Pink  Grey",
             color_url: "assets/d_shoeforwomen/shoeforwomen5/color/3.jpg",
-            variant_image_url: "assets/d_shoeforwomen/shoeforwomen5/variant/3.jpg",
+            variant_image_url:
+              "assets/d_shoeforwomen/shoeforwomen5/variant/3.jpg",
           },
         ],
-         size:"M",
-        color:"Blue Grey",
-        discount: 0,
+        size: "M",
+        color: "Blue Grey",
+
+        init_date: "2022, 12, 5",
         price: 846,
       },
       {
@@ -871,17 +911,20 @@ export const data = [
           {
             color: "Grey",
             color_url: "assets/d_shoeforwomen/shoeforwomen6/color/2.jpg",
-            variant_image_url: "assets/d_shoeforwomen/shoeforwomen6/variant/2.jpg",
+            variant_image_url:
+              "assets/d_shoeforwomen/shoeforwomen6/variant/2.jpg",
           },
           {
             color: "Grey Pink",
             color_url: "assets/d_shoeforwomen/shoeforwomen6/color/3.jpg",
-            variant_image_url: "assets/d_shoeforwomen/shoeforwomen6/variant/3.jpg",
+            variant_image_url:
+              "assets/d_shoeforwomen/shoeforwomen6/variant/3.jpg",
           },
         ],
-        discount: 0,
-        size:"M",
-        color:"Blue",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Blue",
         price: 499,
       },
       {
@@ -898,12 +941,14 @@ export const data = [
           {
             color: "Grey Rose",
             color_url: "assets/d_shoeforwomen/shoeforwomen7/color/2.jpg",
-            variant_image_url: "assets/d_shoeforwomen/shoeforwomen7/variant/2.jpg",
-          }
+            variant_image_url:
+              "assets/d_shoeforwomen/shoeforwomen7/variant/2.jpg",
+          },
         ],
-        discount: 0,
-        size:"M",
-        color:"Grey Pink",
+
+        init_date: "2022, 12, 5",
+        size: "M",
+        color: "Grey Pink",
         price: 474,
       },
       {
@@ -920,10 +965,12 @@ export const data = [
           {
             color: "Blue Pink",
             color_url: "assets/d_shoeforwomen/shoeforwomen8/color/2.jpg",
-            variant_image_url: "assets/d_shoeforwomen/shoeforwomen8/variant/2.jpg",
+            variant_image_url:
+              "assets/d_shoeforwomen/shoeforwomen8/variant/2.jpg",
           },
         ],
-        discount: 0,
+
+        init_date: "2022, 12, 5",
         price: 486,
       },
     ],
@@ -935,84 +982,99 @@ export const data = [
         id: "sunglass1",
         imageUrl: "assets/sunglass/sunglass1.jpg",
         name: "By Lenskart | Full Rim Wayfarer Branded Latest and Stylish",
-        discount: 0,
+
+        init_date: "2022, 12, 5",
         price: 849,
       },
       {
         id: "sunglass2",
         imageUrl: "assets/sunglass/sunglass2.jpg",
         name: "By Lenskart | Full Rim Wayfarer Branded Latest and Stylish",
-        discount: 0,
+
+        init_date: "2022, 12, 5",
         price: 849,
       },
       {
         id: "sunglass3",
         imageUrl: "assets/sunglass/sunglass3.jpg",
         name: "Vincent Chase By Lenskart | Full Rim Hexagonal Branded Latest",
-        discount: 0,
+
+        init_date: "2022, 12, 5",
         price: 849,
       },
       {
         id: "sunglass4",
         imageUrl: "assets/sunglass/sunglass4.jpg",
         name: "Vincent Chase By Lenskart | Full Rim Pilot Branded Latest",
-        discount: 0,
+
+        init_date: "2022, 12, 5",
         price: 949,
       },
       {
         id: "sunglass5",
         imageUrl: "assets/sunglass/sunglass5.jpg",
         name: "Women's Retro Driving Rectangular Sunglasses Black Frame, Black Lens (Medium)",
-        discount: 0,
+
+        init_date: "2022, 12, 5",
         price: 145,
       },
       {
         id: "sunglass6",
         imageUrl: "assets/sunglass/sunglass6.jpg",
         name: "Men Square Black Sunglasses-Pack of 1",
-        discount: 0,
+
+        init_date: "2022, 12, 5",
         price: 479,
       },
       {
         id: "sunglass7",
         imageUrl: "assets/sunglass/sunglass7.jpg",
         name: "Smooth Leg Covers Lightweight Square Kabir ",
-        discount: 0,
+
+        init_date: "2022, 12, 5",
         price: 321,
       },
       {
         id: "sunglass8",
         imageUrl: "assets/sunglass/sunglass8.jpg",
         name: "DC DECORIO 2022 Thug Life Sunglasses Pixel Gangster",
-        discount: 0,
+
+        init_date: "2022, 12, 5",
         price: 999,
       },
       {
         id: "sunglass9",
         imageUrl: "assets/sunglass/sunglass9.jpg",
         name: "UV Protected Polarized Sports Sunglasses for Men Driving ",
-        discount: 0,
+
+        init_date: "2022, 12, 5",
         price: 379,
       },
       {
         id: "sunglass10",
         imageUrl: "assets/sunglass/sunglass10.jpg",
         name: "By Lenskart | Full Rim Round Branded Latest and Stylish",
-        discount: 0,
+        discount: 10,
+        view_count: 23,
+        units_sold: 11,
+        quantity_left: 50,
+        init_date: "2022, 12, 5",
         price: 899,
       },
       {
         id: "sunglass11",
         imageUrl: "assets/sunglass/sunglass11.jpg",
         name: "By Lenskart | Full Rim Wayfarer Branded Latest and Stylish",
-        discount: 0,
+
+        init_date: "2022, 12, 5",
         price: 719,
       },
       {
         id: "sunglass12",
         imageUrl: "assets/sunglass/sunglass12.jpg",
         name: "Tony Stark Steampunk Metal Round Sunglass for Men",
-        discount: 0,
+
+        init_date: "2022, 12, 5",
         price: 399,
       },
     ],
