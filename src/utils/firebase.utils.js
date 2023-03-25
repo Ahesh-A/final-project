@@ -7,7 +7,7 @@ import {
   collection,
   query,
   getDocs,
-  getDoc
+  getDoc,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -18,6 +18,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -113,17 +114,17 @@ export const instertData = (data) => {
     await setDoc(doc(db, "d_products", title.toLowerCase()), item);
   });
 };
-// export const insertProdInfo = (data) => {
-//   data.map(async (prod) => {
-//     await setDoc(doc(db, "prod_info", prod.id), prod.info);
-//   });
-// };
+export const insertProdInfo = async (data) => {
+  await setDoc(doc(db, "prod_info", data.id), data);
+};
+
 export const getProdInfo = async () => {
   const docRef = collection(db, "prod_info");
-  const q = query(docRef)
+  const q = query(docRef);
   const docSnap = await getDocs(q);
   return docSnap.docs.map((doc) => doc.data());
 };
+
 export const getData = async () => {
   try {
     const docRef = collection(db, "d_products");

@@ -35,17 +35,22 @@ const App = () => {
   }, [dispatch]);
   
   useEffect(() => {
-    if ((cartProduct, additionalData)) {
+    let wholeProducts = []
+    if ((cartProduct &&  additionalData)) {
       Object.values(cartProduct).forEach((category) => {
         category.forEach((product) => {
+
           const addInfo = additionalData.find(
-            (prod) => prod.id === additionalData.id
+            (prod) => prod.id === product.id
           );
           product = { ...product, ...addInfo };
+          wholeProducts.push(product);
         });
       });
-      console.log(cartProduct);
+     
     }
+    wholeProducts.sort((a, b) => b.units_sold - a.units_sold);
+    console.log("wholeproducts :" ,wholeProducts);
   }, [additionalData, cartProduct]);
 
   // useEffect(() => {

@@ -11,13 +11,18 @@ import { useNavigate } from "react-router-dom";
 import { selectFavourites } from "../../store/favourites/favourites.selector.js";
 import { setFavourites } from "../../store/favourites/favourites.action";
 import { selectCurrentUser } from "../../store/user/user.selector";
-import { instertData, getData} from "../../utils/firebase.utils";
-import {products} from '../../store/products/products.selector.js';
+import {
+  instertData,
+  getData,
+  insertProdInfo,
+} from "../../utils/firebase.utils";
+import { products } from "../../store/products/products.selector.js";
+import { additionalInfo } from "../../store/additional-info/additional-info.selector.js";
 
 const ProductCard = ({ product }) => {
-
   const navigate = useNavigate();
   const currProducts = useSelector(products);
+  const additionalData = useSelector(additionalInfo);
   const { name, price, imageUrl, id } = product;
   const [isHovering, setIsHovering] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
@@ -29,9 +34,9 @@ const ProductCard = ({ product }) => {
 
   useEffect(() => {
     const res = favourites.find((fav) => fav.id === product.id);
-    if(res) setInFavourites(true);
+    if (res) setInFavourites(true);
     else setInFavourites(false);
-  },[favourites])
+  }, [favourites]);
 
   const productClickHandler = () => {
     dispatch(
@@ -45,8 +50,8 @@ const ProductCard = ({ product }) => {
   };
 
   const addToFavHandler = () => {
-    if(!currentUser){
-      alert('please signin before adding to favourites');
+    if (!currentUser) {
+      alert("please signin before adding to favourites");
       return;
     }
     if (favourites.length) {
@@ -61,9 +66,18 @@ const ProductCard = ({ product }) => {
   };
 
   const viewHandler = () => {
-
+    const findProd = Object.values(additionalData).find(
+      (prod) => prod.id === product.id
+    );
+    if (findProd) {
+      product.view_count = product.view_count + 1;
+      insertProdInfo({
+        ...findProd,
+        view_count: findProd.view_count + 1,
+      });
+    }
     navigate(`/product/${id}`);
-    console.log("cuuur",currProducts);
+    // console.log("cuuur",currProducts);
   };
   return (
     <Fragment>
@@ -91,7 +105,11 @@ const ProductCard = ({ product }) => {
                   <div className="view-container" onClick={viewHandler}>
                     <span className="view">view</span>
                   </div>
-                  <div className={`fav-icon-container ${(inFavourites) ? `fav` : ``}`}>
+                  <div
+                    className={`fav-icon-container ${
+                      inFavourites ? `fav` : ``
+                    }`}
+                  >
                     <FontAwesomeIcon
                       icon={solid("heart")}
                       onClick={addToFavHandler}
@@ -108,7 +126,7 @@ const ProductCard = ({ product }) => {
           </div>
           <p className="product-name">{name}</p>
           <div className="price-heart-container">
-            <div className = {`heart-container ${(inFavourites) ? `fav` : ``} `} >
+            <div className={`heart-container ${inFavourites ? `fav` : ``} `}>
               <FontAwesomeIcon icon={solid("heart")} />
             </div>
             <div className="price-container"> &#x20B9; {price}</div>
