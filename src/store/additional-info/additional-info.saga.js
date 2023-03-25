@@ -1,6 +1,7 @@
 import { call, put, all, takeLatest } from "redux-saga/effects";
 import { ADDITIONAL_INFO_ACTION_TYPES } from "./additional-info.types";
 import { getProdInfo } from "../../utils/firebase.utils";
+
 import {
   addAdditionalFalied,
   addAdditionalSuccess,
@@ -19,6 +20,7 @@ export function* addInfo() {
 export function* onAddInfoStart() {
   yield takeLatest(ADDITIONAL_INFO_ACTION_TYPES.SET_ADD_INFO_START, addInfo);
 }
+
 export function* addInfoSaga() {
   yield all([call(onAddInfoStart)]);
 }

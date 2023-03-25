@@ -1,0 +1,1 @@
+export const additionalInfo = (state) => state.additional_info.add_info;

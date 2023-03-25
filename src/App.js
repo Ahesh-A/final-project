@@ -7,13 +7,15 @@ import Product from "./routes/product/product.component";
 import Cart from "./routes/cart/cart.component";
 import CheckOut from "./routes/chect-out/check-out.component";
 import MyAccount from "./routes/myaccount/myaccount.component";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { checkUserSessionStart } from "./store/user/user.action";
 import SearchResult from "./routes/search-result/search-result.component";
 import Favourties from "./routes/favourites/favourites.component";
 import { setProductsStart } from "./store/products/products.action";
 import { addAdditionalStart } from "./store/additional-info/additional-info.action";
+import { additionalInfo } from "./store/additional-info/additional-info.selector";
+import { products } from "./store/products/products.selector";
 //import { insertProdInfo } from "./utils/firebase.utils.js";
 // import { instertData } from "./utils/firebase.utils.js";
 // import { data } from "./assets/data/data";
@@ -21,24 +23,30 @@ import { addAdditionalStart } from "./store/additional-info/additional-info.acti
 
 const App = () => {
   const dispatch = useDispatch();
-
+  const additionalData = useSelector(additionalInfo);
+  const cartProduct = useSelector(products);
   useEffect(() => {
     dispatch(checkUserSessionStart());
     dispatch(setProductsStart());
-    
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(addAdditionalStart());
-  }, []);
-  // useEffect(() => {
-
-  // }, [dispatch]);
-  // useEffect(() => {
-  //   prod_data.map((prod) => {
-  //     console.log(prod.id, prod.info);
-  //   })
-  // },[])
+  }, [dispatch]);
+  
+  useEffect(() => {
+    if ((cartProduct, additionalData)) {
+      Object.values(cartProduct).forEach((category) => {
+        category.forEach((product) => {
+          const addInfo = additionalData.find(
+            (prod) => prod.id === additionalData.id
+          );
+          product = { ...product, ...addInfo };
+        });
+      });
+      console.log(cartProduct);
+    }
+  }, [additionalData, cartProduct]);
 
   // useEffect(() => {
   //   insertProdInfo(prod_data);
