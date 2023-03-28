@@ -1,0 +1,1 @@
+export const selectOnSaleProducts = (state) => state.on_sale.products;

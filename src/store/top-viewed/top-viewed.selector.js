@@ -1,0 +1,1 @@
+export const selectTopViewed = (state) => state.top_viewed.products;

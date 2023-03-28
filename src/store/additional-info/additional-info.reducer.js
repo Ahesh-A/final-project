@@ -1,7 +1,7 @@
 import { ADDITIONAL_INFO_ACTION_TYPES } from "./additional-info.types";
 
 const INITAL_ADD_INFO = {
-  add_info: {},
+  add_info: null,
   isLoading: false,
   error: null,
 };

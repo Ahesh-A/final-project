@@ -13,9 +13,10 @@ import { checkUserSessionStart } from "./store/user/user.action";
 import SearchResult from "./routes/search-result/search-result.component";
 import Favourties from "./routes/favourites/favourites.component";
 import { setProductsStart } from "./store/products/products.action";
-import { addAdditionalStart } from "./store/additional-info/additional-info.action";
 import { additionalInfo } from "./store/additional-info/additional-info.selector";
 import { products } from "./store/products/products.selector";
+
+
 //import { insertProdInfo } from "./utils/firebase.utils.js";
 // import { instertData } from "./utils/firebase.utils.js";
 // import { data } from "./assets/data/data";
@@ -30,28 +31,27 @@ const App = () => {
     dispatch(setProductsStart());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(addAdditionalStart());
-  }, [dispatch]);
-  
-  useEffect(() => {
-    let wholeProducts = []
-    if ((cartProduct &&  additionalData)) {
-      Object.values(cartProduct).forEach((category) => {
-        category.forEach((product) => {
+  // useEffect(() => {
+  //   dispatch(addAdditionalStart());
+  // }, [dispatch]);
 
-          const addInfo = additionalData.find(
-            (prod) => prod.id === product.id
-          );
-          product = { ...product, ...addInfo };
-          wholeProducts.push(product);
-        });
-      });
-     
-    }
-    wholeProducts.sort((a, b) => b.units_sold - a.units_sold);
-    console.log("wholeproducts :" ,wholeProducts);
-  }, [additionalData, cartProduct]);
+  // useEffect(() => {
+  //   let wholeProducts = [];
+  //   if (cartProduct && additionalData) {
+  //     Object.values(cartProduct).forEach((category) => {
+  //       category.forEach((product) => {
+  //         const addInfo = additionalData.find((prod) => prod.id === product.id);
+  //         product = { ...product, ...addInfo };
+  //         wholeProducts.push(product);
+  //       });
+  //     });
+  //   }
+  //   wholeProducts.sort((a, b) => b.discount - a.discount);
+
+  //   //console.log("wholeproducts :", wholeProducts.slice(0, 3));
+  //   dispatch(setOnSaleProducts(wholeProducts.slice(0, 3)));
+    
+  // }, [additionalData, cartProduct]);
 
   // useEffect(() => {
   //   insertProdInfo(prod_data);

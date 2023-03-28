@@ -1,5 +1,5 @@
 $primary: #f7941d;
-$border:rgba(163, 163, 163, 0.2);
+$border: rgba(163, 163, 163, 0.2);
 .hot-img {
   width: 100%;
   height: 100%;
@@ -48,18 +48,29 @@ $border:rgba(163, 163, 163, 0.2);
   display: flex;
   min-height: 500px;
   padding: 0 70px;
-
+  align-items: center;
+  justify-content: center;
   .onsale {
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 33.333333%;
+    display: grid;
+    grid-template-rows: 1fr 15fr;
+
     padding: 1rem;
     gap: 20px;
     
+
+    .on-sale-product-card-container {
+      display: grid;
+      grid-template-rows: repeat(1fr, 3);
+      
+      .on-sale-product-card {
+        display: grid;
+        place-content: center;
+      }
+    }
     .hot-title {
       font: 1.5rem "open sans", sans-serif;
       font-weight: 800;
-      padding: 70px 0 30px 0;
+      padding: 40px 0 30px 0;
       color: #333;
       line-height: 50px;
       &::after {
@@ -72,15 +83,24 @@ $border:rgba(163, 163, 163, 0.2);
     }
   }
   .best-seller {
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 33.333333%;
+    display: grid;
+    grid-template-rows: 1fr 15fr;
     padding: 1rem;
     gap: 20px;
+    
+    .on-sale-product-card-container {
+      display: grid;
+      grid-template-rows: repeat(1fr, 3);
+      
+      .on-sale-product-card {
+        display: grid;
+        place-content: center;
+      }
+    }
     .hot-title {
       font: 1.5rem "open sans", sans-serif;
       font-weight: 800;
-      padding: 70px 0 30px 0;
+      padding: 40px 0 30px 0;
       color: #333;
       line-height: 50px;
       &::after {
@@ -93,15 +113,24 @@ $border:rgba(163, 163, 163, 0.2);
     }
   }
   .top-viewed {
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 33.333333%;
+    display: grid;
+    grid-template-rows: 1fr 15fr;
     padding: 1rem;
     gap: 20px;
+    
+    .on-sale-product-card-container {
+      display: grid;
+      grid-template-rows: repeat(1fr, 3);
+      
+      .on-sale-product-card {
+        display: grid;
+        place-content: center;
+      }
+    }
     .hot-title {
       font: 1.5rem "open sans", sans-serif;
       font-weight: 800;
-      padding: 70px 0 30px 0;
+      padding: 40px 0 30px 0;
       color: #333;
       line-height: 50px;
       &::after {

@@ -1,0 +1,3 @@
+export const TRENDING_ITEM_ACTION_TYPES = {
+    SET_TRENDING_ITEMS: "trending-items/SET_TRENDING_ITEMS",
+}

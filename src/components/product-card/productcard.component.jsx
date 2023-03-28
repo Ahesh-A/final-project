@@ -11,23 +11,20 @@ import { useNavigate } from "react-router-dom";
 import { selectFavourites } from "../../store/favourites/favourites.selector.js";
 import { setFavourites } from "../../store/favourites/favourites.action";
 import { selectCurrentUser } from "../../store/user/user.selector";
-import {
-  instertData,
-  getData,
-  insertProdInfo,
-} from "../../utils/firebase.utils";
+import { setTopViewedProductsStart } from "../../store/top-viewed/top-viewed.action";
 import { products } from "../../store/products/products.selector.js";
 import { additionalInfo } from "../../store/additional-info/additional-info.selector.js";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const currProducts = useSelector(products);
   const additionalData = useSelector(additionalInfo);
   const { name, price, imageUrl, id } = product;
   const [isHovering, setIsHovering] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [inFavourites, setInFavourites] = useState(false);
-  const dispatch = useDispatch();
+  
   const cartItems = useSelector(selectCartItems);
   const favourites = useSelector(selectFavourites);
   const currentUser = useSelector(selectCurrentUser);
@@ -71,10 +68,10 @@ const ProductCard = ({ product }) => {
     );
     if (findProd) {
       product.view_count = product.view_count + 1;
-      insertProdInfo({
+      dispatch(setTopViewedProductsStart({
         ...findProd,
         view_count: findProd.view_count + 1,
-      });
+      }));
     }
     navigate(`/product/${id}`);
     // console.log("cuuur",currProducts);

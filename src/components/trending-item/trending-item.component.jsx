@@ -1,6 +1,10 @@
 import "./trending-item.styles.scss";
-
+import ProductCard from "../product-card/productcard.component";
+import { useSelector } from "react-redux";
+import { selectTrendingItem } from "../../store/trending-item/trending-item.selector";
 const TrendingItem = () => {
+  const trendingItems = useSelector(selectTrendingItem);
+  console.log("In trending item component", trendingItems);
   return (
     <div>
       <div className="trending-item-container">
@@ -18,8 +22,15 @@ const TrendingItem = () => {
           </ul>
         </div>
         <div className="trending-item-product-container">
-          <div className="trending-items-product">
-            <img className = "trending-item-img"src={require("../../assets/trending-item/p1.jpg")} alt="" />
+          {trendingItems.map((product) => (
+            <ProductCard product={product} key = {product.id}/>
+          ))}
+          {/* <div className="trending-items-product">
+            <img
+              className="trending-item-img"
+              src={require("../../assets/trending-item/p1.jpg")}
+              alt=""
+            />
             <p>
               Women Hot Collection <span>&#x20B9; 999</span>
             </p>
@@ -65,7 +76,7 @@ const TrendingItem = () => {
             <p>
               Black Sunglass For Women <span>&#x20B9; 799</span>
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -51,11 +51,10 @@ $primary: #f7941d;
     }
   }
   .trending-item-product-container {
-    display: flex;
+    display: grid;
     padding: 1rem 3rem;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
+    place-content: center;
+    grid-template-columns: repeat(3, 1fr);
 
     .trending-items-product {
       display: inline-block;
