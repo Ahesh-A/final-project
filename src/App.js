@@ -13,12 +13,13 @@ import { checkUserSessionStart } from "./store/user/user.action";
 import SearchResult from "./routes/search-result/search-result.component";
 import Favourties from "./routes/favourites/favourites.component";
 import { setProductsStart } from "./store/products/products.action";
+import MyOrders from "./routes/my-orders/my-orders.component";
 // import { additionalInfo } from "./store/additional-info/additional-info.selector";
 // import { products } from "./store/products/products.selector";
-// import { insertProdInfo } from "./utils/firebase.utils.js";
+// import { insertAddProdInfo } from "./utils/firebase.utils.js";
 // import { instertData } from "./utils/firebase.utils.js";
 // import { data } from "./assets/data/data";
-//import {prod_data} from "./assets/data/prod_data";
+// import {prod_data} from "./assets/data/prod_data";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -29,8 +30,9 @@ const App = () => {
 
 
   // useEffect(() => {
-  //   // insertProdInfo(prod_data);
-  //  instertData(data);
+  //   // insertAddProdInfo(prod_data);
+  //   console.log("In prod Add inffo : ",prod_data)
+  //  //instertData(data);
   // }, []);
   return (
     <Routes>
@@ -44,6 +46,7 @@ const App = () => {
         <Route path="checkout" element={<CheckOut />} />
         <Route path="search-results" element={<SearchResult />} />
         <Route path="favourites" element={<Favourties />} />
+        <Route path="my-orders" element = {<MyOrders />} />
       </Route>
     </Routes>
   );

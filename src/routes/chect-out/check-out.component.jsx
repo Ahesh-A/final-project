@@ -465,22 +465,7 @@ const CheckOut = () => {
               <h4>PAYMENTS</h4>
             </div>
             <PaymentForm user = {userInfo}/>
-            {/* <div className="payment-options">
-              <input type="radio" id="check-payment" value="checkpayment" />
-              <label htmlFor="check-payment">Check Payment</label>
-            </div>
-            <div className="payment-options">
-              <input
-                type="radio"
-                id="cash-on-delivery"
-                value="cashondelivery"
-              />
-              <label htmlFor="cash-on-delivery">Cash On Delivery</label>
-            </div>
-            <div className="payment-options">
-              <input type="radio" id="upi" value="upi" />
-              <label htmlFor="upi">UPI</label>
-            </div> */}
+          
             <div className="payment-image-container">
               <img
                 src={require("../../assets/payments/payment-method.png")}
@@ -488,9 +473,6 @@ const CheckOut = () => {
               />
             </div>
           </div>
-          {/* <div className="checkout-button-container">
-            <button className="checkout-button">PROCEED TO CHECKOUT</button>
-          </div> */}
         </div>
       </div>
     </div>

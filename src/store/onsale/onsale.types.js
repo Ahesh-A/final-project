@@ -1,5 +1,3 @@
 export const ON_SALE_ACTION_TYPES = {
     ON_SALE_SUCCESS: "on-sale/ON_SALE_SUCCESS",
-    ON_SALE_START: "on-sale/ON_SALE_START",
-    ON_SALE_FAILED: "on-sale/ON_SALE_FAILED"
 }

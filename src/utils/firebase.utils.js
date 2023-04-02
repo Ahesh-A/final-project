@@ -115,11 +115,16 @@ export const instertData = (data) => {
   });
 };
 export const insertProdInfo = async (data) => {
-  data.map(async (item) => {
+  await setDoc(doc(db, "prod_info", data.id), data);
+}
 
-    await setDoc(doc(db, "prod_info", item.id), item);
+export const insertAddProdInfo = async (data) => {
+  data.map(async (item) => {
+    const {info} = item
+    await setDoc(doc(db, "prod_info", info.id), info);
   })
 };
+
 
 export const getProdInfo = async () => {
   const docRef = collection(db, "prod_info");
@@ -167,11 +172,11 @@ export const getCurrentUser = () => {
 
 export const insertItemsToDeliver = async (item) => {
   const { user, cartItems } = item;
-  const prodId = cartItems.reduce((acc, item) => acc + item.id, "");
+  // const prodId = cartItems.reduce((acc, item) => acc + item.id, "");
   const deliverId = `${Date.now()}${user.uid}`;
   console.log("Deliver ID :", deliverId);
   // console.log(user.uid + prodId);
-  await setDoc(doc(db, "Items_to_deliver", deliverId), {
+  await setDoc(doc(db, "Items_to_deliver", user.uid), {
     ...user,
     cartItems,
     deliverId,

@@ -23,7 +23,6 @@ const ProductCard = ({ product }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [inFavourites, setInFavourites] = useState(false);
-  
   const cartItems = useSelector(selectCartItems);
   const favourites = useSelector(selectFavourites);
   const currentUser = useSelector(selectCurrentUser);
@@ -34,8 +33,6 @@ const ProductCard = ({ product }) => {
     else setInFavourites(false);
   }, [favourites, product]);
   
-
-
   const productClickHandler = () => {
     dispatch(
       addItemsToCart(cartItems, {
@@ -68,15 +65,16 @@ const ProductCard = ({ product }) => {
       (prod) => prod.id === product.id
     );
     if (findProd) {
-      product.view_count = product.view_count + 1;
+      findProd.view_count = product.view_count + 1;
       dispatch(setTopViewedProductsStart({
         ...findProd,
-        view_count: findProd.view_count + 1,
+        view_count: findProd.view_count,
       }));
     }
     navigate(`/product/${id}`);
-    // console.log("cuuur",currProducts);
+    
   };
+  
   return (
     <Fragment>
       {product && (

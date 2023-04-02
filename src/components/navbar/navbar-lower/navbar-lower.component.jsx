@@ -4,24 +4,30 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { selectCartItems } from "../../../store/cart/cart.selector";
+import { useSelector } from "react-redux";
 import "./navbar-lower.styles.scss";
 const NavbarLower = () => {
   const navigate = useNavigate();
+  const cartItems = useSelector(selectCartItems);
   const [isHovering, setIsHovering] = useState(false);
 
   const productClickHandler = () => {
-    console.log("product button triggered");
     navigate("product");
   };
   const cartNavigator = () => {
     navigate("cart");
   };
   const checkOutNavigator = () => {
-    navigate("checkout");
-  };                                                                                                                                                                                                                                                                                                                                          
+    if (cartItems.length !== 0) navigate("checkout");
+    alert("The Cart is Empty !");
+  };
   const homeClickHandler = () => {
     navigate("/");
-  }
+  };
+  const myOrdersClickHandler = () => {
+    navigate("my-orders");
+  };
   return (
     <Fragment>
       <div className="navbar-lower-container">
@@ -65,7 +71,12 @@ const NavbarLower = () => {
         </div>
         <div className="navbar-lower-right-container">
           <ul className="navbar-lower-right-content-container">
-            <li className="navbar-lower-right-content-item" onClick={homeClickHandler}>Home</li>
+            <li
+              className="navbar-lower-right-content-item"
+              onClick={homeClickHandler}
+            >
+              Home
+            </li>
             <li
               className="navbar-lower-right-content-item"
               onClick={productClickHandler}
@@ -92,7 +103,12 @@ const NavbarLower = () => {
                 </motion.div>
               )}
             </li>
-            <li className="navbar-lower-right-content-item">Pages</li>
+            <li
+              className="navbar-lower-right-content-item"
+              onClick={myOrdersClickHandler}
+            >
+              My Orders
+            </li>
             <li className="navbar-lower-right-content-item">Blog</li>
             <li className="navbar-lower-right-content-item">Contact Us</li>
           </ul>

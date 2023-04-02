@@ -22,7 +22,7 @@ const ProductOverView = ({ productId }) => {
   const imageUrl = productOverView.imageUrl;
   const cartItems = useSelector(selectCartItems);
   const additionalData = useSelector(additionalInfo);
-  
+
   // console.log(storeProducts);
   const [modifiedProduct, setModifiedProduct] = useState(null);
 
@@ -41,6 +41,7 @@ const ProductOverView = ({ productId }) => {
       await dispatch(setOverViewProduct(product));
       await dispatch(setOverViewImageUrl(product.imageUrl));
     };
+
     findProduct()
       .then(() => {
         return getData();
@@ -50,13 +51,16 @@ const ProductOverView = ({ productId }) => {
       });
   }, [productId, storeProducts, dispatch]);
 
-
   useEffect(() => {
     const filteredData = additionalData.find((prod) => prod.id === product.id);
-    const {info} = filteredData
-    console.log({...info, ...product})
-    setModifiedProduct({...info, ...product})
-  }, [product, additionalData])
+    console.log("Filtered Data: ",filteredData);
+    if (filteredData) {
+      const { info } = filteredData;
+      //console.log("Filtered Data if :",{ ...info, ...product });
+    
+      setModifiedProduct({ ...info, ...product });
+    }
+  }, [product, additionalData]);
 
   // const colorVariantHandler = () => {
   //   // const { value } = event.target;
@@ -75,7 +79,8 @@ const ProductOverView = ({ productId }) => {
     );
   };
   return (
-    modifiedProduct && Object.values(product).length && (
+    modifiedProduct &&
+    Object.values(product).length && (
       <div>
         <h3 className="product-overview-title">
           Overview:
@@ -94,8 +99,8 @@ const ProductOverView = ({ productId }) => {
               <div className="product-des">
                 <div className="star-container">
                   <span className="star-name-container">Rating: </span>
-                    <Star star = {modifiedProduct.star}/>
-            
+                  <Star star={modifiedProduct.star} />
+
                   {/* <FontAwesomeIcon icon={solid("star")} className="star"/>
                   <FontAwesomeIcon icon={solid("star")} className="star"/>
                   <FontAwesomeIcon icon={solid("star")} className="star"/>
@@ -154,7 +159,10 @@ const ProductOverView = ({ productId }) => {
                 <span className="discount">
                   <span className="dis">
                     <span className="dis-block">Off</span>
-                    <span className="dis-block"> {`${modifiedProduct.discount}%`}</span>
+                    <span className="dis-block">
+                      {" "}
+                      {`${modifiedProduct.discount}%`}
+                    </span>
                   </span>
                 </span>
               </div>

@@ -6,9 +6,12 @@ import { setTrendingItems } from "../trending-item/trending-item.action";
 import { addAdditionalSuccess } from "../additional-info/additional-info.action";
 import { setBestSeller } from "../best-seller/best-seller.action";
 import { setTopViewedProductsSuccess } from "../top-viewed/top-viewed.action";
+import {setOnSaleProductsSuccess} from "../onsale/onsale.action.js";
 
+export function* onSale(data) {
+  yield put(setOnSaleProductsSuccess(data.sort((a, b) => b.discount - a.discount).slice(0, 3)));
+}
 export function* topViewed(data) {
-  
   yield put(
     setTopViewedProductsSuccess(
       data.sort((a, b) => b.view_count - a.view_count).slice(0, 3)
@@ -37,64 +40,26 @@ export function* bestSeller(data) {
   );
 }
 export function* setProduct() {
+  // let productArray = []
   try {
     const productList = yield call(getData);
     const additionalInfo = yield call(getProdInfo);
 
     yield put(addAdditionalSuccess(additionalInfo));
     
-
-    let  data = productList.reduce((acc, item) => {
+    const data = productList.reduce((acc, item) => {
       const { title, products } = item;
-
-      acc[title.toLowerCase()] = products;
+      const modifiedProducts = products.reduce((a, i) => {
+        const addInfo = additionalInfo.find((prod) => prod.id === i.id);
+        a.push({...i, ...addInfo});
+        return a;
+      }, []);
+      acc[title.toLowerCase()] = modifiedProducts;
       return acc;
     }, {});
+
+    console.log("modified_data: ",data);
     
-    // let wholeProducts = [];
-    // yield call(() => {
-    //   if (data && additionalInfo) {
-    //     Object.values(data).forEach((category) => {
-    //       category.forEach((product) => {
-    //         const addInfo = additionalInfo.find(
-    //           (prod) => prod.id === product.id
-    //         );
-    //         product = { ...product, ...addInfo };
-    //         //wholeProducts.push(product);
-    //       });
-    //     });
-    //   }
-    // });
-    // console.log(data);
-    // if (data && additionalInfo) {
-    //   console.log('in combine products');
-    //   Object.values(data).forEach((category) => {
-    //     category.forEach((product) => {
-    //       const addInfo = additionalInfo.find(
-    //         (prod) => prod.id === product.id
-    //       );
-    //       const {info} = addInfo;
-    //       console.log({...info, ...product});
-    //       product = { ...product, ...info };
-    //     });
-    //   });
-    //   console.log("modified_data", data);
-    // }
-    //  if (data && additionalInfo) {
-    //   console.log('in combine products');
-    //   Object.keys(data).forEach((category) => {
-    //     data.category.forEach((product) => {
-    //       let i = 0;
-    //       const addInfo = additionalInfo.find(
-    //         (prod) => prod.id === product.id
-    //       );
-    //       const {info} = addInfo;
-    //       console.log({...info, ...product});
-    //       data.category[i] = { ...product, ...info };
-    //     });
-    //   });
-    //   console.log("modified_data", data);
-    // }
     const productArray = [];
     Object.values(data).forEach((category) => {
       category.forEach((product) => {
@@ -102,11 +67,12 @@ export function* setProduct() {
       });
     });
 
-    // yield call(combineProducts, data, additionalInfo);
+    
     yield put(setProductsSuccess(data));
     yield call(bestSeller, productArray);
     yield call(trendingItems, productArray);
     yield call(topViewed, productArray);
+    yield call(onSale, productArray);
   } catch (error) {
     yield put(setProductsFailed(error));
   }
