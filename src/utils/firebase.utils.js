@@ -115,7 +115,10 @@ export const instertData = (data) => {
   });
 };
 export const insertProdInfo = async (data) => {
-  await setDoc(doc(db, "prod_info", data.id), data);
+  data.map(async (item) => {
+
+    await setDoc(doc(db, "prod_info", item.id), item);
+  })
 };
 
 export const getProdInfo = async () => {

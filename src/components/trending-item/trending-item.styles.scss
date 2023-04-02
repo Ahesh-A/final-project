@@ -28,7 +28,7 @@ $primary: #f7941d;
       margin: 0 auto;
     }
   }
-  div {
+  .trending-item-navbar-container {
     display: flex;
     justify-content: center;
     .trending-item-navbar {
@@ -56,6 +56,11 @@ $primary: #f7941d;
     place-content: center;
     grid-template-columns: repeat(3, 1fr);
 
+    .trending-item-product-card-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .trending-items-product {
       display: inline-block;
       flex: 1 0 21%;

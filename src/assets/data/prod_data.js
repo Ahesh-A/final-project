@@ -7,6 +7,8 @@ export const prod_data = [
       view_count: 70,
       units_sold: 48,
       quantity_left: 50,
+      star: 4.5,
+      star_count: 30,
     },
   },
   {
@@ -17,6 +19,8 @@ export const prod_data = [
       view_count: 30,
       units_sold: 18,
       quantity_left: 56,
+      star: 4,
+      star_count: 10
     },
   },
   {
@@ -27,6 +31,8 @@ export const prod_data = [
       view_count: 60,
       units_sold: 37,
       quantity_left: 50,
+      star: 4.7,
+      star_count: 29
     },
   },
   {
@@ -37,6 +43,8 @@ export const prod_data = [
       view_count: 67,
       units_sold: 56,
       quantity_left: 80,
+      star: 3.5,
+      star_count: 45
     },
   },
   {
@@ -47,6 +55,8 @@ export const prod_data = [
       view_count: 36,
       units_sold: 18,
       quantity_left: 5,
+      star: 4.2,
+      star_count: 8
     },
   },
   {
@@ -57,6 +67,8 @@ export const prod_data = [
       view_count: 90,
       units_sold: 56,
       quantity_left: 80,
+      star: 4,
+      star_count: 33
     },
   },
   {
@@ -67,6 +79,8 @@ export const prod_data = [
       view_count: 34,
       units_sold: 18,
       quantity_left: 80,
+      star: 2.5,
+      star_count: 3
     },
   },
   {
@@ -77,6 +91,8 @@ export const prod_data = [
       view_count: 38,
       units_sold: 28,
       quantity_left: 34,
+      star: 3.8,
+      star_count: 20
     },
   },
   {
@@ -87,6 +103,8 @@ export const prod_data = [
       view_count: 7,
       units_sold: 2,
       quantity_left: 50,
+      star: 4.1,
+      star_count: 1
     },
   },
   {
@@ -95,8 +113,10 @@ export const prod_data = [
       id: "women10",
       discount: 30,
       view_count: 75,
-      units_sold: 1,
+      units_sold: 10,
       quantity_left: 50,
+      star: 4.5,
+      star_count: 6
     },
   },
   {
@@ -107,6 +127,8 @@ export const prod_data = [
       view_count: 50,
       units_sold: 8,
       quantity_left: 56,
+      star: 3.5,
+      star_count: 5
     },
   },
   {
@@ -115,8 +137,10 @@ export const prod_data = [
       id: "women12",
       discount: 65,
       view_count: 7,
-      units_sold: 1,
+      units_sold: 9,
       quantity_left: 7,
+      star: 4.5,
+      star_count: 3
     },
   },
   {
@@ -127,6 +151,8 @@ export const prod_data = [
       view_count: 38,
       units_sold: 8,
       quantity_left: 50,
+      star: 4.5,
+      star_count: 5
     },
   },
   {
@@ -137,6 +163,8 @@ export const prod_data = [
       view_count: 59,
       units_sold: 30,
       quantity_left: 20,
+      star: 3.7,
+      star_count: 23
     },
   },
   {
@@ -147,6 +175,8 @@ export const prod_data = [
       view_count: 90,
       units_sold: 67,
       quantity_left: 50,
+      star: 3.5,
+      star_count: 45
     },
   },
   {
@@ -157,6 +187,8 @@ export const prod_data = [
       view_count: 40,
       units_sold: 6,
       quantity_left: 50,
+      star: 4.5,
+      star_count: 4
     },
   },
   {
@@ -167,6 +199,8 @@ export const prod_data = [
       view_count: 70,
       units_sold: 68,
       quantity_left: 50,
+      star: 4.7,
+      star_count: 55
     },
   },
   {
@@ -177,6 +211,8 @@ export const prod_data = [
       view_count: 30,
       units_sold: 18,
       quantity_left: 50,
+      star: 4,
+      star_count: 13
     },
   },
   {
@@ -187,6 +223,8 @@ export const prod_data = [
       view_count: 30,
       units_sold: 25,
       quantity_left: 50,
+      star: 4.3,
+      star_count: 15
     },
   },
   {
@@ -197,6 +235,8 @@ export const prod_data = [
       view_count: 30,
       units_sold: 10,
       quantity_left: 50,
+      star: 4,
+      star_count: 7
     },
   },
   {
@@ -207,6 +247,8 @@ export const prod_data = [
       view_count: 30,
       units_sold: 18,
       quantity_left: 50,
+      star: 4,
+      star_count: 10
     },
   },
   {
@@ -217,6 +259,8 @@ export const prod_data = [
       view_count: 20,
       units_sold: 18,
       quantity_left: 50,
+      star: 2.5,
+      star_count: 15
     },
   },
   {
@@ -227,6 +271,8 @@ export const prod_data = [
       view_count: 50,
       units_sold: 48,
       quantity_left: 50,
+      star: 3.5,
+      star_count: 35
     },
   },
   {
@@ -237,6 +283,8 @@ export const prod_data = [
       view_count: 30,
       units_sold: 18,
       quantity_left: 50,
+      star: 4.5,
+      star_count: 8
     },
   },
   {
@@ -247,6 +295,8 @@ export const prod_data = [
       view_count: 60,
       units_sold: 48,
       quantity_left: 50,
+      star: 4.5,
+      star_count: 30
     },
   },
   {
@@ -257,6 +307,8 @@ export const prod_data = [
       view_count: 60,
       units_sold: 44,
       quantity_left: 50,
+      star: 4.5,
+      star_count: 37
     },
   },
   {
@@ -267,6 +319,8 @@ export const prod_data = [
       view_count: 20,
       units_sold: 12,
       quantity_left: 50,
+      star: 4.9,
+      star_count: 10
     },
   },
   {
@@ -277,6 +331,8 @@ export const prod_data = [
       view_count: 75,
       units_sold: 48,
       quantity_left: 50,
+      star: 4.6,
+      star_count: 31
     },
   },
   {
@@ -287,6 +343,8 @@ export const prod_data = [
       view_count: 40,
       units_sold: 38,
       quantity_left: 50,
+      star: 4.9,
+      star_count: 30
     },
   },
   {
@@ -297,6 +355,8 @@ export const prod_data = [
       view_count: 30,
       units_sold: 20,
       quantity_left: 50,
+      star: 4.5,
+      star_count: 18
     },
   },
   {
@@ -307,6 +367,8 @@ export const prod_data = [
       view_count: 30,
       units_sold: 18,
       quantity_left: 50,
+      star: 4.5,
+      star_count: 10
     },
   },
   {
@@ -317,6 +379,8 @@ export const prod_data = [
       view_count: 100,
       units_sold: 78,
       quantity_left: 10,
+      star: 3.5,
+      star_count: 45
     },
   },
   {
@@ -327,6 +391,8 @@ export const prod_data = [
       view_count: 20,
       units_sold: 18,
       quantity_left: 50,
+      star: 4.7,
+      star_count: 11
     },
   },
   {
@@ -337,6 +403,8 @@ export const prod_data = [
       view_count: 75,
       units_sold: 68,
       quantity_left: 50,
+      star: 4.6,
+      star_count: 48
     },
   },
   {
@@ -347,6 +415,8 @@ export const prod_data = [
       view_count: 90,
       units_sold: 68,
       quantity_left: 50,
+      star: 4.8,
+      star_count: 36
     },
   },
   {
@@ -357,6 +427,8 @@ export const prod_data = [
       view_count: 80,
       units_sold: 10,
       quantity_left: 50,
+      star: 3,
+      star_count: 3
     },
   },
   {
@@ -367,6 +439,8 @@ export const prod_data = [
       view_count: 70,
       units_sold: 38,
       quantity_left: 50,
+      star: 4.3,
+      star_count: 27
     },
   },
   {
@@ -377,6 +451,8 @@ export const prod_data = [
       view_count: 60,
       units_sold: 38,
       quantity_left: 50,
+      star: 4.5,
+      star_count: 30
     },
   },
   {
@@ -387,6 +463,8 @@ export const prod_data = [
       view_count: 20,
       units_sold: 11,
       quantity_left: 50,
+      star: 4.7,
+      star_count: 9
     },
   },
   {
@@ -397,6 +475,8 @@ export const prod_data = [
       view_count: 50,
       units_sold: 36,
       quantity_left: 50,
+      star: 4,
+      star_count: 27
     },
   },
   {
@@ -407,6 +487,8 @@ export const prod_data = [
       view_count: 20,
       units_sold: 10,
       quantity_left: 50,
+      star: 4.2,
+      star_count: 8
     },
   },
   {
@@ -417,6 +499,8 @@ export const prod_data = [
       view_count: 10,
       units_sold: 8,
       quantity_left: 50,
+      star: 4.3,
+      star_count: 3
     },
   },
   {
@@ -427,6 +511,8 @@ export const prod_data = [
       view_count: 60,
       units_sold: 18,
       quantity_left: 50,
+      star: 4.2,
+      star_count: 14
     },
   },
   {
@@ -437,6 +523,8 @@ export const prod_data = [
       view_count: 7,
       units_sold: 1,
       quantity_left: 54,
+      star: 4.5,
+      star_count: 1
     },
   },
   {
@@ -447,6 +535,8 @@ export const prod_data = [
       view_count: 20,
       units_sold: 13,
       quantity_left: 50,
+      star: 4.3,
+      star_count: 8
     },
   },
   {
@@ -457,6 +547,8 @@ export const prod_data = [
       view_count: 23,
       units_sold: 11,
       quantity_left: 50,
+      star: 3.9,
+      star_count: 10
     },
   },
   {
@@ -467,6 +559,8 @@ export const prod_data = [
       view_count: 20,
       units_sold: 9,
       quantity_left: 50,
+      star: 4.5,
+      star_count: 3
     },
   },
   {
@@ -477,6 +571,8 @@ export const prod_data = [
       view_count: 65,
       units_sold: 34,
       quantity_left: 50,
+      star: 4.7,
+      star_count: 25
     },
   },
 ];

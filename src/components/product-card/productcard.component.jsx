@@ -12,13 +12,12 @@ import { selectFavourites } from "../../store/favourites/favourites.selector.js"
 import { setFavourites } from "../../store/favourites/favourites.action";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { setTopViewedProductsStart } from "../../store/top-viewed/top-viewed.action";
-import { products } from "../../store/products/products.selector.js";
 import { additionalInfo } from "../../store/additional-info/additional-info.selector.js";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const currProducts = useSelector(products);
+  
   const additionalData = useSelector(additionalInfo);
   const { name, price, imageUrl, id } = product;
   const [isHovering, setIsHovering] = useState(false);
@@ -33,7 +32,9 @@ const ProductCard = ({ product }) => {
     const res = favourites.find((fav) => fav.id === product.id);
     if (res) setInFavourites(true);
     else setInFavourites(false);
-  }, [favourites]);
+  }, [favourites, product]);
+  
+
 
   const productClickHandler = () => {
     dispatch(

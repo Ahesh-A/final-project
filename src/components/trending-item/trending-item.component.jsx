@@ -11,7 +11,7 @@ const TrendingItem = () => {
         <div className="trending-item-heading">
           <h2>Trending Item</h2>
         </div>
-        <div>
+        <div className="trending-item-navbar-container">
           <ul className="trending-item-navbar">
             <li>MAN</li>
             <li>WOMEN</li>
@@ -22,8 +22,13 @@ const TrendingItem = () => {
           </ul>
         </div>
         <div className="trending-item-product-container">
-          {trendingItems.map((product) => (
-            <ProductCard product={product} key = {product.id}/>
+          {trendingItems && trendingItems.map((product) => (
+            <div
+              className="trending-item-product-card-container"
+              key={product.id}
+            >
+              <ProductCard product={product} />
+            </div>
           ))}
           {/* <div className="trending-items-product">
             <img

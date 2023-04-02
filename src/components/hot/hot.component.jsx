@@ -16,8 +16,8 @@ const Hot = () => {
           <h2 className="hot-title">On Sale</h2>
           <div className="on-sale-product-card-container">
             {onSale.map((product) => (
-              <div className="on-sale-product-card">
-                <ProductCard product={product} key={product.id} />
+              <div className="on-sale-product-card" key={product.id}>
+                <ProductCard product={product}  />
               </div>
             ))}
           </div>
@@ -68,9 +68,9 @@ const Hot = () => {
         <div className="best-seller">
           <h2 className="hot-title">Best Seller</h2>
           <div className="on-sale-product-card-container">
-          {bestSeller.map((product) => (
-              <div className="on-sale-product-card">
-                <ProductCard product={product} key={product.id} />
+          {bestSeller && bestSeller.map((product) => (
+              <div className="on-sale-product-card" key={product.id}>
+                <ProductCard product={product}  />
               </div>
             ))}
           </div>
@@ -120,9 +120,9 @@ const Hot = () => {
         <div className="top-viewed">
           <h2 className="hot-title">Top Viewed</h2>
           <div className="on-sale-product-card-container">
-          {topViewed.map((product) => (
-              <div className="on-sale-product-card">
-                <ProductCard product={product} key={product.id} />
+          {topViewed && topViewed.map((product) => (
+              <div className="on-sale-product-card" key={product.id}>
+                <ProductCard product={product}  />
               </div>
             ))}
           </div>

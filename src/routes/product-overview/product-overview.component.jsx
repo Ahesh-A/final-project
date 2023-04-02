@@ -1,7 +1,7 @@
 import "./product-overview.styles.scss";
 import { products } from "../../store/products/products.selector";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setOverViewProduct } from "../../store/product-overview/product-overview.action";
 import { overViewProduct } from "../../store/product-overview/product-overview.selector";
@@ -10,6 +10,8 @@ import { setOverViewColor } from "../../store/product-overview/product-overview.
 import { addItemsToCart } from "../../store/cart/cart.action";
 import { selectCartItems } from "../../store/cart/cart.selector";
 import { getData } from "../../utils/firebase.utils";
+import { additionalInfo } from "../../store/additional-info/additional-info.selector";
+import Star from "../../components/star/star.component";
 
 const ProductOverView = ({ productId }) => {
   const dispatch = useDispatch();
@@ -19,10 +21,10 @@ const ProductOverView = ({ productId }) => {
   const color = productOverView.color;
   const imageUrl = productOverView.imageUrl;
   const cartItems = useSelector(selectCartItems);
-  console.log(
-    (new Date() - new Date(product.init_date)) / (60 * 60 * 24 * 1000)
-  );
+  const additionalData = useSelector(additionalInfo);
+  
   // console.log(storeProducts);
+  const [modifiedProduct, setModifiedProduct] = useState(null);
 
   useEffect(() => {
     const findProduct = async () => {
@@ -36,13 +38,26 @@ const ProductOverView = ({ productId }) => {
           }
         });
       });
-     await dispatch(setOverViewProduct(product));
-     await dispatch(setOverViewImageUrl(product.imageUrl));
+      await dispatch(setOverViewProduct(product));
+      await dispatch(setOverViewImageUrl(product.imageUrl));
     };
-    findProduct().then(() =>{return getData()}
-      
-    ).then((res) => {console.log(res)});
+    findProduct()
+      .then(() => {
+        return getData();
+      })
+      .then((res) => {
+        console.log(res);
+      });
   }, [productId, storeProducts, dispatch]);
+
+
+  useEffect(() => {
+    const filteredData = additionalData.find((prod) => prod.id === product.id);
+    const {info} = filteredData
+    console.log({...info, ...product})
+    setModifiedProduct({...info, ...product})
+  }, [product, additionalData])
+
   // const colorVariantHandler = () => {
   //   // const { value } = event.target;
   //   console.log(prop)
@@ -60,7 +75,7 @@ const ProductOverView = ({ productId }) => {
     );
   };
   return (
-    Object.values(product).length && (
+    modifiedProduct && Object.values(product).length && (
       <div>
         <h3 className="product-overview-title">
           Overview:
@@ -77,7 +92,17 @@ const ProductOverView = ({ productId }) => {
             <div className="product-name">{product.name}</div>
             <div className="product-des-container">
               <div className="product-des">
-                <div className="star-container">star</div>
+                <div className="star-container">
+                  <span className="star-name-container">Rating: </span>
+                    <Star star = {modifiedProduct.star}/>
+            
+                  {/* <FontAwesomeIcon icon={solid("star")} className="star"/>
+                  <FontAwesomeIcon icon={solid("star")} className="star"/>
+                  <FontAwesomeIcon icon={solid("star")} className="star"/>
+                  <FontAwesomeIcon icon={solid("star")} className="star"/>
+                  <FontAwesomeIcon icon={solid("star")} className="star"/> */}
+                </div>
+
                 <div className="price-container">
                   price: &#x20B9; {`${product.price}`}
                 </div>
@@ -129,7 +154,7 @@ const ProductOverView = ({ productId }) => {
                 <span className="discount">
                   <span className="dis">
                     <span className="dis-block">Off</span>
-                    <span className="dis-block"> 50%</span>
+                    <span className="dis-block"> {`${modifiedProduct.discount}%`}</span>
                   </span>
                 </span>
               </div>
