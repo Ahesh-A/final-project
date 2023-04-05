@@ -25,6 +25,7 @@ export function* checkUserSession() {
       console.log("The user is :", uid);
       const users = yield call(getUsers);
       const res = Object.values(users).find((user) => user.uid === uid);
+
       if (res.favourites) yield put(setFavourites(res.favourites));
       yield put(checkUserSessionSuccess(res));
       

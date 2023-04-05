@@ -14,6 +14,7 @@ import SearchResult from "./routes/search-result/search-result.component";
 import Favourties from "./routes/favourites/favourites.component";
 import { setProductsStart } from "./store/products/products.action";
 import MyOrders from "./routes/my-orders/my-orders.component";
+
 // import { additionalInfo } from "./store/additional-info/additional-info.selector";
 // import { products } from "./store/products/products.selector";
 // import { insertAddProdInfo } from "./utils/firebase.utils.js";
@@ -34,6 +35,7 @@ const App = () => {
   //   console.log("In prod Add inffo : ",prod_data)
   //  //instertData(data);
   // }, []);
+
   return (
     <Routes>
       <Route path="/" element={<Fixed />}>

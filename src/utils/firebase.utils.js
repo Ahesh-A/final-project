@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
 import {
   getFirestore,
@@ -7,7 +8,7 @@ import {
   collection,
   query,
   getDocs,
-  getDoc,
+  getDoc
 } from "firebase/firestore";
 import {
   getAuth,
@@ -18,6 +19,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+
+//require("dotenv").config({path: __dirname + './../../.env'});
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -34,6 +37,15 @@ const firebaseConfig = {
   measurementId: "G-DJ9CKBFJBV",
 };
 
+// const firebaseConfig = {
+//   apiKey: process.env.API_KEY,
+//   authDomain: process.env.AUTH_DOMIAN,
+//   projectId: process.env.PROJECT_ID,
+//   storageBucket: process.env.STORAGE_BUCKET,
+//   messagingSenderId: process.env.MESSAGING_SENDER_ID,
+//   appId: process.env.API_KEY,
+//   measurementId: process.env.MEASUREMENT_ID,
+// };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -44,6 +56,8 @@ export const googleSignIn = async () => {
   await signInWithPopup(auth, provider)
     .then((result) => {
       const user = result.user;
+      const { uid, email, displayName: first_name } = user;
+      insertUser({ uid, email, first_name });
       console.log(user);
     })
     .catch((error) => {
@@ -116,15 +130,14 @@ export const instertData = (data) => {
 };
 export const insertProdInfo = async (data) => {
   await setDoc(doc(db, "prod_info", data.id), data);
-}
+};
 
 export const insertAddProdInfo = async (data) => {
   data.map(async (item) => {
-    const {info} = item
+    const { info } = item;
     await setDoc(doc(db, "prod_info", info.id), info);
-  })
+  });
 };
-
 
 export const getProdInfo = async () => {
   const docRef = collection(db, "prod_info");
@@ -181,4 +194,10 @@ export const insertItemsToDeliver = async (item) => {
     cartItems,
     deliverId,
   });
+};
+
+export const getMyOrders = async (uid) => {
+  const docRef = doc(db, "Items_to_deliver", uid);
+  const docSnap = await getDoc(docRef);
+  if(docSnap.exists()) return docSnap.data();
 };

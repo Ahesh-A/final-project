@@ -46,9 +46,7 @@ const SignUp = () => {
     setPhoneNumber(value);
   };
   const googleButtonHandler = () => {
-    // googleSignIn().then(() => {
-    // 
-    // });
+
     dispatch(googleSignInStart());
     navigate("/");
   };
