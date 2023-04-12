@@ -8,7 +8,7 @@ import {
   collection,
   query,
   getDocs,
-  getDoc
+  getDoc,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -20,13 +20,6 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-//require("dotenv").config({path: __dirname + './../../.env'});
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyB1t5ShuwhX3kMfvnp1-GQfbnbZLAv-sik",
   authDomain: "aa-appraels.firebaseapp.com",
@@ -37,16 +30,6 @@ const firebaseConfig = {
   measurementId: "G-DJ9CKBFJBV",
 };
 
-// const firebaseConfig = {
-//   apiKey: process.env.API_KEY,
-//   authDomain: process.env.AUTH_DOMIAN,
-//   projectId: process.env.PROJECT_ID,
-//   storageBucket: process.env.STORAGE_BUCKET,
-//   messagingSenderId: process.env.MESSAGING_SENDER_ID,
-//   appId: process.env.API_KEY,
-//   measurementId: process.env.MEASUREMENT_ID,
-// };
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
@@ -189,15 +172,22 @@ export const insertItemsToDeliver = async (item) => {
   const deliverId = `${Date.now()}${user.uid}`;
   console.log("Deliver ID :", deliverId);
   // console.log(user.uid + prodId);
-  await setDoc(doc(db, "Items_to_deliver", user.uid), {
+  await setDoc(doc(db, "Items_to_deliver", deliverId), {
     ...user,
     cartItems,
     deliverId,
+    confirmed_order: true,
+    processing_order: true,
+    quality_check: false,
+    product_dispatched: false,
+    product_delivered: false,
   });
 };
 
-export const getMyOrders = async (uid) => {
-  const docRef = doc(db, "Items_to_deliver", uid);
-  const docSnap = await getDoc(docRef);
-  if(docSnap.exists()) return docSnap.data();
+export const getMyOrders = async () => {
+  const docRef = collection(db, "Items_to_deliver");
+  const q = query(docRef);
+  const querySnapShot = await getDocs(q);
+  return querySnapShot.docs.map((doc) => doc.data());
+
 };

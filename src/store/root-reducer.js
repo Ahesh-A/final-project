@@ -11,6 +11,7 @@ import { onSaleReducer } from "./onsale/onsale.reducer.js";
 import { topViewedReducer } from "./top-viewed/top-viewed.reducer.js";
 import { bestSellerReducer } from "./best-seller/best-seller.reducer.js";
 import { trendingItemsReducer } from "./trending-item/trending-item.reducer.js";
+import { myOrdersReducer } from "./my-orders/my-orders.reducer.js";
 export const rootReducer = combineReducers({
   user: userReducer,
   signin: signInReducer,
@@ -24,4 +25,5 @@ export const rootReducer = combineReducers({
   top_viewed: topViewedReducer,
   best_seller: bestSellerReducer,
   trending_items: trendingItemsReducer,
+  my_orders: myOrdersReducer,
 });

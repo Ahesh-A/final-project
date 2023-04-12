@@ -26,6 +26,11 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(checkUserSessionStart());
+    
+  }, [dispatch]);
+
+  useEffect(() => {
+    
     dispatch(setProductsStart());
   }, [dispatch]);
 

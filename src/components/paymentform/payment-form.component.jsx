@@ -12,7 +12,7 @@ import {
   selectCartItems,
 } from "../../store/cart/cart.selector.js";
 import { selectCurrentUser } from "../../store/user/user.selector.js";
-
+import Loader from "../loader/loader.component.jsx";
 const PaymentForm = ({ user }) => {
   const stripe = useStripe();
   const elements = useElements();
@@ -23,16 +23,13 @@ const PaymentForm = ({ user }) => {
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
   console.log("user is: ", { user, cartItems });
-  
+
   useEffect(() => {
     const setUser = async () => {
-
       await setUserInfo(currentUser);
     };
     setUser();
   }, [currentUser]);
-
-
 
   const paymentHandler = async (e) => {
     e.preventDefault();
@@ -72,7 +69,7 @@ const PaymentForm = ({ user }) => {
 
     setIsProcessingPayment(false);
     if (paymentResult.error) {
-      alert('invalid card number');
+      alert("invalid card number");
       console.log(paymentResult.error);
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
@@ -87,7 +84,7 @@ const PaymentForm = ({ user }) => {
       <FormContainer onSubmit={paymentHandler}>
         <CardElement />
         <PaymentsButton disabled={isProcessingPayment} type="submit">
-          Pay now
+          {isProcessingPayment ? <Loader /> : "Pay now"}
         </PaymentsButton>
       </FormContainer>
     </PaymentFormContainer>
